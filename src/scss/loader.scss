@@ -1,0 +1,31 @@
+@use 'var';
+
+@mixin loader{
+    .loader{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+      }
+      
+      .circle{
+        width: 10em;
+        height: 10em;
+        border-top: 5px solid var.$yellow;
+        border-radius: 100%;
+        @keyframes rotateCircle {
+          0%{ 
+            transform: rotate(0);
+          }
+          100%{
+            transform: rotate(360deg);
+          }
+        }
+        animation: rotateCircle 2s linear infinite forwards;
+      }
+}

@@ -1,0 +1,19 @@
+@use "var";
+@use "mixins";
+
+@mixin container {
+    .footer{
+        padding: .5em 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-column: span 2;
+        color: var.$dark;
+        background-image: linear-gradient(to top, var.$white, var.$gray);
+        >a{
+            text-decoration: none;
+            font-weight: 700;
+            color: var.$yellow;
+        }
+    }
+}

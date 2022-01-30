@@ -1,0 +1,95 @@
+@use 'var';
+@use 'mixins';
+
+@mixin container {
+    .offers{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@mixin illustration {
+    .illustration{
+        position: absolute;
+        right: 5vw;
+        top: 4em;
+        width: 35vw;
+        height: auto;
+        transform-origin: right;
+        display: none;
+        transform: translateX(2em);
+        opacity: 0;
+        animation: slideLeft 1.75s ease forwards;
+        @media screen and(min-width: var.$bigScreen) {
+            display: block;
+        }
+        &>svg{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .progress{
+        transform: scaleX(0);
+    }
+
+}
+
+@keyframes slideUp {
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@mixin text {
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 1.25rem;
+        padding: 1.5em;
+        gap: 7vh;
+        min-height: 60vh;
+        @media screen and(min-width: var.$bigScreen) {
+            height: auto;
+            padding: 4em 3em;
+            padding-right: 50%;
+            gap: 3em;
+        }
+    }
+    .home-h2{
+        font-size: 3rem;
+        @include mixins.heading;
+    }
+    .description{
+        animation-delay: .8s;
+        color: var.$dark;
+        font-size: 1.5rem;
+    }
+    .button{
+        border-radius: 5px;
+        text-decoration: none;
+        padding: .4em .5em;
+        color: var.$white;
+        font-size: 1.5rem;
+        background-color: var.$yellow
+    }
+    .home-h2, .button, .description{
+        transform: translateY(3em);
+        opacity: 0;
+        animation: slideUp 1.75s ease forwards;
+    }
+    .bold{
+        font-weight: 700;
+        color: var.$yellow;
+    }
+}

@@ -1,0 +1,6 @@
+@use 'var';
+
+@mixin heading{
+    color: var.$dark;
+    filter: drop-shadow(-4px 4px 0 var.$white) drop-shadow(2px -2px 0 var.$yellow);
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+    integrity="sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhasnFUsYMsi0Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <header class="header">
+    <h1>Shoe shop</h1>
+    <hr class="separator" />
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="list__item" data-to="home">
+          <a class="link__anchor" href="#home">
+            <span class="fa-solid fa-home"></span>
+            home
+            <span class="svg">
+              <svg width="215" height="72" viewBox="0 0 215 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M29.9998 68.5C56.9998 68.5001 213 76.0001 213 45.5C213 15 51.9995 -7.99997 20.4997 7.00003C-11 22 2.99976 68.5 29.9998 68.5Z"
+                  stroke="#fca311" stroke-width="3" />
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li class="list__item" data-to="offers">
+          <a class="link__anchor" href="#offers">
+            <span class="fa-solid fa-cash-register"></span>
+            offer
+            <span class="svg">
+              <svg width="204" height="69" viewBox="0 0 204 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M197 49.5C209 40.0001 202 23.4999 139.5 7.99995C77.0001 -7.50005 -18.0003 14.5003 6.99964 49.0002C31.9996 83.5 185 58.9999 197 49.5Z"
+                  stroke="#fca311" stroke-width="3" />
+              </svg>
+            </span>
+          </a>
+        </li>
+        <li class="list__item" data-to="cart">
+          <a class="link__anchor" href="#cart">
+            <span class="fa-solid fa-cart-shopping"></span>
+            cart
+            <span class="svg">
+              <svg width="181" height="66" viewBox="0 0 181 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M178 28C172.092 -16.5001 37.4934 9.47105 16.7004 21.5001C-4.09262 33.5291 -5.70463 69.3148 41.6477 62.1574C89 55 183.908 72.5 178 28Z"
+                  stroke="#fca311" stroke-width="3" />
+              </svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <button class="burger" type="button" title="Menu">
+        <span class="burger__bar burger__bar--top"></span>
+        <span class="burger__bar burger__bar--middle"></span>
+        <span class="burger__bar burger__bar--bottom"></span>
+      </button>
+      <a class="link__anchor additional" href="#cart">
+        <span class="fa-solid fa-cart-shopping"></span>
+      </a>
+    </nav>
+  </header>
+  <div class="app"></div>
+  <footer class="footer">
+    Maciej Garcarski 2022
+  </footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+@use 'var';
+@use 'header';
+@use 'footer';
+@use 'home';
+@use 'loader';
+
+*, *::before, *::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html, body{
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+body{
+  background-color: var.$gray;
+  &.locked{
+    max-height: 100vh;
+    overflow: hidden;
+  }
+}
+
+.app{
+  min-height: 78vh;
+  position: relative;
+}
+
+.not-found{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+
+
+@include header.container;
+@include header.nav;
+@include header.burger;
+
+@include home.container;
+@include home.illustration;
+@include home.text;
+
+@include footer.container;
+
+@include loader.loader;
