@@ -1,4 +1,4 @@
-const menuButton = () => {
+const activePage = () => {
     const button = document.querySelector(".burger");
     const menu = document.querySelector(".nav__list") as HTMLUListElement;
     button?.addEventListener("click", () => {
@@ -8,4 +8,4 @@ const menuButton = () => {
     })
 }
 
-export { menuButton };
+export { activePage };

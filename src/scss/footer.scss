@@ -1,5 +1,5 @@
 @use "var";
-@use "mixins";
+@use "modules/_mixins";
 
 @mixin container {
     .footer{
@@ -9,7 +9,6 @@
         align-items: center;
         grid-column: span 2;
         color: var.$dark;
-        background-image: linear-gradient(to top, var.$white, var.$gray);
         >a{
             text-decoration: none;
             font-weight: 700;

@@ -1,11 +1,11 @@
 @use 'var';
-@use 'mixins';
+@use 'modules/_mixins';
 
 @mixin container {
-    .offers{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .home{
+        @media screen and (min-width: var.$bigScreen) {
+            padding: .5rem 3rem;
+        }
     }
 }
 
@@ -14,13 +14,14 @@
         position: absolute;
         right: 5vw;
         top: 4em;
-        width: 35vw;
-        height: auto;
+        width: auto;
+        height: 70%;
         transform-origin: right;
         display: none;
         transform: translateX(2em);
         opacity: 0;
         animation: slideLeft 1.75s ease forwards;
+        filter: drop-shadow(2px 2px 1px var.$black) drop-shadow(-2px -2px 1px var.$white);
         @media screen and(min-width: var.$bigScreen) {
             display: block;
         }
@@ -49,7 +50,7 @@
     }
 }
 
-@mixin text {
+@mixin left-section {
     .main{
         display: flex;
         flex-direction: column;
@@ -59,16 +60,20 @@
         padding: 1.5em;
         gap: 7vh;
         min-height: 60vh;
+        position: relative;
         @media screen and(min-width: var.$bigScreen) {
             height: auto;
-            padding: 4em 3em;
+            padding: 4em;
             padding-right: 50%;
             gap: 3em;
         }
     }
+    .h2-container{
+        position: relative;
+    }
     .home-h2{
         font-size: 3rem;
-        @include mixins.heading;
+        @include mixins.heading;  
     }
     .description{
         animation-delay: .8s;
@@ -76,12 +81,20 @@
         font-size: 1.5rem;
     }
     .button{
-        border-radius: 5px;
         text-decoration: none;
         padding: .4em .5em;
         color: var.$white;
         font-size: 1.5rem;
-        background-color: var.$yellow
+        background-color: var.$yellow;
+        border: 2px solid transparent;
+        border-radius: 3px;
+        transition: all 300ms ease;
+        transition-property: border-color, background-color, color;
+        &:hover{
+            color: var.$yellow;
+            background-color: transparent;
+            border-color: var.$yellow;
+        }
     }
     .home-h2, .button, .description{
         transform: translateY(3em);
@@ -89,7 +102,86 @@
         animation: slideUp 1.75s ease forwards;
     }
     .bold{
-        font-weight: 700;
-        color: var.$yellow;
+        color: var.$black;
+        position: relative;
+        display: inline-block;
+        padding: 0 .1em;
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-bottom: 8px solid var.$yellow;
+            z-index: -1;
+        }
+    }
+    @keyframes popUpLeft {
+        to{
+            opacity: 1;
+            transform: rotate(-15deg) scale(1);
+        }
+    }
+    @keyframes popUpRight {
+        to{
+            opacity: 1;
+            transform: rotate(9deg) scale(1);
+        }
+    }
+    .fire, .hands, .bear{
+        opacity: 0;
+        transform: rotate(0deg) scale(0);
+        animation: popUpLeft forwards 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: absolute;
+        & > img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @for $i from 1 through 4{
+        .main > span:nth-child(#{$i}n) {
+            animation-delay: #{$i * 0.5}s;
+        }       
+    }
+    .fire{
+        bottom: 0;
+        right: 2em;
+        width: 4em;
+        height: 4em;
+
+    }
+    .hands{
+        right: 1.5em;
+        top: 3.5em;
+        width: 3em;
+        height: 3em;
+        animation-name: popUpRight;
+    }
+    .bear{
+        top: 4.25em;
+        left: 1.5em;
+        width: 2.5em;
+        height: 2.5em;
+    }
+    
+    @media screen and (min-width: var.$bigScreen){
+        .fire, .hands, .bear{
+            width: calc(3vw + 1em);
+            height: calc(3vw + 1em);
+        }
+
+        .fire{
+            bottom: 4em;
+            left: 15em;
+        }
+        .hands{
+            left: 20em;
+            top: 4em;
+        }
+        .bear{
+            left: -1em;
+            top: 5em;
+        }
     }
 }

@@ -1,4 +1,4 @@
-@use 'var';
+@use '../var';
 
 @mixin heading{
     color: var.$dark;

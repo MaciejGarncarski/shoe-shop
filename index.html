@@ -12,14 +12,13 @@
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
-    integrity="sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhasnFUsYMsi0Q=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhas~~nFUsYMsi0Q=="
+    type="module" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <header class="header">
     <h1>Shoe shop</h1>
-    <hr class="separator" />
     <nav class="nav">
       <ul class="nav__list">
         <li class="list__item" data-to="home">
@@ -35,10 +34,10 @@
             </span>
           </a>
         </li>
-        <li class="list__item" data-to="offers">
-          <a class="link__anchor" href="#offers">
+        <li class="list__item" data-to="shop">
+          <a class="link__anchor" href="#shop">
             <span class="fa-solid fa-cash-register"></span>
-            offer
+            shop
             <span class="svg">
               <svg width="204" height="69" viewBox="0 0 204 69" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -69,10 +68,12 @@
       </button>
       <a class="link__anchor additional" href="#cart">
         <span class="fa-solid fa-cart-shopping"></span>
+        <span class="hidden-text">cart</span>
       </a>
     </nav>
   </header>
   <div class="app"></div>
+  <div class="offline">Oops, looks like you're <span class="bold">offline 😿</span></div>
   <footer class="footer">
     Maciej Garcarski 2022
   </footer>
