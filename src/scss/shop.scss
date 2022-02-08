@@ -17,22 +17,28 @@
     animation: slide-left 1.25s linear forwards;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     height: 70vh;
     justify-content: center;
-    margin: 0 2rem;
+    left: 0;
     opacity: 0;
     position: fixed;
-    top: 25%;
-    width: 10em;
+    top: 17%;
+    width: 10rem;
+    @media screen and (min-width: var.$big-screen) {
+      margin: 0 2rem;
+      top: 25%;
+      width: 10rem;
+    }
   }
 
   .form {
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     justify-content: center;
+    width: 100%;
   }
 
   .price-range {
@@ -53,15 +59,32 @@
     > input {
       @include mixins.input;
 
-      width: 100%;
+      width: 70%;
+      @media screen and (min-width: var.$big-screen) {
+        width: 100%;
+      }
     }
   }
 
   .buttons {
     align-items: center;
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
     justify-content: center;
+    width: 100%;
+
+    &:first-child {
+      display: none;
+    }
+
+    @media screen and (min-width: var.$big-screen) {
+      flex-direction: row;
+      gap: 1rem;
+      
+      &:first-child {
+        display: flex;
+      }
+    }
 
     &--small-gap {
       gap: 1rem;
@@ -111,7 +134,10 @@
     justify-content: flex-start;
     min-height: 70vh;
     padding: 3rem 1rem;
-    padding-left: 20rem;
+    padding-left: 10rem;
+    @media screen and (min-width: var.$big-screen) {
+      padding-left: 20rem;
+    }
   }
 
   .product {
@@ -123,20 +149,28 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr repeat(2, 1fr);
-    max-height: 13rem;
+    max-height: 8rem;
     opacity: 0.3;
     padding: 0 1rem;
     transform: translateY(2em);
-    width: 17rem;
+    width: 11rem;
+    @media screen and (min-width: var.$big-screen) {
+      max-height: 13rem;
+      width: 19rem;
+    }
 
     &__img {
       align-self: center;
       grid-column: span 4;
       grid-row: 1 / 1;
-      height: 7rem;
+      height: 3rem;
       justify-self: center;
+      transform: scale(1.4);
       transition: transform 300ms ease-in-out;
       width: auto;
+      @media screen and (min-width: var.$big-screen) {
+        height: 7rem;
+      }
     }
 
     &__name {
@@ -152,7 +186,7 @@
     &__cart-btn {
       align-items: center;
       align-self: center;
-      background-color: var.$black;
+      background-color: var.$yellow;
       border-radius: 3px;
       color: var.$white;
       display: flex;
@@ -162,12 +196,14 @@
       justify-self: flex-end;
       margin-bottom: 0.3rem;
       padding: 5px;
-      transition: 300ms background-color ease;
+      transition: 300ms all ease;
+      transition-property: color, background-color;
       width: 1.9rem;
     }
 
     &__cart-btn:hover {
-      background-color: var.$yellow;
+      background-color: var.$gray;
+      color: var.$black;
       cursor: pointer;
     }
 
@@ -175,6 +211,7 @@
       align-self: center;
       display: flex;
       font-size: 1.2rem;
+      font-weight: 700;
       gap: 0.5rem;
       grid-column: 1 / 3;
       grid-row: 3 / 4;
@@ -183,10 +220,10 @@
 
     &__discount {
       color: var.$yellow;
-      font-weight: 700;
     }
 
-    &__price.discounted {
+    &__price--discounted {
+      font-weight: 400;
       text-decoration: line-through;
     }
 
@@ -204,7 +241,7 @@
 
   .product:hover {
     > .product__img {
-      transform: rotate(-25deg);
+      transform: rotate(-25deg) scale(1.2);
     }
   }
 
@@ -222,7 +259,7 @@
   .stars {
     align-items: center;
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
     justify-content: center;
 
     > input {

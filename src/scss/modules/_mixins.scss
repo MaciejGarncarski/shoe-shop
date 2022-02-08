@@ -9,6 +9,10 @@
 @mixin input {
   border: 2px solid var.$yellow;
   border-radius: 2px;
-  font-size: 1.2rem;
-  padding: 0.3rem;
+  font-size: 1rem;
+  padding: 0.2rem;
+  @media screen and (min-width: var.$big-screen) {
+    font-size: 1.2rem;
+    padding: 0.3rem;
+  }
 }
