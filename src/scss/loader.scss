@@ -1,24 +1,22 @@
 @use 'var';
 
-@mixin loader {
-  .loader {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-  }
+.loader {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
 
-  .circle {
-    animation: rotate-loading 2s linear infinite forwards;
-    border-radius: 100%;
-    border-top: 5px solid var.$yellow;
-    height: max(10rem, 20vw);
-    opacity: 1;
-    width: max(10rem, 20vw);
-  }
+.circle {
+  animation: rotate-loading 2s linear infinite forwards;
+  border-radius: 100%;
+  border-top: 5px solid var.$yellow;
+  height: max(10rem, 20vw);
+  opacity: 1;
+  width: max(10rem, 20vw);
 }

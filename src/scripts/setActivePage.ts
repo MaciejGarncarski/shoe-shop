@@ -1,8 +1,9 @@
 import { createOfferList } from './shop/createOfferList'
 import { offers } from '../data/offers'
 import { handleFilter } from './shop/filter'
-import { pickDisplayStyle } from './pickDisplayStyle'
+import { pickDisplayStyle } from './shop/pickDisplayStyle'
 import { resetForm } from './shop/reset'
+import { showFilters } from './shop/showFilters'
 
 const setActivePage = () => {
     const linkList = document.querySelectorAll<HTMLAnchorElement>('.link__anchor')
@@ -18,6 +19,7 @@ const setActivePage = () => {
                 handleFilter()
                 resetForm()
                 pickDisplayStyle()
+                showFilters()
             }
         }
 

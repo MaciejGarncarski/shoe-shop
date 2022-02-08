@@ -2,184 +2,178 @@
 @use 'modules/mixins';
 @use 'modules/animations';
 
-@mixin container {
-  .home {
-    @media screen and (min-width: var.$big-screen) {
-      padding: 0.5rem 3rem;
-    }
+.home {
+  @media screen and (min-width: var.$big-screen) {
+    padding: 0.5rem 3rem;
   }
 }
 
-@mixin illustration {
-  .illustration {
-    animation: slide-left 1.75s ease forwards;
-    display: none;
-    filter: drop-shadow(2px 2px 1px var.$black)
-      drop-shadow(-2px -2px 1px var.$white);
-    height: 70%;
-    opacity: 0;
+.illustration {
+  animation: slide-left 1.75s ease forwards;
+  display: none;
+  filter: drop-shadow(2px 2px 1px var.$black)
+    drop-shadow(-2px -2px 1px var.$white);
+  height: 70%;
+  opacity: 0;
+  position: absolute;
+  right: 5vw;
+  top: 4em;
+  transform: translateX(2em);
+  transform-origin: right;
+  width: auto;
+  @media screen and(min-width: var.$big-screen) {
+    display: block;
+  }
+
+  > svg {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.progress {
+  transform: scaleX(0);
+}
+
+.main {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25rem;
+  gap: 7vh;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 1.5em;
+  position: relative;
+  @media screen and(min-width: var.$big-screen) {
+    gap: 3em;
+    height: auto;
+    padding: 4em;
+    padding-right: 50%;
+  }
+}
+
+.h2-container {
+  position: relative;
+}
+
+.home-h2 {
+  @include mixins.heading;
+
+  font-size: 3rem;
+}
+
+.description {
+  animation-delay: 0.8s;
+  color: var.$dark;
+  font-size: 1.5rem;
+}
+
+.home-h2,
+.button,
+.description {
+  animation: slide-up 1.75s ease forwards;
+  opacity: 0;
+  transform: translateY(3em);
+}
+
+.button {
+  background-color: var.$yellow;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  color: var.$white;
+  font-size: 1.5rem;
+  padding: 0.4em 0.5em;
+  text-decoration: none;
+  transition: all 300ms ease;
+  transition-property: border-color, background-color, color;
+
+  &:hover {
+    background-color: var.$white;
+    border-color: var.$yellow;
+    color: var.$yellow;
+  }
+}
+
+.bold {
+  color: var.$black;
+  display: inline-block;
+  padding: 0 0.1em;
+  position: relative;
+
+  &::before {
+    border-bottom: 8px solid var.$yellow;
+    bottom: 0;
+    content: '';
+    left: 0;
     position: absolute;
-    right: 5vw;
-    top: 4em;
-    transform: translateX(2em);
-    transform-origin: right;
-    width: auto;
-    @media screen and(min-width: var.$big-screen) {
-      display: block;
-    }
-
-    > svg {
-      height: auto;
-      width: 100%;
-    }
-  }
-
-  .progress {
-    transform: scaleX(0);
+    width: 100%;
+    z-index: -1;
   }
 }
 
-@mixin left-section {
-  .main {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.25rem;
-    gap: 7vh;
-    justify-content: center;
-    min-height: 60vh;
-    padding: 1.5em;
-    position: relative;
-    @media screen and(min-width: var.$big-screen) {
-      gap: 3em;
-      height: auto;
-      padding: 4em;
-      padding-right: 50%;
-    }
+.fire,
+.hands,
+.bear {
+  animation: popup-left forwards 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  position: absolute;
+  transform: rotate(0deg) scale(0);
+
+  > img {
+    height: 100%;
+    width: 100%;
   }
+}
 
-  .h2-container {
-    position: relative;
+@for $i from 1 through 4 {
+  .main > span:nth-child(#{$i}n) {
+    animation-delay: #{$i * 0.5}s;
   }
+}
 
-  .home-h2 {
-    @include mixins.heading;
+.fire {
+  bottom: 0;
+  height: 4em;
+  right: 2em;
+  width: 4em;
+}
 
-    font-size: 3rem;
-  }
+.hands {
+  animation-name: popup-right;
+  height: 3em;
+  right: 1.5em;
+  top: 3.5em;
+  width: 3em;
+}
 
-  .description {
-    animation-delay: 0.8s;
-    color: var.$dark;
-    font-size: 1.5rem;
-  }
+.bear {
+  height: 2.5em;
+  left: 1.5em;
+  top: 4.25em;
+  width: 2.5em;
+}
 
-  .home-h2,
-  .button,
-  .description {
-    animation: slide-up 1.75s ease forwards;
-    opacity: 0;
-    transform: translateY(3em);
-  }
-
-  .button {
-    background-color: var.$yellow;
-    border: 2px solid transparent;
-    border-radius: 3px;
-    color: var.$white;
-    font-size: 1.5rem;
-    padding: 0.4em 0.5em;
-    text-decoration: none;
-    transition: all 300ms ease;
-    transition-property: border-color, background-color, color;
-
-    &:hover {
-      background-color: var.$white;
-      border-color: var.$yellow;
-      color: var.$yellow;
-    }
-  }
-
-  .bold {
-    color: var.$black;
-    display: inline-block;
-    padding: 0 0.1em;
-    position: relative;
-
-    &::before {
-      border-bottom: 8px solid var.$yellow;
-      bottom: 0;
-      content: '';
-      left: 0;
-      position: absolute;
-      width: 100%;
-      z-index: -1;
-    }
-  }
-
+@media screen and (min-width: var.$big-screen) {
   .fire,
   .hands,
   .bear {
-    animation: popup-left forwards 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    opacity: 0;
-    position: absolute;
-    transform: rotate(0deg) scale(0);
-
-    > img {
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  @for $i from 1 through 4 {
-    .main > span:nth-child(#{$i}n) {
-      animation-delay: #{$i * 0.5}s;
-    }
+    height: calc(3vw + 1em);
+    width: calc(3vw + 1em);
   }
 
   .fire {
-    bottom: 0;
-    height: 4em;
-    right: 2em;
-    width: 4em;
+    bottom: 4em;
+    left: 15em;
   }
 
   .hands {
-    animation-name: popup-right;
-    height: 3em;
-    right: 1.5em;
-    top: 3.5em;
-    width: 3em;
+    left: 20em;
+    top: 4em;
   }
 
   .bear {
-    height: 2.5em;
-    left: 1.5em;
-    top: 4.25em;
-    width: 2.5em;
-  }
-
-  @media screen and (min-width: var.$big-screen) {
-    .fire,
-    .hands,
-    .bear {
-      height: calc(3vw + 1em);
-      width: calc(3vw + 1em);
-    }
-
-    .fire {
-      bottom: 4em;
-      left: 15em;
-    }
-
-    .hands {
-      left: 20em;
-      top: 4em;
-    }
-
-    .bear {
-      left: -1em;
-      top: 5em;
-    }
+    left: -1em;
+    top: 5em;
   }
 }

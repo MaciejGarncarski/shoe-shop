@@ -48,21 +48,3 @@ body {
   justify-content: center;
   min-height: 50vh;
 }
-
-@include header.container;
-@include header.nav;
-@include header.burger;
-
-@include home.container;
-@include home.illustration;
-@include home.left-section;
-
-@include footer.container;
-
-@include loader.loader;
-
-@include shop.container;
-@include shop.filters;
-@include shop.offers;
-
-@include offline.container;
