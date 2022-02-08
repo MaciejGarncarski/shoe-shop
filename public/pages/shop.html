@@ -1,22 +1,32 @@
 <div class="shop-container">
     <div class="filters">
         <div class="buttons">
-            <button>list</button>
-            <button class="active">gallery</button>
+            <button class="buttons__button list-button">list</button>
+            <button class="buttons__button buttons__button--active gallery-button">gallery</button>
         </div>
         <form class="form">
             <div class="price-range">
                 <h2>Price range</h2>
                 <div class="input-container">
-                    <input type="number" min="0" step="10" id="min-price">
+                    <input type="number" min="0" id="min-price">
                     <label for="min-price">min.</label>
                 </div>
                 <div class="input-container">
-                    <input type="number" min="0" step="10" id="max-price">
+                    <input type="number" min="0" id="max-price">
                     <label for="max-price">max.</label>
                 </div>
             </div>
-            <input type="submit" class="submit" value="Filter!">
+            <div class="stars">
+                <input type="number" min="1" max="5" step="1" id="star-count">
+                <label for="star-count" class="stars__label">
+                    <span class="label__icon fas fa-star"></span>
+                    <span class="label__text">star count</span>
+                </label>
+            </div>
+            <div class="buttons buttons--small-gap">
+                <input type="submit" class="submit" value="Filter!">
+                <input type="reset" class="reset" value="Reset">
+            </div>
         </form>
 
     </div>

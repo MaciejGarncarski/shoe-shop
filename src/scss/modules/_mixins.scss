@@ -1,6 +1,14 @@
 @use '../var';
 
-@mixin heading{
-    color: var.$dark;
-    filter: drop-shadow(-4px 4px 0 var.$white) drop-shadow(2px -2px 0 var.$yellow);
+@mixin heading {
+  color: var.$dark;
+  filter: drop-shadow(-4px 4px 0 var.$white)
+    drop-shadow(2px -2px 0 var.$yellow);
+}
+
+@mixin input {
+  border: 2px solid var.$yellow;
+  border-radius: 2px;
+  font-size: 1.2rem;
+  padding: 0.3rem;
 }

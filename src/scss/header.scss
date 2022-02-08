@@ -2,185 +2,195 @@
 @use 'modules/_mixins';
 
 @mixin container {
-    .header{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 2em;
-        >h1{
-            display: none;
-        }
-        @media screen and (min-width: var.$bigScreen) {
-            gap: 2em;
-            padding: 3em 2em;
-            justify-content: center;
-            padding-right: 0;
-            >h1{
-                display: inline;
-                font-size: 3em;
-                @include mixins.heading;
-            }
-        }
+  .header {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2em;
+
+    > h1 {
+      display: none;
     }
-    .separator{
-        display: none;
-        @media screen and (min-width: var.$bigScreen) {
-            width: 10%;
-            display: none;
-            border: 0;
-            border-top: 2px solid black;
-            border-radius: 20px;
-        }
+    @media screen and (min-width: var.$big-screen) {
+      gap: 2em;
+      justify-content: center;
+      padding: 3em 2em;
+      padding-right: 0;
+
+      > h1 {
+        @include mixins.heading;
+
+        display: inline;
+        font-size: 3em;
+      }
     }
+  }
+
+  .separator {
+    display: none;
+    @media screen and (min-width: var.$big-screen) {
+      border: 0;
+      border-radius: 20px;
+      border-top: 2px solid var.$black;
+      display: none;
+      width: 10%;
+    }
+  }
 }
 
 @mixin nav {
-    .nav{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @media screen and (min-width: var.$bigScreen) {
-            flex: 2;
-        }
+  .nav {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    @media screen and (min-width: var.$big-screen) {
+      flex: 2;
     }
-    .nav__list{
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        padding: 2em 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8em;
-        flex-direction: column;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 2;
-        list-style: none;
-        transition: all 150ms;
-        transition-property: opacity, visibility;
-        &.active{
-            opacity: 1;
-            background-color: var.$gray;
-            visibility: visible;
-        }
-        @media screen and (min-width: var.$bigScreen) {
-            flex-direction: row;
-            position: static;
-            background: none;
-            height: auto;
-            padding: 0;
-            opacity: 1;
-            gap: calc(5em + 5vw);
-        }
-    }
+  }
 
-    .link__anchor{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: 700;
-        position: relative;
-        font-size: 1.5rem;
-        gap: .5em;
-        color: var.$dark;
-        &:focus{
-            outline-offset: .6em;
-        }
-        @media screen and (min-width: var.$bigScreen) {
-            visibility: visible;
-            flex-direction: row;
-            &.additional{
-                display: none;
-            }
-        }
-        @keyframes showSvg {
-            to{
-                stroke-dashoffset: 0;
-            }
-        }
-    }
+  .nav__list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8em;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    list-style: none;
+    opacity: 0;
+    padding: 2em 0;
+    position: absolute;
+    top: 0;
+    transition: all 150ms;
+    transition-property: opacity, visibility;
+    visibility: hidden;
+    width: 100%;
+    z-index: 2;
 
-    .hidden-text{
+    &--active {
+      background-color: var.$gray;
+      opacity: 1;
+      visibility: visible;
+    }
+    @media screen and (min-width: var.$big-screen) {
+      background: none;
+      flex-direction: row;
+      gap: calc(5em + 5vw);
+      height: auto;
+      opacity: 1;
+      padding: 0;
+      position: static;
+    }
+  }
+
+  .link__anchor {
+    align-items: center;
+    color: var.$dark;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-weight: 700;
+    gap: 0.5em;
+    justify-content: center;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:focus {
+      outline-offset: 0.6em;
+    }
+    @media screen and (min-width: var.$big-screen) {
+      flex-direction: row;
+      visibility: visible;
+
+      &.additional {
         display: none;
+      }
     }
+  }
 
-    .svg{
-        position: absolute;
-        left: -4em;
-        top: -.8em;
-        display: none;
-        width: 12em;
-        stroke: var.$yellow;
-        > svg{
-            width: 100%;
-            height: 100%;
-         }
-        @media screen and (min-width: var.$bigScreen) {
-            left: -1.5em;
-            top: -1em;
-            width: 8.5em;
-        }
-    }
+  .hidden-text {
+    display: none;
+  }
 
-    .active > .svg{
-        display: block;
-        stroke-dasharray: 600;
-        stroke-dashoffset: 600;
-        > svg{
-            animation: showSvg 450ms ease-in-out forwards; 
-        }
-        @media (prefers-reduced-motion){
-            > svg{
-                stroke-dasharray: 0;
-                stroke-dashoffset: 0;
-                animation: none;
-            }
-        }
+  .svg {
+    display: none;
+    left: -4em;
+    position: absolute;
+    stroke: var.$yellow;
+    top: -0.8em;
+    width: 12em;
+
+    > svg {
+      height: 100%;
+      width: 100%;
     }
+    @media screen and (min-width: var.$big-screen) {
+      left: -1.5em;
+      top: -1em;
+      width: 8.5em;
+    }
+  }
+
+  .link__anchor--active > .svg {
+    display: block;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+
+    > svg {
+      animation: show-svg 450ms ease-in-out forwards;
+    }
+    @media (prefers-reduced-motion) {
+      > svg {
+        animation: none;
+        stroke-dasharray: 0;
+        stroke-dashoffset: 0;
+      }
+    }
+  }
 }
 
 @mixin burger {
-    .burger{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
-        width: 2.5rem;
-        height: 2rem;
-        background: none;
-        border: none;
-        z-index: 2;
-        position: absolute;
-        left: 3em;
-        cursor: pointer;
-        &__bar{
-            width: 100%;
-            border-bottom: 3px solid var.$dark;
-            transition: transform 300ms ease, opacity 200ms ease;
-        }
-        &.active{
-            .burger__bar{
-                filter: none;
-            }
-            .burger__bar--top{
-                transform: translateY(14px) rotate(45deg);
-            }
-            .burger__bar--middle{
-                transform: rotate(-45deg);
-            }
-            .burger__bar--bottom{
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-        }
-        @media screen and (min-width: var.$bigScreen) {
-            display: none;
-        }
+  .burger {
+    align-items: center;
+    background: 0;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 2rem;
+    justify-content: space-between;
+    left: 3em;
+    position: absolute;
+    width: 2.5rem;
+    z-index: 2;
+
+    &__bar {
+      border-bottom: 3px solid var.$dark;
+      transition: transform 300ms ease, opacity 200ms ease;
+      width: 100%;
     }
+    @media screen and (min-width: var.$big-screen) {
+      display: none;
+    }
+  }
+
+  .burger--active {
+    .burger__bar {
+      filter: none;
+    }
+
+    .burger__bar--top {
+      transform: translateY(14px) rotate(45deg);
+    }
+  
+    .burger__bar--middle {
+      transform: rotate(-45deg);
+    }
+  
+    .burger__bar--bottom {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+  }  
 }

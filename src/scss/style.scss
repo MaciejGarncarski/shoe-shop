@@ -4,41 +4,50 @@
 @use 'home';
 @use 'loader';
 @use 'shop';
+@use 'offline';
+@use 'modules/animations';
 
-*, *::before, *::after{
-  padding: 0;
-  margin: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-html, body{
+::selection {
+  background: var.$yellow;
+  color: var.$white;
+}
+
+html,
+body {
+  max-width: 100%;
   min-height: 100%;
   width: 100%;
-  max-width: 100%;
 }
 
-body{
+body {
   background-color: var.$gray;
-  &.locked{
+
+  .locked {
     max-height: 100vh;
     overflow: hidden;
   }
 }
 
-.app{
+.app {
   min-height: 78vh;
   position: relative;
 }
 
-.not-found{
+.not-found {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 50vh;
 }
-
-
 
 @include header.container;
 @include header.nav;
@@ -56,34 +65,4 @@ body{
 @include shop.filters;
 @include shop.offers;
 
-.offline{
-  position: fixed;
-  border-radius: 10px;
-  height: 5rem;
-  width: 92%;
-  top: 80%;
-  left: 4%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  backdrop-filter: blur(10px);
-  border: 1px solid var.$white;
-  font-size: 1.5rem;
-  background-color: rgba(var.$white, 0.8);
-  transform: translateY(3em);
-  animation: slideIn 2s ease forwards;
-  @media screen and (min-width: var.$bigScreen) {
-    left: 35%;
-    width: 30%;
-  }
-  &.active{
-    display: none;
-  }
-}
-
-@keyframes slideIn {
-  to {
-    transform: translateY(0);
-  }
-}
+@include offline.container;
