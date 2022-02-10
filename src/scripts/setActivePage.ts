@@ -4,6 +4,8 @@ import { handleFilter } from './shop/filter'
 import { pickDisplayStyle } from './shop/pickDisplayStyle'
 import { resetForm } from './shop/reset'
 import { showFilters } from './shop/showFilters'
+import { createCartList } from './cart/createCartList'
+import { deleteItem } from './cart/deleteItem'
 
 const setActivePage = () => {
     const linkList = document.querySelectorAll<HTMLAnchorElement>('.link__anchor')
@@ -23,9 +25,19 @@ const setActivePage = () => {
             }
         }
 
+        const cartFunctions = () => {
+            if (linkParent.dataset.to === 'cart') {
+                if (localStorage.getItem('cart')) {
+                    createCartList(JSON.parse(localStorage.getItem('cart') || ''))
+                }
+                deleteItem()
+            }
+        }
+
         if (hash === linkParent.dataset.to) {
             link.classList.add('link__anchor--active')
             shopFunctions()
+            cartFunctions()
         } else if (hash === '') {
             linkList[0].classList.add('link__anchor--active')
         }

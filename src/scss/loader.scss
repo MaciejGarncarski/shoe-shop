@@ -16,7 +16,7 @@
   animation: rotate-loading 2s linear infinite forwards;
   border-radius: 100%;
   border-top: 5px solid var.$yellow;
-  height: max(10rem, 20vw);
+  height: calc(10vw + 10rem);
   opacity: 1;
-  width: max(10rem, 20vw);
+  width: calc(10vw + 10rem);
 }

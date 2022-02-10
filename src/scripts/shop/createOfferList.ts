@@ -1,3 +1,5 @@
+import { addToCart } from '../cart/addToCart'
+
 type offerTypes = {
     name: string
     price: number
@@ -37,4 +39,5 @@ export const createOfferList = (data: offerTypes) => {
             })
             .join('')
     }
+    addToCart()
 }

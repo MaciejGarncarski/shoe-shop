@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "eslint-config-prettier": "^8.3.0",
-    "sass": "^1.45.1"
+    "sass": "^1.45.1",
+    "ts-debounce": "^4.0.0"
   }
 }

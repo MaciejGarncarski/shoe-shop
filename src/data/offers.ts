@@ -1,12 +1,12 @@
 type offerTypes = {
     name: string
     price: number
-    discount: number
+    discount: 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1
     img: string
     stars: number
-}[]
+}
 
-export const offers: offerTypes = [
+export const offers: offerTypes[] = [
     {
         name: 'Nike Air Max 270',
         price: 300,
@@ -33,6 +33,13 @@ export const offers: offerTypes = [
         price: 999,
         discount: 1,
         img: 'yzy',
+        stars: 4,
+    },
+    {
+        name: 'Puma RS-X',
+        price: 621,
+        discount: 1,
+        img: 'puma',
         stars: 4,
     },
 ]
