@@ -7,6 +7,7 @@
 @use 'cart';
 @use 'offline';
 @use 'modules/animations';
+@use 'modules/mixins';
 
 *,
 *::before,
@@ -32,6 +33,19 @@ body {
 body {
   background-color: var.$gray;
 
+  position: relative;
+  &::before{
+    content: "";
+    width: 50%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: url("/images/bg.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    
+  }
   .locked {
     max-height: 100vh;
     overflow: hidden;
@@ -44,8 +58,6 @@ body {
 }
 
 .not-found {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  @include mixins.flex-center;
   min-height: 50vh;
 }

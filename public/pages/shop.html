@@ -1,19 +1,16 @@
 <div class="shop-container">
     <div class="added-to-cart">
-        <span class="fa-regular fa-circle-check fa-2xl fa-beat" style="--fa-animation-iteration-count: 1;"></span>
-        <p>item added to cart</p>
+        <span class="added-to-cart__icon fa-regular fa-circle-check fa-2xl fa-beat"
+            style="--fa-animation-iteration-count: 1;"></span>
+        <p class="added-to-cart__text">item added to cart</p>
     </div>
     <div class="show-filters">
         show/hide filters
     </div>
     <div class="filters">
-        <div class="buttons">
-            <button class="buttons__button list-button">list</button>
-            <button class="buttons__button buttons__button--active gallery-button">gallery</button>
-        </div>
         <form class="form">
             <div class="price-range">
-                <h2>Price range</h2>
+                <h2 class="filter-heading">Price range</h2>
                 <div class="input-container">
                     <input type="number" min="0" id="min-price">
                     <label for="min-price">min.</label>
@@ -24,6 +21,7 @@
                 </div>
             </div>
             <div class="stars">
+                <h2 class="filter-heading stars__heading">Rating</h2>
                 <input type="number" min="1" max="5" step="1" id="star-count">
                 <label for="star-count" class="stars__label">
                     <span class="label__icon fa-solid fa-star"></span>
@@ -33,7 +31,7 @@
         </form>
 
     </div>
-    <section class="offers">
+    <ul class="offers">
 
-    </section>
+    </ul>
 </div>

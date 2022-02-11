@@ -1,7 +1,6 @@
 import { createOfferList } from './shop/createOfferList'
 import { offers } from '../data/offers'
 import { handleFilter } from './shop/filter'
-import { pickDisplayStyle } from './shop/pickDisplayStyle'
 import { resetForm } from './shop/reset'
 import { showFilters } from './shop/showFilters'
 import { createCartList } from './cart/createCartList'
@@ -20,7 +19,6 @@ const setActivePage = () => {
                 createOfferList(offers)
                 handleFilter()
                 resetForm()
-                pickDisplayStyle()
                 showFilters()
             }
         }

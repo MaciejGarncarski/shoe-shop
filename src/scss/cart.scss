@@ -12,22 +12,24 @@
 
 
 .items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flex-center;
   flex-direction: column;
   gap: 3rem;
+  list-style: none;
   padding: 5rem 0;
-  > div{
+
+  > li {
+    align-items: center;
     background-color: var.$white;
-    width: 50%;
-    padding: 0 2rem;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 1rem;
-    > img{
+    justify-content: space-between;
+    padding: 0 2rem;
+    width: 50%;
+    user-select: none;
+
+    > img {
       max-height: 7rem;
     }
   }

@@ -5,15 +5,15 @@
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  padding: 2em;
+  padding: 2rem 0;
 
   > h1 {
     display: none;
   }
-  @media screen and (min-width: var.$big-screen) {
-    gap: 2em;
-    justify-content: center;
-    padding: 3em 2em;
+
+  @include mixins.mediaquery('xl') {
+    justify-content: space-between;
+    padding: 3em 6rem;
     padding-right: 0;
 
     > h1 {
@@ -25,23 +25,11 @@
   }
 }
 
-.separator {
-  display: none;
-  @media screen and (min-width: var.$big-screen) {
-    border: 0;
-    border-radius: 20px;
-    border-top: 2px solid var.$black;
-    display: none;
-    width: 10%;
-  }
-}
-
 .nav {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  @media screen and (min-width: var.$big-screen) {
-    flex: 2;
+  @include mixins.flex-center;
+  padding-right: 2.5rem;
+  @include mixins.mediaquery('xl') {
+    padding-right: 6rem;
   }
 }
 
@@ -49,58 +37,48 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 8em;
   height: 100vh;
   justify-content: center;
   left: 0;
+  top: 0;
   list-style: none;
   opacity: 0;
   padding: 2em 0;
   position: absolute;
-  top: 0;
+  gap: 5.5rem;
   transition: all 150ms;
   transition-property: opacity, visibility;
   visibility: hidden;
   width: 100%;
   z-index: 3;
+  @include mixins.mediaquery('xl') {
+    background: none;
+    flex-direction: row;
+    gap: max(6vw, 8rem);
+    height: auto;
+    opacity: 1;
+    padding: 0;
+    position: static;
+  }
 
   &--active {
     background-color: var.$gray;
     opacity: 1;
     visibility: visible;
   }
-  @media screen and (min-width: var.$big-screen) {
-    background: none;
-    flex-direction: row;
-    gap: calc(5em + 5vw);
-    height: auto;
-    opacity: 1;
-    padding: 0;
-    position: static;
-  }
 }
 
 .link__anchor {
-  align-items: center;
   color: var.$dark;
-  display: flex;
+  @include mixins.flex-center;
   flex-direction: column;
   font-size: 1.5rem;
   font-weight: 700;
   gap: 0.5em;
-  justify-content: center;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  
-  &.additional {
-    z-index: 3;
-  }
-
-  &:focus {
-    outline-offset: 0.6em;
-  }
-  @media screen and (min-width: var.$big-screen) {
+  @include mixins.mediaquery('xl') {
     flex-direction: row;
     visibility: visible;
     z-index: 3;
@@ -108,6 +86,14 @@
     &.additional {
       display: none;
     }
+  }
+  
+  &.additional {
+    z-index: 3;
+  }
+
+  &:focus {
+    outline-offset: 0.6em;
   }
 }
 
@@ -122,15 +108,15 @@
   stroke: var.$yellow;
   top: -0.8em;
   width: 12em;
+  @include mixins.mediaquery('xl') {
+    left: -1.5em;
+    top: -1em;
+    width: 8.5em;
+  }
 
   > svg {
     height: 100%;
     width: 100%;
-  }
-  @media screen and (min-width: var.$big-screen) {
-    left: -1.5em;
-    top: -1em;
-    width: 8.5em;
   }
 }
 
@@ -164,14 +150,14 @@
   position: absolute;
   width: 2.5rem;
   z-index: 3;
+  @include mixins.mediaquery('xl') {
+    display: none;
+  }
 
   &__bar {
     border-bottom: 3px solid var.$dark;
     transition: transform 300ms ease, opacity 200ms ease;
     width: 100%;
-  }
-  @media screen and (min-width: var.$big-screen) {
-    display: none;
   }
 }
 

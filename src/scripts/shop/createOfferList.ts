@@ -21,7 +21,7 @@ export const createOfferList = (data: offerTypes) => {
                 const starCount = [...Array(stars)]
 
                 const template = `
-                <div class="product">
+                <li class="product">
                     <img class="product__img" src="/images/shoes/${img}.png" alt="${name}" />
                     <h2 class="product__name">${name}</h2>
                     <div class="product__cart-btn">
@@ -33,11 +33,14 @@ export const createOfferList = (data: offerTypes) => {
                     <div class="product__stars-container">
                         ${starCount.map(() => `<span class="gold fa-solid fa-star"></span>`).join('')}
                     </div>
-                </div>
+                </li>
             `
                 return template
             })
             .join('')
+        if (offersContainer.innerHTML === '') {
+            offersContainer.innerHTML = '<li><p>No items found.</p></li>'
+        }
     }
     addToCart()
 }

@@ -1,17 +1,16 @@
 @use 'var';
+@use 'modules/mixins';
 
 .offline {
-  align-items: center;
+  @include mixins.flex-center;
   animation: slide-up 2s ease forwards;
   backdrop-filter: blur(10px);
   background-color: rgba(var.$white, 0.8);
   border: 1px solid var.$white;
   border-radius: 10px;
-  display: flex;
   flex-direction: column;
   font-size: 1.5rem;
   height: 5rem;
-  justify-content: center;
   left: 4%;
   position: fixed;
   top: 80%;

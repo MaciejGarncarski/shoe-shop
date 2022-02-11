@@ -1,13 +1,13 @@
 import { offers } from '../../data/offers'
 import { createOfferList } from './createOfferList'
 
-const handleErrorMessage = () => {
-    const offersContainer = document.querySelector('.offers') as HTMLDivElement
-    if (offersContainer.innerHTML === '') {
-        offersContainer.innerHTML = "<p class='offers-error'>No items found.</p>"
+const handleErrorMessage = (element: Element) => {
+    if (element && element.innerHTML === '') {
+        element.innerHTML = 'No items found.'
     }
 }
 
+const offersContainer = document.querySelector('.offers') as HTMLDivElement
 const filter = () => {
     const minPrice = document.querySelector('#min-price') as HTMLInputElement
     const maxPrice = document.querySelector('#max-price') as HTMLInputElement
@@ -28,7 +28,7 @@ const filter = () => {
         return filterByMin && filterByMax && filterByStars
     })
     createOfferList(filteredOffers)
-    handleErrorMessage()
+    handleErrorMessage(offersContainer)
 }
 
 export const handleFilter = () => {

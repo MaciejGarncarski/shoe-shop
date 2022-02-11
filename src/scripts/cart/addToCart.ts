@@ -14,8 +14,17 @@ if (localStorage.getItem('cart')) {
     cartItems.forEach((item: itemType) => cart.push(item))
 }
 
+const showNotification = (btn: Element) => {
+    const overlay = document.querySelector('.added-to-cart') as HTMLDivElement
+    overlay?.classList.add('added-to-cart--active')
+    overlay.style.left = btn.getBoundingClientRect().left + 'px'
+    overlay.style.top = btn.getBoundingClientRect().top + 'px'
+    window.setTimeout(() => overlay?.classList.remove('added-to-cart--active'), 3500)
+}
+
 export const addToCart = () => {
     const addBtn = document.querySelectorAll('.product__cart-btn')
+
     addBtn.forEach((btn) => {
         const currentItem = btn.parentElement?.childNodes[3] as HTMLParagraphElement
 
@@ -39,9 +48,7 @@ export const addToCart = () => {
                 cart.push(item)
             }
             localStorage.setItem('cart', JSON.stringify(cart))
-            const overlay = document.querySelector('.added-to-cart')
-            overlay?.classList.add('added-to-cart--active')
-            window.setTimeout(() => overlay?.classList.remove('added-to-cart--active'), 3000)
+            showNotification(btn)
         }
 
         btn.addEventListener('click', handleClick)
