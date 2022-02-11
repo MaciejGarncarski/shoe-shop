@@ -18,7 +18,7 @@ const filter = () => {
 
         if (discount !== 1) {
             const discountValue = discount * price
-            discountedPrice = price - discountValue
+            discountedPrice = discountValue
         }
 
         const filterByMin = !+minPrice.value || +minPrice.value <= discountedPrice

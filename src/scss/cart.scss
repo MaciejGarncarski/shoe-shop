@@ -17,20 +17,20 @@
   gap: 3rem;
   list-style: none;
   padding: 5rem 0;
+}
 
-  > li {
-    align-items: center;
-    background-color: var.$white;
-    border-radius: 10px;
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    padding: 0 2rem;
-    width: 50%;
-    user-select: none;
+.item {
+  align-items: center;
+  background-color: var.$white;
+  border-radius: 10px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 50%;
+  user-select: none;
 
-    > img {
-      max-height: 7rem;
-    }
+  &__img {
+    max-height: 7rem;
   }
 }
