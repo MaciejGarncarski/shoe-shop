@@ -3,7 +3,7 @@
 @use 'modules/animations';
 
 .home {
-  @media screen and (min-width: var.$big-screen) {
+  @include mixins.mediaquery('xl') {
     padding: 0.5rem 3rem;
   }
 }
@@ -16,12 +16,12 @@
   height: 70%;
   opacity: 0;
   position: absolute;
-  right: 5vw;
+  right: 3vw;
   top: 4em;
-  transform: translateX(2em);
+  transform: translateX(4em);
   transform-origin: right;
   width: auto;
-  @media screen and(min-width: var.$big-screen) {
+  @include mixins.mediaquery('xl') {
     display: block;
   }
 
@@ -45,7 +45,7 @@
   min-height: 60vh;
   padding: 1.5em;
   position: relative;
-  @media screen and(min-width: var.$big-screen) {
+  @include mixins.mediaquery('xl') {
     gap: 3em;
     height: auto;
     padding: 4em;
@@ -78,31 +78,41 @@
 }
 
 .button {
-  background-image: linear-gradient(to bottom right, var.$yellow, var.$lightYellow);
-  border: 1px solid var.$white;
-  border-radius: 3px;
-  color: var.$white;
+  background: linear-gradient(to bottom right, rgba(var.$white, 1), rgba(var.$gray, 1));
+  @include mixins.shadow;
+  border-radius: 4px;
+  color: var.$black;
+  text-shadow: -2px 2px var.$white;
   font-weight: 700;
   font-size: 1.5rem;
   padding: 0.6rem 0.9rem;
   text-decoration: none;
   transition: all 300ms ease;
-  transition-property: color;
+  background-size: 300% 100%;
+  background-position: left;
+  &:hover{
+    transition: all 300ms ease;
+    background-position: 100% 0;
+  }
 }
 
 .bold {
-  color: var.$yellow;
+  color: var.$black;
   font-weight: 700;
   display: inline-block;
-  padding: 0 0.1em;
+  padding: 3px 10px;
   position: relative;
-
+  text-shadow: -2px 2px var.$white;
+  &::selection{
+    color: var.$black
+  }
   &::before {
     bottom: 0;
     content: '';
     left: -1.5%;
     height: 100%;
-    background: var.$white;
+    background: linear-gradient(to bottom right, rgba(var.$white, 0.6), rgba(var.$gray, 1));
+    @include mixins.shadow;
     border-radius: 3px;
     position: absolute;
     width: 103%;
@@ -152,7 +162,7 @@
   width: 2.5em;
 }
 
-@media screen and (min-width: var.$big-screen) {
+@include mixins.mediaquery('xl') {
   .fire,
   .hands,
   .bear {

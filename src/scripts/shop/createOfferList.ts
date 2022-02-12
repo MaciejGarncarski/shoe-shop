@@ -1,4 +1,4 @@
-import { addToCart } from '../cart/addToCart'
+import { addToCart } from './addToCart'
 
 type offerTypes = {
     name: string
@@ -24,9 +24,9 @@ export const createOfferList = (data: offerTypes) => {
                 <li class="product">
                     <img class="product__img" src="/images/shoes/${img}.png" alt="${name}" />
                     <h2 class="product__name">${name}</h2>
-                    <div class="product__cart-btn">
+                    <button class="product__cart-btn">
                         <span class="fas fa-cart-plus"></span>
-                    </div>
+                    </button>
                     <div class="product__price-container">
                         ${discount !== 1 ? withDiscount : wihoutDiscount}
                     </div>

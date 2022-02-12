@@ -14,12 +14,13 @@ if (localStorage.getItem('cart')) {
     cartItems.forEach((item: itemType) => cart.push(item))
 }
 
-const showNotification = (btn: Element) => {
+const showNotification = () => {
     const overlay = document.querySelector('.added-to-cart') as HTMLDivElement
-    overlay?.classList.add('added-to-cart--active')
-    overlay.style.left = btn.getBoundingClientRect().left + 'px'
-    overlay.style.top = btn.getBoundingClientRect().top + 'px'
-    window.setTimeout(() => overlay?.classList.remove('added-to-cart--active'), 3500)
+    const closeBtn = document.querySelector('.added-to-cart__close') as HTMLDivElement
+    const active = 'added-to-cart--active'
+    overlay.classList.remove(active)
+    setTimeout(() => overlay.classList.add(active), 500)
+    closeBtn.addEventListener('click', () => overlay.classList.remove(active))
 }
 
 export const addToCart = () => {
@@ -48,7 +49,7 @@ export const addToCart = () => {
                 cart.push(item)
             }
             localStorage.setItem('cart', JSON.stringify(cart))
-            showNotification(btn)
+            showNotification()
         }
 
         btn.addEventListener('click', handleClick)

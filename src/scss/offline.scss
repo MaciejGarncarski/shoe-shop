@@ -16,7 +16,7 @@
   top: 80%;
   transform: translateY(3em);
   width: 92%;
-  @media screen and (min-width: var.$big-screen) {
+  @include mixins.mediaquery('xl') {
     left: 35%;
     width: 30%;
   }
