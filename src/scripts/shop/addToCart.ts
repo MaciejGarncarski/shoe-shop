@@ -9,10 +9,6 @@ type itemType = {
 }
 
 export const cart: itemType[] = []
-if (localStorage.getItem('cart')) {
-    const cartItems = JSON.parse(localStorage.getItem('cart') || '')
-    cartItems.forEach((item: itemType) => cart.push(item))
-}
 
 const showNotification = () => {
     const overlay = document.querySelector('.added-to-cart') as HTMLDivElement
@@ -21,6 +17,11 @@ const showNotification = () => {
     overlay.classList.remove(active)
     setTimeout(() => overlay.classList.add(active), 500)
     closeBtn.addEventListener('click', () => overlay.classList.remove(active))
+}
+
+if (localStorage.getItem('cart')) {
+    const cartItems = JSON.parse(localStorage.getItem('cart') || '')
+    cartItems.forEach((item: itemType) => cart.push(item))
 }
 
 export const addToCart = () => {
@@ -43,12 +44,21 @@ export const addToCart = () => {
                 img: img,
                 count: 1,
             }
-            if (cart.find((cartItem) => cartItem.name === item.name)) {
-                cart.map((cartItem) => (cartItem.name === item.name ? cartItem.count++ : cartItem.count))
+            if (cart.find(({ name }) => name === item.name)) {
+                const current: itemType = cart.find(({ name }) => name === item.name) || {
+                    name: '',
+                    price: 2,
+                    discount: 1,
+                    count: 2,
+                    img: 'string',
+                }
+                current.count++
             } else {
                 cart.push(item)
             }
+            console.log()
             localStorage.setItem('cart', JSON.stringify(cart))
+            console.log(cart)
             showNotification()
         }
 

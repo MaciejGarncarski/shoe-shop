@@ -5,6 +5,8 @@ import { resetForm } from './shop/reset'
 import { showFilters } from './shop/showFilters'
 import { createCartList } from './cart/createCartList'
 import { deleteItem } from './cart/deleteItem'
+import { addItems } from './cart/addItems'
+import { addToCart } from './shop/addToCart'
 
 const setActivePage = () => {
     const linkList = document.querySelectorAll<HTMLAnchorElement>('.link__anchor')
@@ -17,6 +19,7 @@ const setActivePage = () => {
         const shopFunctions = () => {
             if (linkParent.dataset.to === 'shop') {
                 createOfferList(offers)
+                addToCart()
                 handleFilter()
                 resetForm()
                 showFilters()
@@ -27,6 +30,7 @@ const setActivePage = () => {
             if (linkParent.dataset.to === 'cart') {
                 if (localStorage.getItem('cart')) {
                     createCartList(JSON.parse(localStorage.getItem('cart') || ''))
+                    addItems(JSON.parse(localStorage.getItem('cart') || ''))
                 }
                 deleteItem()
             }

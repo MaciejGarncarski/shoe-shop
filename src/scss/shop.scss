@@ -242,7 +242,7 @@
 
   &__img {
     align-self: center;
-    filter: drop-shadow(0 0 3px var.$yellow);
+    filter: drop-shadow(0 0 2px var.$black);
     grid-column: span 4;
     grid-row: 1 / 1;
     height: 5rem;
@@ -267,20 +267,13 @@
   }
 
   &__cart-btn {
-    @include mixins.flex-center;
-    @include mixins.shadow;
-    align-self: center;
-    background-color: var.$yellow;
-    border: 1px solid rgba(var.$black, 0.1);
+    @include mixins.button;
     border-radius: 3px;
-    color: var.$white;
-    font-size: 1.2rem;
-    height: 2rem;
-    width: 2.1rem;
+    align-self: center;
     justify-self: flex-end;
     margin-bottom: 0.3rem;
-    transition: 300ms all ease;
-    transition-property: color, background-color;
+    height: 2rem;
+    width: 2.1rem;
     user-select: none;
   }
 

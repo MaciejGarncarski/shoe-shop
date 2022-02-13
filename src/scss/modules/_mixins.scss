@@ -36,13 +36,24 @@
 }
 
 @mixin glass{
+  background-color: rgba(var.$white, 0.75);
+  @supports (not(backdrop-filter: blur(10px))){
+    background-color: rgba(var.$white, 0.9);
+  }
   border: 1px solid rgba(var.$black, 0.15);
   border-radius: 6px;
   backdrop-filter: blur(10px);
   @include shadow;
-  background-color: rgba(var.$white, 0.75);
 }
 
+@mixin button {
+  @include flex-center;
+  @include shadow;
+  background-color: var.$yellow;
+  border: 1px solid rgba(var.$black, 0.1);
+  color: var.$white;
+  font-size: 1.2rem;
+}
 
 @mixin mediaquery($query) {
   $breakpoints: (

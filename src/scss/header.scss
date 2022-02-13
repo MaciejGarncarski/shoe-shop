@@ -71,6 +71,7 @@
 .link__anchor {
   color: var.$dark;
   @include mixins.flex-center;
+  filter: drop-shadow(-3px 3px 0 var.$white);
   flex-direction: column;
   font-size: 1.5rem;
   font-weight: 700;

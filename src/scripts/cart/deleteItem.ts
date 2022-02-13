@@ -13,6 +13,7 @@ export const deleteItem = () => {
 
             btn.addEventListener('click', () => {
                 const newList = cart.filter(({ name }: test) => name !== currentItem?.textContent)
+                console.log(newList)
                 localStorage.setItem('cart', JSON.stringify(newList))
                 createCartList(newList)
             })

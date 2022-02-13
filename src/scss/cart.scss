@@ -20,16 +20,47 @@
 }
 
 .item {
-  align-items: center;
-  background-color: var.$white;
-  border-radius: 10px;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  padding: 0 2rem;
-  width: 50%;
+  @include mixins.glass;
   user-select: none;
+  width: 70%;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
 
+  @include mixins.mediaquery('xl'){
+    flex-direction: row;
+    padding: 0 2rem;
+    width: 60%;
+    gap: 3rem;
+
+  }
+
+  &__price{
+    font-weight: 700;
+  }
+  
+  &__change-price{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    >input{
+      @include mixins.input;
+    }
+  }
+  &__delete-btn{
+    border-color: transparent;
+    background-color: var.$yellow;
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var.$white;
+  }
   &__img {
     max-height: 7rem;
   }
