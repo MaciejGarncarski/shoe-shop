@@ -48,6 +48,7 @@ body {
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
+    z-index: -1;
   }
   &::after{
     content: "";

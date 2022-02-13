@@ -2,14 +2,31 @@
 @use 'modules/_mixins';
 
 .footer {
-  @include mixins.flex-center;
   color: var.$dark;
   grid-column: span 2;
-  padding: 0.5em 0;
-
+  padding: 7rem;
+  margin-top: 6rem;
+  @include mixins.glass;
+  border-radius: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 15rem;
+  z-index: 3;
   > a {
     color: var.$yellow;
     font-weight: 700;
     text-decoration: none;
   }
+  &__list{
+    list-style: none;
+  }
+}
+
+
+
+.list__link{
+    color: var.$black;
+    text-decoration: none;
+    margin: 1rem 0;
 }

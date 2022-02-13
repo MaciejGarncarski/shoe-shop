@@ -1,12 +1,11 @@
-type offerTypes = {
-    name: string
-    price: number
-    discount: number
-    img: string
+import { offerTypes } from '../../types/types'
+import { totalPrice } from './totalPrice'
+
+type itemType = offerTypes & {
     count: number
 }
 
-export const addItems = (data: offerTypes[]) => {
+export const addItems = (data: itemType[]) => {
     const inputList = document.querySelectorAll<HTMLInputElement>('.item__count')
 
     inputList.forEach((input) => {
@@ -20,6 +19,7 @@ export const addItems = (data: offerTypes[]) => {
             currentItemData.count = count
             const newData = [currentItemData, ...oldData]
             localStorage.setItem('cart', JSON.stringify(newData))
+            totalPrice()
         })
     })
 }

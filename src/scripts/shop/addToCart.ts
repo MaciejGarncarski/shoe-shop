@@ -1,4 +1,5 @@
 import { offers } from '../../data/offers'
+import { defaultObj } from '../../types/types'
 
 type itemType = {
     name: string
@@ -45,20 +46,12 @@ export const addToCart = () => {
                 count: 1,
             }
             if (cart.find(({ name }) => name === item.name)) {
-                const current: itemType = cart.find(({ name }) => name === item.name) || {
-                    name: '',
-                    price: 2,
-                    discount: 1,
-                    count: 2,
-                    img: 'string',
-                }
+                const current: itemType = cart.find(({ name }) => name === item.name) || defaultObj
                 current.count++
             } else {
                 cart.push(item)
             }
-            console.log()
             localStorage.setItem('cart', JSON.stringify(cart))
-            console.log(cart)
             showNotification()
         }
 

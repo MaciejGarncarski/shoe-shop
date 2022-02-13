@@ -1,6 +1,7 @@
 import { createCartList } from './createCartList'
+import { totalPrice } from './totalPrice'
 
-type test = {
+type nameType = {
     name: string
 }
 
@@ -12,10 +13,10 @@ export const deleteItem = () => {
             const currentItem = btn.parentElement?.childNodes[3]
 
             btn.addEventListener('click', () => {
-                const newList = cart.filter(({ name }: test) => name !== currentItem?.textContent)
-                console.log(newList)
+                const newList = cart.filter(({ name }: nameType) => name !== currentItem?.textContent)
                 localStorage.setItem('cart', JSON.stringify(newList))
                 createCartList(newList)
+                totalPrice()
             })
         })
     }

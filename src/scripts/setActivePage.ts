@@ -7,6 +7,7 @@ import { createCartList } from './cart/createCartList'
 import { deleteItem } from './cart/deleteItem'
 import { addItems } from './cart/addItems'
 import { addToCart } from './shop/addToCart'
+import { totalPrice } from './cart/totalPrice'
 
 const setActivePage = () => {
     const linkList = document.querySelectorAll<HTMLAnchorElement>('.link__anchor')
@@ -33,6 +34,7 @@ const setActivePage = () => {
                     addItems(JSON.parse(localStorage.getItem('cart') || ''))
                 }
                 deleteItem()
+                totalPrice()
             }
         }
 

@@ -1,10 +1,4 @@
-type offerTypes = {
-    name: string
-    price: number
-    discount: 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1
-    img: string
-    stars: number
-}
+import { offerTypes } from '../types/types'
 
 export const offers: offerTypes[] = [
     {
