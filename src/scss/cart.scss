@@ -30,6 +30,9 @@
   flex-direction: column;
   gap: 1.5rem;
   padding-bottom: 2rem;
+  opacity: 1;
+  transition: all 1s ease;
+  transition-property: transform, opacity;
 
   @include mixins.mediaquery('xl'){
     flex-direction: row;
@@ -63,6 +66,10 @@
   }
   &__img {
     max-height: 7rem;
+  }
+  &--active{
+    transform: translateY(2rem);
+    opacity: 0;
   }
 }
 

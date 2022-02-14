@@ -15,7 +15,8 @@ export const deleteItem = () => {
             btn.addEventListener('click', () => {
                 const newList = cart.filter(({ name }: nameType) => name !== currentItem?.textContent)
                 localStorage.setItem('cart', JSON.stringify(newList))
-                createCartList(newList)
+                btn.parentElement?.classList.add('item--active')
+                setTimeout(() => createCartList(newList), 1000)
                 totalPrice()
             })
         })

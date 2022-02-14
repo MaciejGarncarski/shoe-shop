@@ -6,17 +6,23 @@
   grid-column: span 2;
   padding: 7rem;
   margin-top: 6rem;
-  @include mixins.glass;
   border-radius: 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  background: var.$white;
+  border-top: 1px solid rgba(var.$black, 0.3);
   gap: 15rem;
   z-index: 3;
   > a {
     color: var.$yellow;
     font-weight: 700;
     text-decoration: none;
+  }
+  &__item{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
   }
   &__list{
     list-style: none;
@@ -29,4 +35,5 @@
     color: var.$black;
     text-decoration: none;
     margin: 1rem 0;
-}
+    line-height: 1.5;
+  }

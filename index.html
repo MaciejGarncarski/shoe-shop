@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://kit.fontawesome.com/2dcaacc216.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="/images/favicon-2.svg">
+  <meta name="theme-color" content="#fca311" />
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <nav class="nav">
       <ul class="nav__list">
         <li class="list__item" data-to="home">
-          <a class="link__anchor" href="#home">
+          <a tabindex="1" class="link__anchor" href="#home">
             <span class="fa-solid fa-home"></span>
             home
             <span class="svg">
@@ -31,7 +32,7 @@
           </a>
         </li>
         <li class="list__item" data-to="shop">
-          <a class="link__anchor" href="#shop">
+          <a tabindex="1" class="link__anchor" href="#shop">
             <i class="fa-solid fa-cash-register"></i>
             shop
             <span class="svg">
@@ -44,7 +45,7 @@
           </a>
         </li>
         <li class="list__item" data-to="cart">
-          <a class="link__anchor" href="#cart">
+          <a tabindex="1" class="link__anchor" href="#cart">
             <span class="fa-solid fa-cart-shopping 2x"></span>
             cart
             <span class="svg">
@@ -71,7 +72,7 @@
   <div class="app"></div>
   <div class="offline">Oops, looks like you're <span class="bold">offline 😿</span></div>
   <footer class="footer">
-    <div>
+    <div class="footer__item">
       <h2>Contact</h2>
       <ul class="footer__list">
         <li>
@@ -86,10 +87,10 @@
         </li>
       </ul>
     </div>
-    <div>
+    <div class="footer__item">
       <h2>Support</h2>
       <ul class="footer__list">
-        <li><a>github</a></li>
+        <li><a href="ts3server://parkoszcity?port=9987&nickname=UserNickname">github</a></li>
         <li><a>linked-in</a></li>
         <li><a>discord</a></li>
       </ul>
