@@ -36,6 +36,12 @@
   @include mixins.mediaquery('xl'){
     padding: max(3rem, 5vw);
   }
+  >iframe{
+    display: none;
+    @include mixins.mediaquery('xl'){
+      display: block;
+    }
+  }
 }
 
 
