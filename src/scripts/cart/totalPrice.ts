@@ -13,7 +13,6 @@ export const totalPrice = () => {
         arr.push(test)
     })
     if (arr.length !== 0) {
-        console.log(arr.reduce((prev, next) => prev + next))
         const newPrice = arr.reduce((prev, next) => prev + next)
         if (total) total.textContent = newPrice.toString()
     } else if (total) {

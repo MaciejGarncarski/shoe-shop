@@ -52,18 +52,24 @@ body {
   }
   &::after{
     content: "";
-    $size: 33vw;
+    z-index: -1;
+    $size: 90vw;
     width: $size;
     height: $size;
-    z-index: -1;
-    right: 11vw;
-    top: 31vh;
+    top: 30%;
+    right: 0;
+    position: fixed;
     background-image: url("/images/blob.svg");
     background-repeat: no-repeat;
-    position: absolute;
     background-size: contain;
-
-
+    @include mixins.mediaquery('xl'){
+      position: absolute;
+      $size: 33vw;
+      width: $size;
+      height: $size;
+      right: 11vw;
+      top: 31vh;
+   }
   }
   .locked {
     max-height: 100vh;

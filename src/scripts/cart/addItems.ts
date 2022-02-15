@@ -1,11 +1,14 @@
-import { offerTypes } from '../../types/types'
 import { totalPrice } from './totalPrice'
 
-type itemType = offerTypes & {
+type offerTypes = {
+    name: string
+    price: number
+    discount: number
     count: number
+    img: string
 }
 
-export const addItems = (data: itemType[]) => {
+export const addItems = (data: offerTypes[]) => {
     const inputList = document.querySelectorAll<HTMLInputElement>('.item__count')
 
     inputList.forEach((input) => {

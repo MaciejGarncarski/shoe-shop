@@ -5,8 +5,8 @@
   filter: drop-shadow(-4px 4px 0 var.$white);
 }
 
-@mixin gradient($direction){
-  background-image: ($direction, var.$yellow, var.$lightYellow);
+@mixin gradient{
+  background-image: linear-gradient(to bottom right, var.$yellow, var.$lightYellow);
 }
 
 

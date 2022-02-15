@@ -34,6 +34,7 @@
   padding-bottom: .5rem;
   left: 50%;
   bottom: 0;
+  visibility: hidden;
   transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-property: opacity, transform;
   flex-direction: column;
@@ -62,6 +63,7 @@
 
   &--active {
     opacity: 1;
+    visibility: visible;
     transform: translateX(-50%) translateY(0);
   }
 }
@@ -86,12 +88,12 @@
   gap: 2rem;
   max-height: 70vh;
   left: 0;
-  position: sticky;
   top: 17%;
   width: 10rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 300ms ease;
+  position: absolute;
 
   @media screen and (max-width: var.$big-screen) {
     &--active {
@@ -104,9 +106,6 @@
       width: 22rem;
       z-index: 1;
       visibility: visible;
-      @supports (not(backdrop-filter: blur(10px))) {
-        // background-color: rgba(var.$gray, 0.86);
-      }
     }
   }
 
@@ -118,6 +117,7 @@
     left: 2.5%;
     min-width: 14rem;
     visibility: visible;
+    position: sticky;
   }
 }
 

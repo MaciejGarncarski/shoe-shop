@@ -1,3 +1,4 @@
+import { addItems } from './addItems'
 import { deleteItem } from './deleteItem'
 
 type offerTypes = {
@@ -22,7 +23,7 @@ export const createCartList = (data: offerTypes[]) => {
                     <div class="item__change-price">
                         <p class="item__price">${newPrice}€ for</p>
                         <input type="number" value="${count}" min="1" max="20" step="1" title="add item" class="item__count"/>
-                        <p>items</p>
+                        <p>item/items</p>
                     </div>
                     <button class="item__delete-btn" type="button" title="delete item">
                         <span class="fa-solid fa-trash-can"></span>
@@ -33,6 +34,7 @@ export const createCartList = (data: offerTypes[]) => {
             })
             .join('')
         deleteItem()
+        addItems(data)
         if (container.innerHTML === '') {
             container.innerHTML = '<li><p>No items found.</p></li>'
         }
