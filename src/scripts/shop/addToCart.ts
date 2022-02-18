@@ -10,8 +10,6 @@ type itemType = {
   img: string
 }
 
-export const cart: itemType[] = []
-
 const showNotification = () => {
   const overlay = document.querySelector('.added-to-cart') as HTMLDivElement
   const closeBtn = document.querySelector('.added-to-cart__close') as HTMLDivElement
@@ -21,6 +19,8 @@ const showNotification = () => {
   closeBtn.addEventListener('click', () => overlay.classList.remove(active))
 }
 
+let cart: itemType[] = []
+
 if (localStorage.getItem('cart')) {
   const cartItems = JSON.parse(localStorage.getItem('cart') || '')
   cartItems.forEach((item: itemType) => cart.push(item))
@@ -28,6 +28,7 @@ if (localStorage.getItem('cart')) {
 
 export const addToCart = () => {
   const addBtn = document.querySelectorAll('.product__cart-btn')
+  cart = JSON.parse(localStorage.getItem('cart') || '')
 
   addBtn.forEach((btn) => {
     const currentItem = btn.parentElement?.childNodes[3] as HTMLParagraphElement

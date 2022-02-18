@@ -4,7 +4,7 @@
 .footer {
   color: var.$dark;
   grid-column: span 2;
-  padding: 2rem 0;
+  padding: 2rem 0.25rem;
   margin-top: 6rem;
   border-radius: 0;
   display: grid;
@@ -85,7 +85,7 @@
   grid-row: 1 / span 4;
   grid-column: 2 / 3;
   padding: 3rem 0;
-  padding-right: 3rem;
+  padding-right: 5vw;
   @include mixins.mediaquery('xl'){
     padding: 0;
     width: 35%;
