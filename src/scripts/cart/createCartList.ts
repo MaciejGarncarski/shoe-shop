@@ -2,21 +2,21 @@ import { addItems } from './addItems'
 import { deleteItem } from './deleteItem'
 
 type offerTypes = {
-    name: string
-    price: number
-    discount: number
-    count: number
-    img: string
+  name: string
+  price: number
+  discount: number
+  count: number
+  img: string
 }
 
 export const createCartList = (data: offerTypes[]) => {
-    const container = document.querySelector('.items') as HTMLDivElement
-    if (container) {
-        container.innerHTML = ''
-        container.innerHTML = data
-            .map(({ name, price, count, img }: offerTypes) => {
-                const newPrice = count * price
-                const template = `
+  const container = document.querySelector('.items') as HTMLDivElement
+  if (container) {
+    container.innerHTML = ''
+    container.innerHTML = data
+      .map(({ name, price, count, img }: offerTypes) => {
+        const newPrice = count * price
+        const template = `
                 <li class="item">
                     <img class="item__img" src="/images/shoes/${img}.png" alt="${name}">
                     <p class="item__name">${name}</p>
@@ -30,13 +30,13 @@ export const createCartList = (data: offerTypes[]) => {
                     </button>
                 </li>
             `
-                return template
-            })
-            .join('')
-        deleteItem()
-        addItems(data)
-        if (container.innerHTML === '') {
-            container.innerHTML = '<li><p>No items found.</p></li>'
-        }
+        return template
+      })
+      .join('')
+    deleteItem()
+    addItems(data)
+    if (container.innerHTML === '') {
+      container.innerHTML = '<li><p>Your cart is empty.</p></li>'
     }
+  }
 }

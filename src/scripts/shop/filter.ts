@@ -2,36 +2,36 @@ import { offers } from '../../data/offers'
 import { createOfferList } from './createOfferList'
 
 const handleErrorMessage = (element: Element) => {
-    if (element && element.innerHTML === '') {
-        element.innerHTML = 'No items found.'
-    }
+  if (element && element.innerHTML === '') {
+    element.innerHTML = 'No items found.'
+  }
 }
 
 const offersContainer = document.querySelector('.offers') as HTMLDivElement
 const filter = () => {
-    const minPrice = document.querySelector('#min-price') as HTMLInputElement
-    const maxPrice = document.querySelector('#max-price') as HTMLInputElement
-    const starsCount = document.querySelector('#star-count') as HTMLInputElement
+  const minPrice = document.querySelector('#min-price') as HTMLInputElement
+  const maxPrice = document.querySelector('#max-price') as HTMLInputElement
+  const starsCount = document.querySelector('#star-count') as HTMLInputElement
 
-    const filteredOffers = offers.filter(({ price, discount, stars }) => {
-        let discountedPrice = price
+  const filteredOffers = offers.filter(({ price, discount, stars }) => {
+    let discountedPrice = price
 
-        if (discount !== 1) {
-            const discountValue = discount * price
-            discountedPrice = discountValue
-        }
+    if (discount !== 1) {
+      const discountValue = discount * price
+      discountedPrice = discountValue
+    }
 
-        const filterByMin = !+minPrice.value || +minPrice.value <= discountedPrice
-        const filterByMax = !+maxPrice.value || +maxPrice.value >= discountedPrice
-        const filterByStars = !starsCount.value || +starsCount.value === stars
+    const filterByMin = !+minPrice.value || +minPrice.value <= discountedPrice
+    const filterByMax = !+maxPrice.value || +maxPrice.value >= discountedPrice
+    const filterByStars = !starsCount.value || +starsCount.value === stars
 
-        return filterByMin && filterByMax && filterByStars
-    })
-    createOfferList(filteredOffers)
-    handleErrorMessage(offersContainer)
+    return filterByMin && filterByMax && filterByStars
+  })
+  createOfferList(filteredOffers)
+  handleErrorMessage(offersContainer)
 }
 
 export const handleFilter = () => {
-    const form = document.querySelector('form')
-    form?.addEventListener('input', filter)
+  const form = document.querySelector('form')
+  form?.addEventListener('input', filter)
 }

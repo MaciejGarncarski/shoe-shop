@@ -5,10 +5,12 @@ import { setActivePage } from './scripts/setActivePage'
 import { activePage } from './scripts/activePage'
 import { checkIsOnline } from './scripts/checkIsOnline'
 import { copyLink } from './scripts/copyLink'
+import { itemCount } from './scripts/cart/itemCount'
 
 setActivePage()
 checkIsHomepage()
 changePages()
 activePage()
-checkIsOnline()
+itemCount()
 copyLink()
+checkIsOnline()

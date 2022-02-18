@@ -180,3 +180,18 @@
     transform: translateY(-15px);
   }
 }  
+
+
+.item-count{
+  border-radius: 50%;
+  background-color: var.$yellow;
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -2vw;
+  top: -1.5vh;
+}

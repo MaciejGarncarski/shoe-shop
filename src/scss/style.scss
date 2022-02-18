@@ -9,6 +9,7 @@
 @use 'modules/animations';
 @use 'modules/mixins';
 
+
 *,
 *::before,
 *::after {
@@ -31,7 +32,7 @@ body {
 }
 
 body, button{
-  font-family: Montserrat, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {

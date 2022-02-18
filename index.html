@@ -7,7 +7,6 @@
   <title>Shoe shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="https://kit.fontawesome.com/2dcaacc216.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="icon" href="/images/favicon-2.svg">
   <meta name="theme-color" content="#fca311" />
@@ -63,7 +62,7 @@
         <span class="burger__bar burger__bar--middle"></span>
         <span class="burger__bar burger__bar--bottom"></span>
       </button>
-      <a class="link__anchor additional" href="#cart">
+      <a title="cart" class="link__anchor additional" href="#cart">
         <span class="fa-solid fa-cart-shopping"></span>
         <span class="hidden-text">cart</span>
       </a>
@@ -94,8 +93,7 @@
               class="fa-brands fa-teamspeak"></span>teamspeak</a>
         </li>
         <li>
-          <a class="list__link" data-copy="Maciej#1842" target="_blank"
-            href="https://discordapp.com/users/Maciej#1842"><span class="fa-brands fa-discord"></span>discord</a>
+          <span class="list__link" data-copy="Maciej#1842"><span class="fa-brands fa-discord"></span>discord</span>
         </li>
         <li>
           <a class="list__link" target="_blank" href="https://www.linkedin.com/in/maciej-garncarski-917650215/"><span
@@ -103,11 +101,12 @@
         </li>
       </ul>
     </div>
-    <iframe width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-      src="https://maps.google.com/maps?width=100%25&amp;&amp;hl=en&amp;q=34.05621872551017,%20-118.2840902732138+(Shoe%20Shop)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-
+    <iframe class="map" title="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1280.947607033101!2d21.40813355822629!3d50.050794217124846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473d0a25fe5aa4f7%3A0xf29d2b75894de91!2s39-200%20Debica!5e0!3m2!1sen!2spl!4v1645123462334!5m2!1sen!2spl"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </footer>
   <script type="module" src="/src/main.ts"></script>
+  <script src="https://kit.fontawesome.com/2dcaacc216.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

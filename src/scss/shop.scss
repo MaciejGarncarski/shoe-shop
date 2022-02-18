@@ -16,12 +16,8 @@
 
 .added-to-cart {
   @include mixins.flex-center;
-  background-color: rgba(var.$yellow, 0.9);
-  color: var.$white;
-  @supports (backdrop-filter: blur(10px)){
-    color: var.$black;
-    @include mixins.glass;
-  }
+  @include mixins.glass;
+  color: var.$black;
   border-radius: 6px;
   font-size: 1.2rem;
   gap: 3rem;
@@ -94,7 +90,6 @@
   visibility: hidden;
   transition: opacity 300ms ease;
   position: absolute;
-
   @media screen and (max-width: var.$big-screen) {
     &--active {
       position: fixed;
@@ -119,6 +114,18 @@
     visibility: visible;
     position: sticky;
   }
+}
+
+.reset-btn{
+  @include mixins.gradient;
+  text-shadow: -1.5px 1.5px 0 var.$white;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .filter-heading{
@@ -219,6 +226,7 @@
   justify-content: center;
   list-style: none;
   padding: 3rem 1rem;
+  min-height: 70vh;
   @include mixins.mediaquery('xl') {
     justify-content: flex-start;
     padding-left: 6rem;

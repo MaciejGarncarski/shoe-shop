@@ -1,23 +1,29 @@
+const createNotification = (parent: HTMLSpanElement) => {
+  const notification = document.createElement('p')
+  notification.textContent = 'Copied!'
+  notification.className = 'copy-notification'
+  parent.appendChild(notification)
+}
+
+const hasClipboard = () => navigator && navigator.clipboard && navigator.clipboard.writeText
+
+const copy = (el: Event) => {
+  if (el.target instanceof HTMLSpanElement) {
+    const data = el.target.dataset.copy || ''
+    if (hasClipboard())
+      navigator.clipboard
+        .writeText(data)
+        .then(() => {
+          const parent = el.target as HTMLSpanElement
+          if (!parent.childNodes[3]) {
+            createNotification(parent)
+          }
+        })
+        .catch((e) => console.error(e))
+  }
+}
+
 export const copyLink = () => {
-    const links = document.querySelectorAll<HTMLAnchorElement>('[data-copy]')
-    const copy = (el: Event) => {
-        el.preventDefault()
-        if (el !== null && el.target instanceof HTMLElement) {
-            const data = el.target.dataset.copy || ''
-            if (navigator && navigator.clipboard && navigator.clipboard.writeText)
-                navigator.clipboard.writeText(data).then(() => {
-                    const parent = el.target as HTMLAnchorElement
-                    if (!parent.childNodes[3]) {
-                        const notification = document.createElement('p')
-                        notification.textContent = 'Copied!'
-                        notification.className = 'copy-notification'
-                        parent.appendChild(notification)
-                        setTimeout(() => parent.removeChild(notification), 60000)
-                    }
-                })
-        }
-    }
-    links.forEach((link) => {
-        link.addEventListener('click', copy)
-    })
+  const links = document.querySelectorAll<HTMLSpanElement>('[data-copy]')
+  links.forEach((link) => link.addEventListener('click', copy))
 }

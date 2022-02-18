@@ -23,23 +23,35 @@
   @include mixins.glass;
   user-select: none;
   width: 80%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
   opacity: 1;
   transition: all 1s ease;
   transition-property: transform, opacity;
-
   @include mixins.mediaquery('xl'){
     flex-direction: row;
     padding: 0 2rem;
     width: 60%;
-    gap: 3rem;
+    gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-
+  &__img {
+    max-height: 7rem;
+    object-fit: contain;
+    grid-column: span 2;
+  }
+  &__name{
+    grid-row: 2 / 3;
+    font-size: 1.5rem;
+    font-weight: 700;
+    @include mixins.mediaquery('xl'){
+      font-size: 1rem;
+    }
+  }
   &__price{
     font-weight: 700;
   }
@@ -49,6 +61,8 @@
     gap: 5px;
     justify-content: center;
     align-items: center;
+    grid-row: 3 / 4;
+    grid-column: span 2;
     >input{
       @include mixins.input;
     }
@@ -61,10 +75,15 @@
     cursor: pointer;
     font-size: 1.2rem;
     color: var.$white;
+    grid-row: 2 / 3;
+    width: 45%;
+    height: 45%;
+    @include mixins.mediaquery('xl'){
+      width: auto;
+      height: auto;
+    }
   }
-  &__img {
-    max-height: 7rem;
-  }
+
   &--active{
     transform: translateY(2rem);
     opacity: 0;
@@ -78,9 +97,12 @@
   transform: translateX(-50%);
   padding: 1rem 3rem;
   max-width: 20rem;
-  display: flex;
   gap: 1rem;
   top: 3.5rem;
+  display: none;
+  &--active{
+    display: flex;
+  }
   &__price{
     font-weight: 700;
   }
