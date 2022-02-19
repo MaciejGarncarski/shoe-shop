@@ -113,6 +113,9 @@
     min-width: 14rem;
     visibility: visible;
     position: sticky;
+    transform: translateX(-3rem);
+    opacity: 0;
+    animation: slide-left 0.75s ease-in-out forwards;
   }
 }
 

@@ -30,6 +30,9 @@
   opacity: 1;
   transition: all 1s ease;
   transition-property: transform, opacity;
+  transform: translateY(3rem);
+  opacity: 0.6;
+  animation: slide-up 0.75s ease-in-out forwards;
   @include mixins.mediaquery('xl'){
     flex-direction: row;
     padding: 0 2rem;
