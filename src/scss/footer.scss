@@ -10,8 +10,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  background: rgba(var.$white, 0.8);
-  border-top: 1px solid rgba(var.$black, 0.15);
+  background: rgba(var.$white, 0.75);
+  border-top: 1px solid rgba(var.$black, 0.1);
   gap: max(1rem, 2vh);
   @include mixins.mediaquery('xl'){
     padding: max(3rem, 5vw);

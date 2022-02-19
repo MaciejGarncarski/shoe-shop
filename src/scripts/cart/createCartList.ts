@@ -22,7 +22,7 @@ export const createCartList = (data: offerTypes[]) => {
                     <p class="item__name">${name}</p>
                     <div class="item__change-price">
                         <p class="item__price">${newPrice}€ for</p>
-                        <input type="number" value="${count}" min="1" max="20" step="1" title="add item" class="item__count"/>
+                        <input type="number" value="${count}" min="1" step="1" title="add item" class="item__count"/>
                         <p>item/items</p>
                     </div>
                     <button class="item__delete-btn" type="button" title="delete item">
