@@ -28,7 +28,9 @@ if (localStorage.getItem('cart')) {
 
 export const addToCart = () => {
   const addBtn = document.querySelectorAll('.product__cart-btn')
-  cart = JSON.parse(localStorage.getItem('cart') || '')
+  if (localStorage.getItem('cart')) {
+    cart = JSON.parse(localStorage.getItem('cart') || '')
+  }
 
   addBtn.forEach((btn) => {
     const currentItem = btn.parentElement?.childNodes[3] as HTMLParagraphElement

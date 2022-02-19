@@ -22,6 +22,7 @@ const shopFunctions = (linkParent: HTMLLIElement) => {
 const cartFunctions = (linkParent: HTMLLIElement) => {
   if (localStorage.getItem('cart')) {
     const data = JSON.parse(localStorage.getItem('cart') || '')
+    console.log(data)
     if (linkParent.dataset.to === 'cart') {
       if (localStorage.getItem('cart')) {
         createCartList(data)

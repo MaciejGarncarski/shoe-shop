@@ -1,5 +1,6 @@
 import { addItems } from './addItems'
 import { deleteItem } from './deleteItem'
+import { focusElement } from './focusElement'
 
 type offerTypes = {
   name: string
@@ -33,10 +34,12 @@ export const createCartList = (data: offerTypes[]) => {
         return template
       })
       .join('')
-    deleteItem()
-    addItems(data)
-    if (container.innerHTML === '') {
+    if (container.innerHTML === '' || data.length === 0) {
       container.innerHTML = '<li><p>Your cart is empty.</p></li>'
+    } else {
+      focusElement()
+      deleteItem()
+      addItems(data)
     }
   }
 }

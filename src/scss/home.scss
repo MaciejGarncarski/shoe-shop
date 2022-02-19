@@ -80,7 +80,7 @@
 .button {
   background: linear-gradient(to bottom right, rgba(var.$white, 1), rgba(var.$gray, 1));
   @include mixins.shadow;
-  border-radius: 4px;
+  @include mixins.radius('small');
   color: var.$black;
   text-shadow: -2px 2px var.$white;
   font-weight: 700;

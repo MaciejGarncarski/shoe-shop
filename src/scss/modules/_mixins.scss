@@ -18,7 +18,7 @@
 
 @mixin input {
   border: 1px solid var.$yellow;
-  border-radius: 6px;
+  @include radius('big');
   font-size: 1rem;
   padding: 0.2rem;
   background-color: rgba(var.$white, 0.8);
@@ -41,7 +41,7 @@
     background-color: rgba(var.$white, 0.9);
   }
   border: 1px solid rgba(var.$black, 0.15);
-  border-radius: 6px;
+  @include radius('big');
   backdrop-filter: blur(10px);
   @include shadow;
 }
@@ -71,5 +71,16 @@
     }
   } @else {
     @error "ERROR: No breakpoint specified for query '#{$query}'";
+  }
+}
+
+
+@mixin radius($size) {
+  $breakpoints: (
+    'small': '3px',
+    'big': '6px'
+  );
+  @if map-has-key($breakpoints, $size){
+    border-radius: #{map-get($breakpoints, $size)};
   }
 }
