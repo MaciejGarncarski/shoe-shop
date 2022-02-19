@@ -50,7 +50,7 @@
   transition-property: opacity, visibility;
   visibility: hidden;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
   @include mixins.mediaquery('xl') {
     background: none;
     flex-direction: row;
@@ -125,16 +125,12 @@
   display: block;
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
+  animation: show-svg 450ms ease-in-out forwards;
 
-  > svg {
-    animation: show-svg 450ms ease-in-out forwards;
-  }
   @media (prefers-reduced-motion) {
-    > svg {
-      animation: none;
-      stroke-dasharray: 0;
-      stroke-dashoffset: 0;
-    }
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    animation: none;
   }
 }
 
@@ -150,7 +146,7 @@
   left: 3em;
   position: absolute;
   width: 2.5rem;
-  z-index: 3;
+  z-index: 4;
   @include mixins.mediaquery('xl') {
     display: none;
   }

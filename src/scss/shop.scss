@@ -16,51 +16,54 @@
 
 .added-to-cart {
   @include mixins.flex-center;
-  @include mixins.glass;
-  color: var.$black;
-  @include mixins.radius('big');
-  font-size: 1.2rem;
+  flex-direction: column;
   gap: 3rem;
-  opacity: 0;
+  @include mixins.glass;
+  @include mixins.radius('big');
+  font-size: 2rem;
   position: fixed;
   z-index: 2;
-  transform: translateX(-50%) translateY(3rem);
-  padding: 0 9rem;
-  padding-top: 3.5rem;
-  padding-bottom: .5rem;
   left: 50%;
-  bottom: 0;
+  top: 55%;
+  padding: 5rem 15vw;
+  transform: translate(-50%, -50%);
+  opacity: 0;
   visibility: hidden;
-  transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition-property: opacity, transform;
-  flex-direction: column;
-  @include mixins.mediaquery('xl') {
+  transition: opacity 300ms ease-in-out;
+  @include mixins.mediaquery('xl'){
     left: 55%;
-    padding: 1.5rem 8rem;
-    bottom: 0.5rem;
-    flex-direction: row;
+    padding: 10rem 4vw;
   }
-  &__close{
-    position: absolute;
-    right: 0.5rem;
-    top: 0rem;
-    background: transparent;
-    border-color: transparent;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  &__text {
-    font-size: 1.5rem;
-    @media screen and (max-width: var.$big-screen) {
-      position: fixed;
-      top: 1rem;
-    }
-  }
-
   &--active {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
+  }
+  @keyframes rysuj {
+    to{
+      stroke-dashoffset: 0;
+    }
+  }
+  > svg {
+    stroke-dashoffset: 600;
+    animation: show-svg 450ms ease-in-out forwards;
+  }
+  &__close{
+    position: absolute;
+    right: 0.75rem;
+    top: 0.25rem;
+    background: transparent;
+    border-color: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+    &:hover{
+      color: var.$yellow;
+    }
+  }
+  &__text {
+    font-size: 2.5rem;
+    display: inline-block;
+    min-width: 50vw;
+    text-align: center;
   }
 }
 
@@ -206,11 +209,11 @@
 .reset {
   background-color: var.$white;
   border: 1px solid var.$yellow;
-  cursor: pointer;
   font-size: 1.2rem;
+  text-transform: capitalize;
+  cursor: pointer;
   padding: 0.3rem 0.7rem;
   @include mixins.radius('small');
-  text-transform: capitalize;
 }
 
 .offers {

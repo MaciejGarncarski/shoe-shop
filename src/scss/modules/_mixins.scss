@@ -36,13 +36,13 @@
 }
 
 @mixin glass{
-  background-color: rgba(var.$white, 0.7);
+  background-color: rgba(var.$white, 0.75);
+  backdrop-filter: blur(2px);
   @supports (not(backdrop-filter: blur(10px))){
     background-color: rgba(var.$white, 0.9);
   }
   border: 1px solid rgba(var.$black, 0.15);
   @include radius('big');
-  backdrop-filter: blur(10px);
   @include shadow;
 }
 

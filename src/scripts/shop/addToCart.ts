@@ -15,7 +15,7 @@ const showNotification = () => {
   const closeBtn = document.querySelector('.added-to-cart__close') as HTMLDivElement
   const active = 'added-to-cart--active'
   overlay.classList.remove(active)
-  setTimeout(() => overlay.classList.add(active), 500)
+  overlay.classList.add(active)
   closeBtn.addEventListener('click', () => overlay.classList.remove(active))
 }
 
