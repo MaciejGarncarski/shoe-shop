@@ -19,7 +19,7 @@ export const createCartList = (data: offerTypes[]) => {
         const newPrice = count * price
         const template = `
                 <li class="item">
-                    <img class="item__img" src="/images/shoes/${img}.png" alt="${name}">
+                    <img class="item__img" loading="lazy" src="/images/shoes/${img}.png" alt="${name}">
                     <p class="item__name">${name}</p>
                     <div class="item__change-price">
                         <p class="item__price">${newPrice}€ for</p>

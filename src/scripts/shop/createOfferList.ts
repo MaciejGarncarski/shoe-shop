@@ -20,7 +20,7 @@ export const createOfferList = (data: offerTypes) => {
 
         const template = `
                 <li class="product">
-                    <img class="product__img" src="/images/shoes/${img}.png" alt="${name}" />
+                    <img class="product__img" loading="lazy" src="/images/shoes/${img}.png" alt="${name}" />
                     <h2 class="product__name">${name}</h2>
                     <button title="add to cart" type="button" class="product__cart-btn">
                         <span class="fas fa-cart-plus"></span>
