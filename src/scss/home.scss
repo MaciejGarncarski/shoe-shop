@@ -72,9 +72,12 @@
 .home-h2,
 .button,
 .description {
-  animation: slide-up 1.75s ease forwards;
+  animation: slide-up 750ms ease forwards;
   opacity: 0;
   transform: translateY(3em);
+  @include mixins.mediaquery('xl'){
+    animation-duration: 1.75s;
+  }
 }
 
 .button {
