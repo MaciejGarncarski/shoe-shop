@@ -48,12 +48,11 @@
         background-position: 100% 0;
       }
     }
-    &__heading, &__description, &__button{
-      animation: slide-up 750ms ease forwards;
-      opacity: 0;
-      transform: translateY(3em);
-      @include mixins.mediaquery('xl'){
-        animation-duration: 1.75s;
+    @include mixins.mediaquery('xl'){
+        &__heading, &__description, &__button{
+        opacity: 0;
+        transform: translateY(3em);
+        animation: slide-up 1.25s ease forwards;
       }
     }
     &__bold{
