@@ -10,7 +10,7 @@
   justify-content: flex-end;
   padding: 2rem 0;
 
-  > h1 {
+  &__heading{
     display: none;
   }
 
@@ -19,9 +19,8 @@
     padding: 3em 6rem;
     padding-right: 0;
 
-    > h1 {
+    &__heading{
       @include mixins.heading;
-
       display: inline;
       font-size: 3em;
     }
