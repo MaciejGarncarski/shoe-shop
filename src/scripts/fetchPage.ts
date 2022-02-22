@@ -1,6 +1,6 @@
 const loader = `
 <div class="loader">
-    <span class="circle"></span>
+    <span class="loader__circle"></span>
 </div>
 `
 

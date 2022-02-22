@@ -1,0 +1,44 @@
+@use '../var';
+@use '../modules/mixins';
+
+.burger {
+    align-items: center;
+    background: 0;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 2rem;
+    justify-content: space-between;
+    left: 3em;
+    position: absolute;
+    width: 2.5rem;
+    z-index: 4;
+    @include mixins.mediaquery('xl') {
+      display: none;
+    }
+    &--active{
+      .burger__bar {
+        filter: none;
+      }
+    
+      .burger__bar--top {
+        transform: translateY(14px) rotate(45deg);
+      }
+    
+      .burger__bar--middle {
+        transform: rotate(-45deg);
+      }
+    
+      .burger__bar--bottom {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+    }
+    &__bar {
+      border-bottom: 3px solid var.$black;
+      transition: transform 300ms ease, opacity 200ms ease;
+      width: 100%;
+    }
+  }
+  

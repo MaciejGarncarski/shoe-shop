@@ -11,7 +11,7 @@ type offerTypes = {
 }
 
 export const createCartList = (data: offerTypes[]) => {
-  const container = document.querySelector('.items') as HTMLDivElement
+  const container = document.querySelector('.cart__items') as HTMLDivElement
   if (container) {
     container.innerHTML = ''
     container.innerHTML = data

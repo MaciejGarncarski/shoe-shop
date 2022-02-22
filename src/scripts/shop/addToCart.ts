@@ -12,7 +12,7 @@ type itemType = {
 
 const showNotification = () => {
   const overlay = document.querySelector('.added-to-cart') as HTMLDivElement
-  const closeBtn = document.querySelector('.added-to-cart__close') as HTMLDivElement
+  const closeBtn = document.querySelector('.added-to-cart__close-btn') as HTMLDivElement
   const active = 'added-to-cart--active'
   overlay.classList.remove(active)
   overlay.classList.add(active)

@@ -1,7 +1,7 @@
 <div class="shop-container">
     <div class="added-to-cart">
-        <button type="button" title="close" class="added-to-cart__close">
-            <i class="fa-solid fa-xmark"></i>
+        <button type="button" title="close" class="added-to-cart__close-btn">
+            <span class="fa-solid fa-xmark"></span>
         </button>
         <span class="added-to-cart__icon fa-regular fa-circle-check fa-2xl fa-beat"
             style="--fa-animation-iteration-count: 1;"></span>
@@ -11,31 +11,30 @@
         show/hide filters
     </button>
     <div class="filters">
-        <form class="form">
-            <div class="price-range">
-                <h2 class="filter-heading">Price range</h2>
-                <div class="input-container">
-                    <input type="number" min="0" id="min-price">
+        <form class="filters__form">
+            <div class="filters__price-range">
+                <h2 class="filters__heading">Price range</h2>
+                <div class="filters__input-container">
+                    <input type="number" min="0" class="filters__price" id="min-price">
                     <label for="min-price">min.</label>
                 </div>
-                <div class="input-container">
-                    <input type="number" min="0" id="max-price">
+                <div class="filters__input-container">
+                    <input type="number" min="0" class="filters__price" id="max-price">
                     <label for="max-price">max.</label>
                 </div>
             </div>
-            <div class="stars">
-                <h2 class="filter-heading stars__heading">Rating</h2>
-                <input type="number" min="1" max="5" step="1" id="star-count">
-                <label for="star-count" class="stars__label">
-                    <span class="label__icon fa-solid fa-star"></span>
-                    <span class="label__text">star count</span>
+            <div class="filters__star-container">
+                <h2 class="filters__heading filters__heading--star">Rating</h2>
+                <input type="number" min="1" max="5" step="1" class="filters__star-count" id="star-count">
+                <label for="star-count" class="filters__star">
+                    <span class="filters__label-icon fa-solid fa-star"></span>
+                    <span class="filters__label-text">star count</span>
                 </label>
             </div>
-            <input type="reset" class="reset" value="reset">
+            <input type="reset" class="filters__reset" value="reset">
         </form>
 
     </div>
-    <ul class=" offers">
-
+    <ul class="offers">
     </ul>
 </div>

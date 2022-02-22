@@ -1,7 +1,7 @@
 const createNotification = (parent: HTMLSpanElement) => {
   const notification = document.createElement('p')
   notification.textContent = 'Copied!'
-  notification.className = 'copy-notification'
+  notification.className = 'footer__copy-notification'
   parent.appendChild(notification)
 }
 

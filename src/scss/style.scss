@@ -1,14 +1,12 @@
+@use 'modules/animations';
+@use 'modules/mixins';
 @use 'var';
 @use 'header';
 @use 'footer';
 @use 'home';
-@use 'loader';
 @use 'shop';
 @use 'cart';
-@use 'offline';
-@use 'modules/animations';
-@use 'modules/mixins';
-
+@use 'misc';
 
 *,
 *::before,
@@ -81,9 +79,4 @@ body {
 .app {
   min-height: 78vh;
   position: relative;
-}
-
-.not-found {
-  @include mixins.flex-center;
-  min-height: 50vh;
 }

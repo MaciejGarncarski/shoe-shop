@@ -4,7 +4,7 @@ import { dynamicHash } from './dynamicHash'
 import { fetchPage } from './fetchPage'
 
 const handleLinkClick = () => {
-  const navLinks = document.querySelectorAll<HTMLLIElement>('.list__item')
+  const navLinks = document.querySelectorAll<HTMLLIElement>('.nav__item')
   navLinks.forEach((link) => {
     link.addEventListener('click', async (e: MouseEvent) => {
       e.preventDefault()

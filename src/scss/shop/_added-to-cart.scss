@@ -1,0 +1,56 @@
+@use '../var';
+@use '../modules/mixins';
+
+.added-to-cart {
+    @include mixins.flex-center;
+    flex-direction: column;
+    gap: 3rem;
+    @include mixins.glass;
+    @include mixins.radius('big');
+    font-size: 2rem;
+    position: fixed;
+    z-index: 2;
+    left: 50%;
+    top: 55%;
+    padding: 5rem 15vw;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms ease-in-out;
+    @include mixins.mediaquery('xl'){
+      left: 55%;
+      padding: 10rem 4vw;
+    }
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+    @keyframes rysuj {
+      to{
+        stroke-dashoffset: 0;
+      }
+    }
+    > svg {
+      stroke-dashoffset: 600;
+      animation: show-svg 450ms ease-in-out forwards;
+    }
+    &__close-btn{
+      position: absolute;
+      right: 0.75rem;
+      top: 0.25rem;
+      background: transparent;
+      border-color: transparent;
+      font-size: 2rem;
+      cursor: pointer;
+      &:hover{
+        color: var.$yellow;
+      }
+    }
+    &__text {
+      font-size: 2.5rem;
+      display: inline-block;
+      min-width: 50vw;
+      text-align: center;
+    }
+  }
+  

@@ -1,0 +1,17 @@
+@use '../var';
+@use '../modules/mixins';
+
+.offers {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    list-style: none;
+    padding: 3rem 1rem;
+    min-height: 70vh;
+    @include mixins.mediaquery('xl') {
+      justify-content: flex-start;
+      padding-left: 6rem;
+    }
+  }

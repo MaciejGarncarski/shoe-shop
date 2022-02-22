@@ -1,0 +1,17 @@
+@use '../var';
+@use '../modules/mixins';
+
+.item-count{
+    border-radius: 50%;
+    background-color: var.$yellow;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: calc(-0.5rem + -2vw);
+    top: -1.5vh;
+  }

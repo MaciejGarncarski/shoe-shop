@@ -29,7 +29,7 @@ export const createOfferList = (data: offerTypes) => {
                         ${discount !== 1 ? withDiscount : withoutDiscount}
                     </div>
                     <div class="product__stars-container">
-                        ${starCount.map(() => `<span class="gold fa-solid fa-star"></span>`).join('')}
+                        ${starCount.map(() => `<span class="product__star fa-solid fa-star"></span>`).join('')}
                     </div>
                 </li>
             `

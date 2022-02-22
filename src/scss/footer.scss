@@ -21,10 +21,20 @@
     justify-content: flex-start;
     gap: max(2rem, 10vw);
   }
-  > a {
-    color: var.$yellow;
-    font-weight: 700;
+  &__link{
+    color: var.$black;
     text-decoration: none;
+    margin: 1rem 0;
+    line-height: 1.5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: max(0.5rem, 0.5vw);
+    position: relative;
+    cursor: pointer;
+    > span {
+      color: var.$yellow;
+    }
   }
   &__heading{
     display: flex;
@@ -44,50 +54,29 @@
   }
   &__list{
     list-style: none;
+  }  
+  &__copy-notification{
+    position: absolute;
+    opacity: 0;
+    right: -50%;
+    transform: translateY(10px);
+    animation: slide-up 1s ease-in-out forwards;
+    @include mixins.gradient;
+    @include mixins.radius('small');
+    padding: 0 0.5rem;
+    font-weight: 700;
+    text-shadow: -1.5px 1.5px 0 var.$white;
   }
-}
-
-
-
-.list__link{
-    color: var.$black;
-    text-decoration: none;
-    margin: 1rem 0;
-    line-height: 1.5;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: max(0.5rem, 0.5vw);
-    position: relative;
-    cursor: pointer;
-    > span {
-      color: var.$yellow;
+  &__map{
+    width: 100%;
+    height: 100%;
+    grid-row: 1 / span 4;
+    grid-column: 2 / 3;
+    padding: 3rem 0;
+    padding-right: 5vw;
+    @include mixins.mediaquery('xl'){
+      padding: 0;
+      width: 35%;
     }
-  }
-
-
-.copy-notification{
-  position: absolute;
-  opacity: 0;
-  right: -50%;
-  transform: translateY(10px);
-  animation: slide-up 1s ease-in-out forwards;
-  @include mixins.gradient;
-  @include mixins.radius('small');
-  padding: 0 0.5rem;
-  font-weight: 700;
-  text-shadow: -1.5px 1.5px 0 var.$white;
-}
-
-.map{
-  width: 100%;
-  height: 100%;
-  grid-row: 1 / span 4;
-  grid-column: 2 / 3;
-  padding: 3rem 0;
-  padding-right: 5vw;
-  @include mixins.mediaquery('xl'){
-    padding: 0;
-    width: 35%;
   }
 }

@@ -25,3 +25,28 @@
     display: none;
   }
 }
+
+.not-found {
+    @include mixins.flex-center;
+    min-height: 50vh;
+}
+
+.loader {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    &__circle{
+        animation: rotate-loading 2s linear infinite forwards;
+        border-radius: 100%;
+        border-top: 5px solid var.$yellow;
+        height: calc(10vw + 10rem);
+        opacity: 1;
+        width: calc(10vw + 10rem);
+    }
+}
