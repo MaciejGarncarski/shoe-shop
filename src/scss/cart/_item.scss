@@ -7,7 +7,7 @@
     width: 80%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto) repeat(2, 1fr);
     place-items: center;
     opacity: 1;
     transition: all 1s ease;
@@ -38,25 +38,39 @@
         font-size: 1rem;
       }
     }
+    &__price-container{
+      grid-column: 2 / 3;
+    }
     &__price{
       font-weight: 700;
       color: var.$yellow;
+      width: 100%;
     }
     &__change-price{
-      display: flex;
-      gap: 5px;
-      justify-content: center;
-      align-items: center;
       grid-row: 4 / 5;
       grid-column: span 2;
+      display: grid;
+      width: 100%;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
+      @include mixins.mediaquery('xl'){
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+      }
     }
     &__count{
       @include mixins.input;
+      grid-row: 2 / 3;
+      width: 70%;
+      text-align: center;
       @include mixins.mediaquery('xl'){
         padding: .4rem;
+        max-width: 4vw;
+        text-align: right;
       }
-      max-width: 4vw;
-      text-align: right;
     }
     &__change-btn{
       padding: 0 0.5rem;
@@ -86,9 +100,27 @@
         height: auto;
       }
     }
+    &__pronoun{
+      grid-row: 3 / 4;
+      grid-column: 2 / 3;
+    }
   
     &--active{
       transform: translateY(2rem);
       opacity: 0;
     }
   }
+
+#minus{
+  grid-row: 2 / 3;
+}
+
+#plus{
+  grid-row: 2 / 3;
+  grid-column:  3 / 4;
+} 
+
+.fa-plus, .fa-minus{
+  color: var.$yellow;
+  filter: drop-shadow(-1.5px 1.5px rgba(var.$black, 0.4));
+}

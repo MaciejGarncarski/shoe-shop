@@ -23,10 +23,15 @@
       left: 50%;
       transform: translateX(-50%);
       padding: 1rem 1rem;
-      max-width: 20rem;
+      width: 60%;
       gap: 1rem;
       top: 3.5rem;
       display: none;
+      justify-content: center;
+      align-items: center;
+      @include mixins.mediaquery('xl'){
+        width: auto;
+      }
       &--active{
         display: flex;
       }
