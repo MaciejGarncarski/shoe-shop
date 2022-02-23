@@ -12,7 +12,7 @@
     opacity: 1;
     transition: all 1s ease;
     transition-property: transform, opacity;
-    transform: translateY(3rem);
+    transform: translateY(1rem);
     opacity: 0.6;
     animation: slide-up 0.75s ease-in-out forwards;
     @include mixins.mediaquery('xl'){
@@ -40,8 +40,8 @@
     }
     &__price{
       font-weight: 700;
+      color: var.$yellow;
     }
-    
     &__change-price{
       display: flex;
       gap: 5px;
@@ -49,11 +49,26 @@
       align-items: center;
       grid-row: 4 / 5;
       grid-column: span 2;
-      >input{
-        @include mixins.input;
-        text-align: right;
-        width: 5vw;
+    }
+    &__count{
+      @include mixins.input;
+      @include mixins.mediaquery('xl'){
+        padding: .4rem;
       }
+      max-width: 4vw;
+      text-align: right;
+    }
+    &__change-btn{
+      padding: 0 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 2rem;
+      @include mixins.radius('small');
+      border: 1px solid var.$yellow;
+      background-color: var.$white;
+      cursor: pointer;
     }
     &__delete-btn{
       border-color: transparent;

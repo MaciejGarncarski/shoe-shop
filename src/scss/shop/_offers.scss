@@ -13,5 +13,6 @@
     @include mixins.mediaquery('xl') {
       justify-content: flex-start;
       padding-left: 6rem;
+      gap: max(3vw, 1rem)
     }
   }

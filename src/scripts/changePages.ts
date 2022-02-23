@@ -1,7 +1,8 @@
-import { setWindowHash } from './setWindowHash'
+import { updateHistory } from './updateHistory'
 import { setActivePage } from './setActivePage'
 import { dynamicHash } from './dynamicHash'
 import { fetchPage } from './fetchPage'
+import { subpageFunctions } from './subpageFunctions'
 
 const handleLinkClick = () => {
   const navLinks = document.querySelectorAll<HTMLLIElement>('.nav__item')
@@ -12,8 +13,9 @@ const handleLinkClick = () => {
       const hash = window.location.hash.substring(1)
       if (destination !== hash) {
         await fetchPage(`/pages/${destination}.html`)
-        setWindowHash(destination)
+        updateHistory(destination)
         setActivePage()
+        subpageFunctions()
       }
     })
   })

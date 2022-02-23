@@ -1,11 +1,11 @@
 import { dynamicHash } from './dynamicHash'
 import { fetchPage } from './fetchPage'
-import { setWindowHash } from './setWindowHash'
+import { updateHistory } from './updateHistory'
 
 const checkIsHomepage = async () => {
   if (location.hash === '') {
     await fetchPage('pages/home.html')
-    setWindowHash('home')
+    updateHistory('home')
   } else {
     dynamicHash()
   }

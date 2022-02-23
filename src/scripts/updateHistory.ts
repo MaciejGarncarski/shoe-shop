@@ -1,4 +1,4 @@
-export const setWindowHash = (link: string | undefined) => {
+export const updateHistory = (link: string | undefined) => {
   if (history.pushState) {
     history.pushState(null, '', `#${link}`)
   } else {

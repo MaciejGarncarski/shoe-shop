@@ -1,4 +1,4 @@
-const activePage = () => {
+const mobileMenu = () => {
   const button = document.querySelector('.burger') as HTMLButtonElement
   const menu = document.querySelector('.nav__list') as HTMLUListElement
   button.addEventListener('click', () => {
@@ -8,4 +8,4 @@ const activePage = () => {
   })
 }
 
-export { activePage }
+export { mobileMenu }

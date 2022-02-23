@@ -34,7 +34,7 @@ body, button{
 }
 
 body {
-  background-color: var.$gray;
+  background-image: linear-gradient(to bottom left, var.$gray 30%, var.$white 100%);
   overflow-x: hidden;
   position: relative;
   &::before{

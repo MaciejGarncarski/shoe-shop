@@ -1,6 +1,5 @@
 import { addItems } from './addItems'
 import { deleteItem } from './deleteItem'
-import { focusElement } from './focusElement'
 
 type offerTypes = {
   name: string
@@ -22,9 +21,15 @@ export const createCartList = (data: offerTypes[]) => {
                     <img class="item__img" loading="lazy" src="/images/shoes/${img}.png" alt="${name}">
                     <p class="item__name">${name}</p>
                     <div class="item__change-price">
-                        <p class="item__price">${newPrice}€ for</p>
-                        <input type="number" value="${count}" min="1" step="1" title="add item" class="item__count"/>
-                        <p>item/items</p>
+                        <p><span class="item__price">${newPrice}€</span> for</p>
+                        <button type="button" id="minus" class="item__change-btn" title="delete one ${name}">
+                          <span class="fa-solid fa-minus"></span>
+                        </button>
+                        <input type="number" disabled value="${count}" min="1" step="1" title="${name} count" class="item__count"/>
+                        <button type="button" id="plus" class="item__change-btn" title="add one ${name}">
+                          <span class="fa-solid fa-plus"></span>
+                        </button>
+                        <p class="item__pronoun">${count === 1 ? 'item' : 'items'}</p>
                     </div>
                     <button class="item__delete-btn" type="button" title="delete item">
                         <span class="fa-solid fa-trash-can"></span>
@@ -37,7 +42,6 @@ export const createCartList = (data: offerTypes[]) => {
     if (container.innerHTML === '' || data.length === 0) {
       container.innerHTML = '<li><p>Your cart is empty.</p></li>'
     } else {
-      focusElement()
       deleteItem()
       addItems(data)
     }

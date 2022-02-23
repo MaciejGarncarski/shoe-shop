@@ -51,32 +51,7 @@
         transition: all 300ms ease;
         background-position: 100% 0;
       }
-    }
-    &__bold{
-      color: var.$black;
-      font-weight: 700;
-      display: inline-block;
-      padding: 3px 10px;
-      position: relative;
-      text-shadow: -2px 2px var.$white;
-      &::selection{
-        color: var.$black;
-        text-shadow: none;
-      }
-      &::before {
-        bottom: 0;
-        content: '';
-        left: -1.5%;
-        height: 100%;
-        background: linear-gradient(to bottom right, rgba(var.$white, 0.6), rgba(var.$gray, 1));
-        @include mixins.shadow;
-        border-radius: 3px;
-        position: absolute;
-        width: 103%;
-        z-index: -1;
-      }
-    }
-        
+    }    
     &__fire,
     &__hands,
     &__bear {
