@@ -35,8 +35,9 @@
       &--active{
         display: flex;
       }
-      &__price{
-        font-weight: 700;
-      }
+    }
+    &__total-price{
+      font-weight: 700;
+      
     }
   }
