@@ -12,9 +12,9 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: calc(-0.5rem + -2vw);
+    right: -30%;
     top: -1.5vh;
     opacity: 0;
-    transform:  translateY(1rem);
+    transform:  translateX(-50%) translateY(1rem);
     animation: slide-up 800ms ease forwards; 
   }

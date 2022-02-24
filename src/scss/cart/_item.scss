@@ -44,8 +44,6 @@
     }
     &__price{
       font-weight: 700;
-      color: var.$yellow;
-      width: 100%;
     }
     &__change-price{
       grid-row: 4 / 5;
@@ -90,6 +88,9 @@
       border: 1px solid var.$yellow;
       background-color: var.$white;
       cursor: pointer;
+      >svg:hover{
+        color: var.$black;
+      }
     }
     &__delete-btn{
       border-color: transparent;
@@ -102,6 +103,11 @@
       grid-row: 3 / 4;
       width: 45%;
       height: 45%;
+      transition: background-color 300ms ease-in-out;
+      &:hover{
+        background-color: var.$gray;
+        color: var.$black;
+      }
       @include mixins.mediaquery('xl'){
         width: auto;
         height: auto;

@@ -79,6 +79,10 @@
       }
       &.additional {
         z-index: 3;
+        > span:last-child{
+          right: -70%;
+          top: -60%;
+        }
       }
       &:focus {
         outline-offset: 0.6em;
