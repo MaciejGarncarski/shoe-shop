@@ -84,3 +84,15 @@
     border-radius: #{map-get($breakpoints, $size)};
   }
 }
+
+@mixin reduced-motion{
+  @media (prefers-reduced-motion){
+    @content;
+  }
+}
+
+@mixin normal-motion{
+  @media (prefers-reduced-motion: no-preference){
+    @content;
+  }
+}

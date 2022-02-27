@@ -58,7 +58,9 @@
     opacity: 0;
     right: -50%;
     transform: translateY(10px);
-    animation: slide-up 1s ease-in-out forwards;
+    @include mixins.normal-motion{
+      animation: slide-up 1s ease-in-out forwards;
+    }
     @include mixins.gradient;
     @include mixins.radius('small');
     padding: 0 0.5rem;

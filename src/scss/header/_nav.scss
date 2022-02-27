@@ -84,9 +84,6 @@
           top: -60%;
         }
       }
-      &:focus {
-        outline-offset: 0.6em;
-      }
       &--active > .nav__svg {
         display: block;
         stroke-dasharray: 600;

@@ -50,9 +50,11 @@
       min-width: 14rem;
       visibility: visible;
       position: sticky;
-      transform: translateX(-3rem);
-      opacity: 0;
-      animation: slide-left 0.75s ease-in-out forwards;
+      @include mixins.normal-motion{
+        transform: translateX(-3rem);
+        opacity: 0;
+        animation: slide-left 0.75s ease-in-out forwards;
+      }
     }
     &__heading{
       text-shadow: -2px 2px 0 var.$white;
@@ -108,8 +110,8 @@
       font-size: 1.2rem;
       text-transform: capitalize;
       cursor: pointer;
-      padding: 0.3rem 0.7rem;
-      @include mixins.radius('small');
+      padding: 0.3rem 1rem;
+      @include mixins.radius('big');
     }
     &__label-icon {
         color: var.$yellow;

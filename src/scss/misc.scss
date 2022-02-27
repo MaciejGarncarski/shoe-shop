@@ -3,7 +3,10 @@
 
 .offline {
   @include mixins.flex-center;
-  animation: slide-up 2s ease forwards;
+  @include mixins.normal-motion{
+    transform: translateY(3em);
+    animation: slide-up 2s ease forwards;
+  }
   backdrop-filter: blur(10px);
   background-color: rgba(var.$white, 0.8);
   border: 1px solid var.$white;
@@ -14,7 +17,6 @@
   left: 4%;
   position: fixed;
   top: 80%;
-  transform: translateY(3em);
   width: 92%;
   @include mixins.mediaquery('xl') {
     left: 35%;
@@ -45,11 +47,13 @@
     width: 100%;
     z-index: 1;
     &__circle{
+      @include mixins.normal-motion{
         animation: rotate-loading 2s linear infinite forwards;
+        opacity: 1;
+      }
         border-radius: 100%;
         border-top: 5px solid var.$yellow;
         height: calc(10vw + 10rem);
-        opacity: 1;
         width: calc(10vw + 10rem);
     }
 }

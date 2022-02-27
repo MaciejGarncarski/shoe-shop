@@ -31,8 +31,10 @@
       }
     }
     > svg {
-      stroke-dashoffset: 600;
-      animation: show-svg 450ms ease-in-out forwards;
+      @include mixins.normal-motion{
+        stroke-dashoffset: 600;
+        animation: show-svg 450ms ease-in-out forwards;
+      }
     }
     &__close-btn{
       position: absolute;
