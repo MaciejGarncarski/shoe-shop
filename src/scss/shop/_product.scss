@@ -47,7 +47,7 @@
     &__name {
       align-items: center;
       display: flex;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
       grid-column: span 3;
       justify-content: flex-start;
@@ -92,7 +92,6 @@
     }
   
     &__price--discounted {
-      font-size: 0.95rem;
       font-weight: 400;
       text-decoration: line-through;
     }

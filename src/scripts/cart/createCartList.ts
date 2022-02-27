@@ -29,7 +29,7 @@ export const createCartList = (data: offerTypes[]) => {
                         <button type="button" id="minus" class="item__change-btn" title="delete one ${name}">
                           <span class="fa-solid fa-minus"></span>
                         </button>
-                        <input type="number" disabled value="${count}" min="1" step="1" title="${name} count" class="item__count"/>
+                        <input type="number" value="${count}" min="1" step="1" title="${name} count" class="item__count"/>
                         <button type="button" id="plus" class="item__change-btn" title="add one ${name}">
                           <span class="fa-solid fa-plus "></span>
                         </button>

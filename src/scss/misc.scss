@@ -3,21 +3,23 @@
 
 .offline {
   @include mixins.flex-center;
+  flex-direction: column;
   @include mixins.normal-motion{
     transform: translateY(3em);
     animation: slide-up 2s ease forwards;
   }
   backdrop-filter: blur(10px);
-  background-color: rgba(var.$white, 0.8);
-  border: 1px solid var.$white;
+  background-color: rgba(var.$white, 0.95);
   @include mixins.radius('big');
-  flex-direction: column;
-  font-size: 1.5rem;
-  height: 5rem;
-  left: 4%;
+  border: 1px solid var.$white;
   position: fixed;
   top: 80%;
-  width: 92%;
+  left: 0;
+  height: 5rem;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  z-index: 3;
   @include mixins.mediaquery('xl') {
     left: 35%;
     width: 30%;
@@ -33,7 +35,7 @@
     min-height: 50vh;
     flex-direction: column;
     gap: 1rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .loader {
@@ -65,6 +67,8 @@
   padding: 3px 10px;
   position: relative;
   text-shadow: -2px 2px var.$white;
+  border: 1px solid rgba(var.$white, 0.75);
+  @include mixins.radius('small');
   &::selection{
     color: var.$black;
     text-shadow: none;
@@ -74,7 +78,7 @@
     content: '';
     left: -1.5%;
     height: 100%;
-    background: linear-gradient(to bottom right, rgba(var.$white, 0.6), rgba(var.$gray, 1));
+    background: linear-gradient(to bottom right, var.$white, var.$gray);
     @include mixins.shadow;
     border-radius: 3px;
     position: absolute;

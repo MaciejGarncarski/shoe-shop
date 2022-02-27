@@ -75,9 +75,11 @@
       @include mixins.input;
       grid-row: 2 / 3;
       width: 70%;
-      text-align: center;
+      text-align: right;
+      padding-right: 0;
       @include mixins.mediaquery('xl'){
         padding: .4rem;
+        padding-right: 0;
         max-width: 4vw;
         text-align: right;
       }

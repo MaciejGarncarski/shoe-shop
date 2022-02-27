@@ -18,32 +18,17 @@ export const addItems = (data: offerTypes[]) => {
     const itemName = item.querySelector('.item__name') as HTMLParagraphElement
     const itemPrice = item.querySelector('.item__price') as HTMLParagraphElement
     const itemCount = item.querySelector('.item__count') as HTMLInputElement
-    const itemPronun = item.querySelector('.item__pronoun') as HTMLInputElement
+    const itemPlural = item.querySelector('.item__pronoun') as HTMLInputElement
 
-    const updateItem = (operation: string) => {
-      const currentItemData: offerTypes = data.find(({ name }) => name === itemName.textContent) || defaultObj
-      const oldData = data.filter(({ name }) => name !== itemName.textContent)
-
-      const setPronoun = () => {
-        if (currentItemData.count === 1) {
-          itemPronun.textContent = 'item'
-        } else {
-          itemPronun.textContent = 'items'
-        }
+    const setPlural = (currentItemData: offerTypes) => {
+      if (currentItemData.count === 1) {
+        itemPlural.textContent = 'item'
+      } else {
+        itemPlural.textContent = 'items'
       }
+    }
 
-      if (operation === 'plus') {
-        if (currentItemData.count >= 1 && currentItemData.count <= 50) {
-          currentItemData.count++
-        }
-        setPronoun()
-      } else if (operation === 'minus') {
-        if (currentItemData.count > 1) {
-          currentItemData.count--
-        }
-        setPronoun()
-      }
-
+    const displayNewCount = (currentItemData: offerTypes, oldData: offerTypes[]) => {
       itemPrice.textContent = `${currentItemData.price * currentItemData.count}€`
       itemCount.value = currentItemData?.count.toString() || ''
       const newData = [currentItemData, ...oldData]
@@ -52,7 +37,34 @@ export const addItems = (data: offerTypes[]) => {
       cartItemCount()
     }
 
+    const handleInputChange = () => {
+      const currentItemData: offerTypes = data.find(({ name }) => name === itemName.textContent) || defaultObj
+      const oldData = data.filter(({ name }) => name !== itemName.textContent)
+      currentItemData.count = +itemCount.value
+      displayNewCount(currentItemData, oldData)
+      setPlural(currentItemData)
+    }
+
+    const updateItem = (operation: string) => {
+      const currentItemData: offerTypes = data.find(({ name }) => name === itemName.textContent) || defaultObj
+      const oldData = data.filter(({ name }) => name !== itemName.textContent)
+
+      if (operation === 'plus') {
+        if (currentItemData.count >= 1 && currentItemData.count <= 50 && +itemCount.value <= 50) {
+          currentItemData.count = +itemCount.value + 1
+        }
+        setPlural(currentItemData)
+      } else if (operation === 'minus') {
+        if (currentItemData.count > 1 && +itemCount.value > 1) {
+          currentItemData.count = +itemCount.value - 1
+        }
+        setPlural(currentItemData)
+      }
+      displayNewCount(currentItemData, oldData)
+    }
+
     plus.addEventListener('click', () => updateItem('plus'))
     minus.addEventListener('click', () => updateItem('minus'))
+    itemCount.addEventListener('change', handleInputChange)
   })
 }
