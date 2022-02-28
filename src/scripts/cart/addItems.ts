@@ -41,6 +41,9 @@ export const addItems = (data: offerTypes[]) => {
       const currentItemData: offerTypes = data.find(({ name }) => name === itemName.textContent) || defaultObj
       const oldData = data.filter(({ name }) => name !== itemName.textContent)
       currentItemData.count = +itemCount.value
+      if (+itemCount.value <= 0) {
+        currentItemData.count = 1
+      }
       displayNewCount(currentItemData, oldData)
       setPlural(currentItemData)
     }
