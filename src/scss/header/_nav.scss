@@ -35,7 +35,11 @@
         position: static;
       }
       &--active {
-        background-color: var.$gray;
+        background-color: rgba(var.$white, 0.9);
+        @supports (backdrop-filter: blur(20px)){
+          background-color: rgba(var.$white, 0.75);
+          backdrop-filter: blur(15px);
+        }
         opacity: 1;
         visibility: visible;
       }
