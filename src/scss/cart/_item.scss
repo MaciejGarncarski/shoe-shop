@@ -3,7 +3,6 @@
 
 .item {
     @include mixins.glass;
-    user-select: none;
     width: 80%;
     display: grid;
     grid-template-columns: 1fr;
@@ -75,7 +74,7 @@
       @include mixins.input;
       grid-row: 2 / 3;
       width: 70%;
-      text-align: right;
+      text-align: center;
       padding-right: 0;
       @include mixins.mediaquery('xl'){
         padding: .4rem;

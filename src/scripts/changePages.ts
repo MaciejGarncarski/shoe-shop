@@ -10,7 +10,7 @@ const handleLinkClick = () => {
     link.addEventListener('click', async (e: MouseEvent) => {
       e.preventDefault()
       const destination = link.dataset.to
-      const hash = window.location.hash.substring(1)
+      const hash = location.pathname.substring(1)
       if (destination !== hash) {
         await fetchPage(`/pages/${destination}.html`)
         updateHistory(destination)

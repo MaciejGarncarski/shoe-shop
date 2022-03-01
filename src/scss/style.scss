@@ -19,7 +19,7 @@
 ::selection {
   background: var.$yellow;
   color: var.$white;
-  text-shadow: -2px 2px var.$black;
+  filter: none;
 }
 
 html,

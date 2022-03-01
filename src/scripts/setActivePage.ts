@@ -3,7 +3,7 @@ export const setActivePage = () => {
   const homeLink = linkList[0]
   linkList.forEach((link) => {
     const linkParent = link.parentNode as HTMLLIElement
-    const hash = location.hash.substring(1)
+    const hash = location.pathname.substring(1)
     link.classList.remove('nav__link--active')
     if (hash === linkParent.dataset.to) {
       link.classList.add('nav__link--active')

@@ -3,7 +3,7 @@ import { fetchPage } from './fetchPage'
 import { updateHistory } from './updateHistory'
 
 const checkIsHomepage = async () => {
-  if (location.hash === '') {
+  if (location.pathname === '/') {
     await fetchPage('pages/home.html')
     updateHistory('home')
   } else {
