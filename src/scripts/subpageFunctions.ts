@@ -9,7 +9,7 @@ import { addToCart } from './shop/addToCart'
 import { totalPrice } from './cart/totalPrice'
 
 const shopFunctions = () => {
-  const hash = window.location.hash.substring(1)
+  const hash = location.pathname.substring(1)
   if (hash === 'shop') {
     createOfferList(offers)
     addToCart()
@@ -20,7 +20,7 @@ const shopFunctions = () => {
 }
 
 const cartFunctions = () => {
-  const hash = window.location.hash.substring(1)
+  const hash = location.pathname.substring(1)
   if (localStorage.getItem('cart') && hash === 'cart') {
     const data = JSON.parse(localStorage.getItem('cart') || '')
     createCartList(data)
