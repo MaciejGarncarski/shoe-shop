@@ -4,8 +4,8 @@ import { updateHistory } from './updateHistory'
 import { subpageFunctions } from './subpageFunctions'
 const dynamicHash = async () => {
   const hashArr = ['home', 'shop', 'cart']
-  const hash = location.pathname.substring(1)
-  if (!hashArr.includes(location.pathname.substring(1))) {
+  const hash = location.hash.substring(1)
+  if (!hashArr.includes(location.hash.substring(1))) {
     await fetchPage('pages/404.html')
     updateHistory('404')
   } else {
