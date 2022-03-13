@@ -12,10 +12,10 @@
       drop-shadow(-2px -2px 1px var.$white);
     height: 70%;
     position: absolute;
-    right: 3vw;
+    right: 5vw;
     top: 4em;
     transform-origin: right;
-    width: auto;
+    width: calc(25vw + 10rem);
     @include mixins.mediaquery('xl') {
       display: block;
     }

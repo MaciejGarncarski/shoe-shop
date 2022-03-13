@@ -53,8 +53,9 @@
       display: grid;
       width: 100%;
       grid-template-rows: repeat(3, 1fr);
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 40% 1fr;
       place-items: center;
+      padding: 0 2rem;
       @include mixins.mediaquery('xl'){
         display: flex;
         width: auto;
@@ -73,13 +74,13 @@
     &__count{
       @include mixins.input;
       grid-row: 2 / 3;
-      width: 70%;
       text-align: center;
       padding-right: 0;
+      width: 100%;
       @include mixins.mediaquery('xl'){
         padding: .4rem;
-        padding-right: 0;
-        max-width: 4vw;
+        padding-right: 0.5rem;
+        max-width: 5rem;
         text-align: right;
       }
     }
@@ -90,12 +91,16 @@
       align-items: center;
       font-weight: 700;
       font-size: 1.5rem;
-      @include mixins.radius('big');
-      border: 1px solid var.$yellow;
-      background-color: var.$white;
+      background: none;
+      border: none;
+      filter: drop-shadow(-1px 1px 0px var.$black);
       cursor: pointer;
-      >svg:hover{
-        color: var.$black;
+      &:hover, &:focus{
+        @include mixins.radius('small');
+        background-color: var.$gray;
+        > svg{
+          color: var.$black;
+        }
       }
     }
     &__delete-btn{
@@ -110,7 +115,7 @@
       width: 45%;
       height: 45%;
       transition: background-color 300ms ease-in-out;
-      &:hover{
+      &:hover, &:focus{
         background-color: var.$gray;
         color: var.$black;
       }

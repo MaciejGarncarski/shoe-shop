@@ -17,6 +17,9 @@ const copy = (el: Event) => {
           const parent = el.target as HTMLSpanElement
           if (!parent.childNodes[3]) {
             createNotification(parent)
+          } else {
+            parent.querySelector('.footer__copy-notification')?.remove()
+            createNotification(parent)
           }
         })
         .catch((e) => console.error(e))

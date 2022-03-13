@@ -32,6 +32,6 @@ const filter = () => {
 }
 
 export const handleFilter = () => {
-  const form = document.querySelector('form')
-  form?.addEventListener('input', filter)
+  const form = document.querySelector('form') as HTMLFormElement
+  form.addEventListener('input', filter)
 }

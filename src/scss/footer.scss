@@ -48,7 +48,10 @@
     gap: max(.5rem, 1vh);
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    @include mixins.mediaquery('xl'){
+      align-items: flex-start;
+    }
   }
   &__list{
     list-style: none;
@@ -67,4 +70,8 @@
     font-weight: 700;
     text-shadow: -1.5px 1.5px 0 var.$white;
   }
+}
+
+[data-copy]{
+  cursor: copy;
 }

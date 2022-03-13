@@ -18,7 +18,7 @@
       max-height: 13rem;
       width: 19rem;
     }
-    &:hover {
+    &:hover, &:focus {
         > .product__img {
           transform: rotate(-25deg) scale(1.2);
         }
@@ -65,7 +65,7 @@
       user-select: none;
       transition: all 0.3s ease-in-out;
       transition-property: color, background-color;
-      &:hover{
+      &:hover, &:focus{
         background-color: var.$gray;
         color: var.$black;
         cursor: pointer;
