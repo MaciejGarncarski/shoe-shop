@@ -1,6 +1,6 @@
 {
   "name": "shoe-shop",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -11,15 +11,17 @@
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
     "eslint": "^7.12.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-promise": "^4.2.1",
     "prettier": "^2.5.1"
   },
   "dependencies": {
-    "sass": "^1.45.1"
+    "sass": "^1.45.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0"
   }
 }

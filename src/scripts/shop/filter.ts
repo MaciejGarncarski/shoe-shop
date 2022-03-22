@@ -1,4 +1,5 @@
 import { offers } from '../../data/offers'
+import { addToCart } from './addToCart'
 import { createOfferList } from './createOfferList'
 
 const handleErrorMessage = (element: Element) => {
@@ -29,6 +30,7 @@ const filter = () => {
   })
   createOfferList(filteredOffers)
   handleErrorMessage(offersContainer)
+  addToCart()
 }
 
 export const handleFilter = () => {

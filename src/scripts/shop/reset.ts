@@ -9,7 +9,6 @@ export const resetForm = () => {
   if (resetButton) {
     resetButton.addEventListener('click', () => {
       createOfferList(offers)
-      console.log('XD?')
       addToCart()
       handleFilter()
       resetForm()

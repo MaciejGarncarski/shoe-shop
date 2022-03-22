@@ -11,6 +11,7 @@ Typescript app, created to understand how much React makes life easier. I learne
 ## Tech used 🔧
 - Typescript
 - SASS
+- Font Awesome
 
 ## Screenshot 📺
 ### Light Theme
