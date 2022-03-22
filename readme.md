@@ -15,11 +15,11 @@ Typescript app, created to understand how much React makes life easier. I learne
 
 ## Screenshot 📺
 ### Light Theme
-![Website preview](https://github.com/MaciejGarncarski/maciejgarncarski.github.io/blob/main/screenshots/home.png?raw=true "Homepage")
+![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/home.png?raw=true?raw=true "Homepage")
 ### Dark Theme
-![Website preview](https://github.com/MaciejGarncarski/maciejgarncarski.github.io/blob/main/screenshots/shop.png?raw=true  "Shop")
+![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/shop.png?raw=true?raw=true  "Shop")
 ### Page Preview
-![Website preview](https://github.com/MaciejGarncarski/maciejgarncarski.github.io/blob/main/screenshots/cart.png?raw=true  "Cart")
+![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/cart.png?raw=true?raw=true  "Cart")
 
 ## Instalation & running 💾
 
