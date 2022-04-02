@@ -13,3 +13,11 @@ export type offerTypes = {
   img: string
   stars: number
 }
+
+export type itemTypes = {
+  name: string
+  price: number
+  discount: number
+  count: number
+  img: string
+}

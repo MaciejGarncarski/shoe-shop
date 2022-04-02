@@ -2,128 +2,158 @@
 @use '../modules/mixins';
 
 .show-filters {
-    @include mixins.glass;
-    padding: 0.5rem 1rem;
-    text-transform: capitalize;
-    position: fixed;
-    z-index: 2;
-    cursor: pointer;
-    font-weight: 700;
-    @include mixins.mediaquery('xl') {
-      display: none;
+  @include mixins.glass;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  position: fixed;
+  z-index: 2;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.25rem;
+  @include mixins.radius('small');
+
+  @include mixins.mediaquery('xl') {
+    display: none;
+  }
+}
+
+.filters {
+  @include mixins.flex-center;
+  @include mixins.glass;
+  flex-direction: column;
+  gap: 2rem;
+  max-height: 70vh;
+  left: 0;
+  top: 17%;
+  width: 10rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease;
+  position: absolute;
+
+  @media screen and (max-width: var.$big-screen) {
+    &--active {
+      position: fixed;
+      left: 50%;
+      top: 25%;
+      opacity: 1;
+      transform: translateX(-50%);
+      height: 27rem;
+      width: min(90vw, 25rem);
+      z-index: 1;
+      visibility: visible;
     }
   }
-  
-  .filters {
+
+  @include mixins.mediaquery('xl') {
+    gap: 2rem;
+    padding: 2rem;
+    opacity: 1;
+    top: 30.5%;
+    left: 2.5%;
+    min-width: 14rem;
+    visibility: visible;
+    position: sticky;
+
+    @include mixins.normal-motion {
+      transform: translateX(-3rem);
+      opacity: 0;
+      animation: slide-left 0.75s ease-in-out forwards;
+    }
+  }
+
+  &__heading {
+    text-shadow: -2px 2px 0 var.$white;
+
+    &--star {
+      text-align: center;
+      grid-column: span 2;
+    }
+  }
+
+  &__form {
     @include mixins.flex-center;
-    @include mixins.glass;
     flex-direction: column;
     gap: 2rem;
-    max-height: 70vh;
-    left: 0;
-    top: 17%;
-    width: 10rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 300ms ease;
-    position: absolute;
-    @media screen and (max-width: var.$big-screen) {
-      &--active {
-        position: fixed;
-        left: 50%;
-        top: 25%;
-        opacity: 1;
-        transform: translateX(-50%);
-        height: 27rem;
-        width: min(90vw, 25rem);
-        z-index: 1;
-        visibility: visible;
-      }
-    }
-  
+    width: 100%;
+
     @include mixins.mediaquery('xl') {
-      gap: 2rem;
-      padding: 2rem;
-      opacity: 1;
-      top: 30.5%;
-      left: 2.5%;
-      min-width: 14rem;
-      visibility: visible;
-      position: sticky;
-      @include mixins.normal-motion{
-        transform: translateX(-3rem);
-        opacity: 0;
-        animation: slide-left 0.75s ease-in-out forwards;
-      }
+      gap: 2.5rem;
     }
-    &__heading{
-      text-shadow: -2px 2px 0 var.$white;
-      &--star{
-        text-align: center;
-        grid-column: span 2;
-      }
-    }
-    &__form {
-      @include mixins.flex-center;
-      flex-direction: column;
-      gap: 2rem;
-      width: 100%;
-      @include mixins.mediaquery('xl') {
-        gap: 2.5rem;
-      }
-    }
-    &__price-range {
-      @include mixins.flex-center;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    &__input-container {
-      @include mixins.flex-center;
-      flex-direction: column;
+  }
+
+  &__price-range {
+    @include mixins.flex-center;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__input-container {
+    @include mixins.flex-center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__price {
+    @include mixins.input;
+    width: 70%;
+
+
+    @include mixins.mediaquery('xl') {
       width: 100%;
     }
-    &__price{
-      @include mixins.input;
-      width: 70%;
-      @include mixins.mediaquery('xl') {
-        width: 100%;
-      }
+  }
+
+  &__star-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    row-gap: 1rem;
+  }
+
+  &__star {
+    @include mixins.flex-center;
+  }
+
+  &__star-count {
+    @include mixins.input;
+    text-align: center;
+    width: 5rem;
+  }
+
+  &__reset {
+    background-color: var.$white;
+    border: 1px solid var.$yellow;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 0.3rem 1rem;
+    @include mixins.radius('big');
+  }
+
+  &__label-icon {
+    color: var.$yellow;
+    font-size: 1.5rem;
+    justify-self: center;
+
+    path {
+      stroke: var.$black;
+      stroke-width: 12px;
     }
-    &__star-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto 1fr;
-      align-items: center;
-      row-gap: 1rem;
-    }
-    &__star{
-      @include mixins.flex-center;
-    }
-    &__star-count{
-      @include mixins.input;
-      text-align: center;
-      width: 4rem;
-    }
-    &__reset {
-      background-color: var.$white;
-      border: 1px solid var.$yellow;
-      font-size: 1.2rem;
-      text-transform: capitalize;
-      cursor: pointer;
-      padding: 0.3rem 1rem;
-      @include mixins.radius('big');
-    }
-    &__label-icon {
-        color: var.$yellow;
-        font-size: 1.5rem;
-        justify-self: center;
-        path{
-          stroke: var.$black;
-          stroke-width: 12px;
-        }
-      }
-      &__label-text {
-        position: absolute;
-        visibility: hidden;
-      }
-    }
+  }
+
+  &__label-text {
+    position: absolute;
+    visibility: hidden;
+  }
+}
+
+
+.not-found-message {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20rem;
+  font-weight: 900;
+}

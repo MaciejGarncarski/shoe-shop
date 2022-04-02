@@ -6,11 +6,12 @@ import { subpageFunctions } from './subpageFunctions'
 
 const handleLinkClick = () => {
   const navLinks = document.querySelectorAll<HTMLLIElement>('.nav__item')
+  const hash = location.hash.substring(1)
+
   navLinks.forEach((link) => {
-    link.addEventListener('click', async (e: MouseEvent) => {
-      e.preventDefault()
+    link.addEventListener('click', async (event: MouseEvent) => {
+      event.preventDefault()
       const destination = link.dataset.to
-      const hash = location.hash.substring(1)
       if (destination !== hash) {
         await fetchPage(`/pages/${destination}.html`)
         updateHistory(destination)

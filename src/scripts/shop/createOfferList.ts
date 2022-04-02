@@ -1,12 +1,6 @@
-type offerTypes = {
-  name: string
-  price: number
-  discount: number
-  img: string
-  stars: number
-}[]
+import { offerTypes } from '../../types/types'
 
-export const createOfferList = (data: offerTypes) => {
+export const createOfferList = (data: offerTypes[]) => {
   const offersContainer = document.querySelector('.offers') as HTMLDivElement
   if (offersContainer) {
     offersContainer.textContent = ''

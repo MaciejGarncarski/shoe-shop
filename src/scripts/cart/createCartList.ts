@@ -43,7 +43,7 @@ export const createCartList = (data: offerTypes[]) => {
         return template
       })
       .join('')
-    if (container.innerHTML === '' || data.length === 0) {
+    if (data.length === 0) {
       container.innerHTML = '<li><p>Your cart is empty.</p></li>'
     } else {
       deleteItem()

@@ -2,150 +2,172 @@
 @use '../modules/mixins';
 
 .item {
-    @include mixins.glass;
-    width: 80%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, auto) repeat(2, 1fr);
-    place-items: center;
-    transition: all 1s ease;
-    transition-property: transform, opacity;
-    @include mixins.normal-motion{
-      transform: translateY(1rem);
-      opacity: 0.6;
-      animation: slide-up 0.75s ease-in-out forwards;
+  @include mixins.glass;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto) repeat(2, 1fr);
+  place-items: center;
+  transition: all 1s ease;
+  transition-property: transform, opacity;
+
+  @include mixins.normal-motion {
+    transform: translateY(1rem);
+    opacity: 0.6;
+    animation: slide-up 0.75s ease-in-out forwards;
+  }
+
+  @include mixins.mediaquery('xl') {
+    padding: 0 2rem;
+    width: 60%;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, auto) 1fr auto;
+  }
+
+  &__img {
+    grid-column: span 2;
+
+    @include mixins.mediaquery('xl') {
+      grid-column: 1 / 2;
     }
-    @include mixins.mediaquery('xl'){
-      padding: 0 2rem;
-      width: 60%;
-      grid-template-rows: auto;
-      grid-template-columns: repeat(2, auto) 1fr auto;
-    }
-    &__img {
-      grid-column: span 2;
-      @include mixins.mediaquery('xl'){
-        grid-column: 1 / 2;      
-      }
-      >img{
-        max-height: 7rem;
-        object-fit: contain;
-      }
-    }
-    &__name{
-      grid-row: 2 / 3;
-      font-size: 1.5rem;
-      font-weight: 700;
-      @include mixins.mediaquery('xl'){
-        font-size: 1rem;
-        grid-row: span 1;
-        padding-left: 3vw;
-      }
-    }
-    &__price-container{
-      grid-column: 2 / 3;
-    }
-    &__price{
-      font-weight: 700;
-    }
-    &__change-price{
-      grid-row: 4 / 5;
-      grid-column: span 2;
-      display: grid;
-      width: 100%;
-      grid-template-rows: repeat(3, 1fr);
-      grid-template-columns: 1fr 40% 1fr;
-      place-items: center;
-      padding: 0 2rem;
-      @include mixins.mediaquery('xl'){
-        display: flex;
-        width: auto;
-        gap: 5px;
-        justify-content: center;
-        align-items: center;
-        grid-row: span 1;
-        grid-column: 3 / 4;
-        justify-self: flex-end;
-        place-items: center end;
-        padding-right: 4rem;
-        position: relative;
-        right: 5%;
-      }
-    }
-    &__count{
-      @include mixins.input;
-      grid-row: 2 / 3;
-      text-align: center;
-      padding-right: 0;
-      width: 100%;
-      @include mixins.mediaquery('xl'){
-        padding: .4rem;
-        padding-right: 0.5rem;
-        max-width: 5rem;
-        text-align: right;
-      }
-    }
-    &__change-btn{
-      padding: 0.3rem 0.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 700;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      filter: drop-shadow(-1px 1px 0px var.$black);
-      cursor: pointer;
-      &:hover, &:focus{
-        @include mixins.radius('small');
-        background-color: var.$gray;
-        > svg{
-          color: var.$black;
-        }
-      }
-    }
-    &__delete-btn{
-      border-color: transparent;
-      background-color: var.$yellow;
-      padding: 0.25rem 0.4rem;
-      @include mixins.radius('small');
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: var.$white;
-      grid-row: 3 / 4;
-      width: 45%;
-      height: 45%;
-      transition: background-color 300ms ease-in-out;
-      &:hover, &:focus{
-        background-color: var.$gray;
-        color: var.$black;
-      }
-      @include mixins.mediaquery('xl'){
-        width: auto;
-        height: auto;
-        grid-row: span 1;
-        grid-column: 4 / 5;
-      }
-    }
-    &__pronoun{
-      grid-row: 3 / 4;
-      grid-column: 2 / 3;
-    }
-  
-    &--active{
-      transform: translateY(2rem);
-      opacity: 0;
+
+    >img {
+      max-height: 7rem;
+      object-fit: contain;
     }
   }
 
-#minus{
+  &__name {
+    grid-row: 2 / 3;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @include mixins.mediaquery('xl') {
+      font-size: 1rem;
+      grid-row: span 1;
+      padding-left: 3vw;
+    }
+  }
+
+  &__price-container {
+    grid-column: 2 / 3;
+  }
+
+  &__price {
+    font-weight: 700;
+  }
+
+  &__change-price {
+    grid-row: 4 / 5;
+    grid-column: span 2;
+    display: grid;
+    width: 100%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 40% 1fr;
+    place-items: center;
+    padding: 0 2rem;
+
+    @include mixins.mediaquery('xl') {
+      display: flex;
+      width: auto;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+      grid-row: span 1;
+      grid-column: 3 / 4;
+      justify-self: flex-end;
+      place-items: center end;
+      padding-right: 4rem;
+      position: relative;
+      right: 5%;
+    }
+  }
+
+  &__count {
+    @include mixins.input;
+    grid-row: 2 / 3;
+    text-align: center;
+    padding: 0.5rem 0;
+    width: 100%;
+
+    @include mixins.mediaquery('xl') {
+      padding: .5rem;
+      max-width: 5rem;
+      text-align: right;
+    }
+  }
+
+  &__change-btn {
+    padding: 0.3rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    filter: drop-shadow(-1px 1px 0px var.$black);
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      @include mixins.radius('small');
+      background-color: var.$gray;
+
+      >svg {
+        color: var.$black;
+      }
+    }
+  }
+
+  &__delete-btn {
+    border-color: transparent;
+    background-color: var.$yellow;
+    padding: 0.25rem 0.4rem;
+    @include mixins.radius('small');
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var.$white;
+    grid-row: 3 / 4;
+    width: 45%;
+    height: 45%;
+    transition: background-color 300ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      background-color: var.$gray;
+      color: var.$black;
+    }
+
+    @include mixins.mediaquery('xl') {
+      width: auto;
+      height: auto;
+      grid-row: span 1;
+      grid-column: 4 / 5;
+    }
+  }
+
+  &__pronoun {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+  }
+
+  &--active {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+}
+
+#minus {
   grid-row: 2 / 3;
 }
 
-#plus{
+#plus {
   grid-row: 2 / 3;
-  grid-column:  3 / 4;
-} 
+  grid-column: 3 / 4;
+}
 
-.fa-plus, .fa-minus{
+.fa-plus,
+.fa-minus {
   color: var.$yellow;
 }

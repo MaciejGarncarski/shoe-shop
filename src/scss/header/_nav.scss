@@ -2,103 +2,121 @@
 @use '../modules/mixins';
 
 .nav {
-    @include mixins.flex-center;
-    padding-right: 2.5rem;
+  @include mixins.flex-center;
+  padding-right: 2.5rem;
+
+  @include mixins.mediaquery('xl') {
+    padding-right: 6rem;
+  }
+
+  &__list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    list-style: none;
+    opacity: 0;
+    padding: 2em 0;
+    position: absolute;
+    gap: 5.5rem;
+    transition: all 150ms;
+    transition-property: opacity, visibility;
+    visibility: hidden;
+    width: 100%;
+    z-index: 4;
+
     @include mixins.mediaquery('xl') {
-      padding-right: 6rem;
+      background: none;
+      flex-direction: row;
+      gap: max(6vw, 8rem);
+      height: auto;
+      opacity: 1;
+      padding: 0;
+      position: static;
     }
-    &__list{
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      justify-content: center;
-      left: 0;
-      top: 0;
-      list-style: none;
-      opacity: 0;
-      padding: 2em 0;
-      position: absolute;
-      gap: 5.5rem;
-      transition: all 150ms;
-      transition-property: opacity, visibility;
-      visibility: hidden;
+
+    &--active {
+      background-color: rgba(var.$white, 0.9);
+
+      @supports (backdrop-filter: blur(20px)) {
+        background-color: rgba(var.$white, 0.75);
+        backdrop-filter: blur(15px);
+      }
+
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__svg {
+    display: none;
+    left: -4em;
+    position: absolute;
+    stroke: var.$yellow;
+    top: -0.8em;
+    width: 12em;
+
+    @include mixins.mediaquery('xl') {
+      left: -1.5em;
+      top: -1em;
+      width: 8.5em;
+    }
+
+    >svg {
+      height: 100%;
       width: 100%;
-      z-index: 4;
-      @include mixins.mediaquery('xl') {
-        background: none;
-        flex-direction: row;
-        gap: max(6vw, 8rem);
-        height: auto;
-        opacity: 1;
-        padding: 0;
-        position: static;
-      }
-      &--active {
-        background-color: rgba(var.$white, 0.9);
-        @supports (backdrop-filter: blur(20px)){
-          background-color: rgba(var.$white, 0.75);
-          backdrop-filter: blur(15px);
-        }
-        opacity: 1;
-        visibility: visible;
-      }
     }
-    &__svg {
-      display: none;
-      left: -4em;
-      position: absolute;
-      stroke: var.$yellow;
-      top: -0.8em;
-      width: 12em;
-      @include mixins.mediaquery('xl') {
-        left: -1.5em;
-        top: -1em;
-        width: 8.5em;
-      }
-    
-      > svg {
-        height: 100%;
-        width: 100%;
-      }
-    }
-    &__link{
-      color: var.$dark;
-      @include mixins.flex-center;
-      filter: drop-shadow(-3px 3px 0 var.$white);
-      flex-direction: column;
-      font-size: 1.5rem;
-      font-weight: 700;
-      gap: 0.5em;
-      position: relative;
-      text-decoration: none;
-      text-transform: uppercase;
-      @include mixins.mediaquery('xl') {
-        flex-direction: row;
-        visibility: visible;
-        z-index: 3;
-        &.additional {
-          display: none;
-        }
-      }
+  }
+
+  &__link {
+    color: var.$dark;
+    @include mixins.flex-center;
+    filter: drop-shadow(-3px 3px 0 var.$white);
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-weight: 700;
+    gap: 0.5em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include mixins.mediaquery('xl') {
+      flex-direction: row;
+      visibility: visible;
+      z-index: 3;
+
       &.additional {
-        z-index: 3;
-        > span:last-child{
-          right: -70%;
-          top: -60%;
-        }
+        display: none;
       }
-      &--active > .nav__svg {
-        display: block;
-        stroke-dasharray: 600;
-        stroke-dashoffset: 600;
-        animation: show-svg 450ms ease-in-out forwards;
-        @media (prefers-reduced-motion) {
-          stroke-dasharray: 0;
-          stroke-dashoffset: 0;
-          animation: none;
-        }
+    }
+
+    &.additional {
+      z-index: 3;
+      background-color: var.$white;
+      padding: 0.5rem;
+      @include mixins.radius('small');
+      @include mixins.shadow;
+
+      >span:last-child {
+        right: -60%;
+        top: -50%;
+      }
+    }
+
+    &--active>.nav__svg {
+      display: block;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: show-svg 450ms ease-in-out forwards;
+
+      @media (prefers-reduced-motion) {
+        stroke-dasharray: 0;
+        stroke-dashoffset: 0;
+        animation: none;
       }
     }
   }
-  
+}

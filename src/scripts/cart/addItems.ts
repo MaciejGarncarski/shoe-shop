@@ -37,9 +37,14 @@ export const addItems = (data: offerTypes[]) => {
       cartItemCount()
     }
 
-    const handleInputChange = () => {
+    const getData = () => {
       const currentItemData: offerTypes = data.find(({ name }) => name === itemName.textContent) || defaultObj
       const oldData = data.filter(({ name }) => name !== itemName.textContent)
+      return { oldData, currentItemData }
+    }
+
+    const handleInputChange = () => {
+      const { oldData, currentItemData } = getData()
       currentItemData.count = +itemCount.value
       if (+itemCount.value <= 0) {
         currentItemData.count = 1
@@ -49,8 +54,7 @@ export const addItems = (data: offerTypes[]) => {
     }
 
     const updateItem = (operation: string) => {
-      const currentItemData: offerTypes = data.find(({ name }) => name === itemName.textContent) || defaultObj
-      const oldData = data.filter(({ name }) => name !== itemName.textContent)
+      const { oldData, currentItemData } = getData()
 
       if (operation === 'plus') {
         if (currentItemData.count >= 1 && currentItemData.count <= 50 && +itemCount.value <= 50) {

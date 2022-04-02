@@ -5,12 +5,12 @@
   filter: drop-shadow(-4px 4px 0 var.$white);
 }
 
-@mixin gradient{
+@mixin gradient {
   background-image: linear-gradient(to bottom right, var.$yellow, var.$lightYellow);
 }
 
 
-@mixin flex-center{
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,29 +20,31 @@
   border: 1px solid var.$yellow;
   @include radius('big');
   font-size: 1rem;
-  padding: 0.2rem;
+  padding: 0.5rem 1rem;
   background-color: rgba(var.$white, 0.8);
   backdrop-filter: blur(10px);
+
   @media screen and (min-width: var.$big-screen) {
     font-size: 1.2rem;
-    padding: 0.3rem 0.5rem;
+    padding: 0.4rem 0.9rem;
     font-weight: 700;
   }
 }
 
 
-@mixin shadow{
+@mixin shadow {
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
-@mixin glass{
+@mixin glass {
   background-color: rgba(var.$white, 0.75);
   backdrop-filter: blur(2px);
-  @supports (not(backdrop-filter: blur(10px))){
+
+  @supports (not(backdrop-filter: blur(10px))) {
     background-color: rgba(var.$white, 0.9);
   }
+
   border: 1px solid rgba(var.$black, 0.15);
-  @include radius('big');
   @include shadow;
 }
 
@@ -56,43 +58,44 @@
 }
 
 @mixin mediaquery($query) {
-  $breakpoints: (
-    'xs': '(min-width: 500px)',
-    'sm': '(min-width: 639px)',
-    'lg': '(min-width: 800px)',
-    'xl': '(min-width: 1150px)',
-    'xxl': '(min-width: 1450px)',
-    'xxxl': '(min-width: 2000px)',
-  );
+  $breakpoints: ('xs': '(min-width: 500px)',
+      'sm': '(min-width: 639px)',
+      'lg': '(min-width: 800px)',
+      'xl': '(min-width: 1150px)',
+      'xxl': '(min-width: 1450px)',
+      'xxxl': '(min-width: 2000px)',
+    );
 
   @if map-has-key($breakpoints, $query) {
     @media screen and #{map-get($breakpoints, $query)} {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @error "ERROR: No breakpoint specified for query '#{$query}'";
   }
 }
 
 
 @mixin radius($size) {
-  $breakpoints: (
-    'small': '3px',
-    'big': '6px'
-  );
-  @if map-has-key($breakpoints, $size){
+  $breakpoints: ('small': '3px',
+      'big': '6px'
+    );
+
+  @if map-has-key($breakpoints, $size) {
     border-radius: #{map-get($breakpoints, $size)};
   }
 }
 
-@mixin reduced-motion{
-  @media (prefers-reduced-motion){
+@mixin reduced-motion {
+  @media (prefers-reduced-motion) {
     @content;
   }
 }
 
-@mixin normal-motion{
-  @media (prefers-reduced-motion: no-preference){
+@mixin normal-motion {
+  @media (prefers-reduced-motion: no-preference) {
     @content;
   }
 }
