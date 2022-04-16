@@ -27,7 +27,7 @@
   @media screen and (min-width: var.$big-screen) {
     font-size: 1.2rem;
     padding: 0.4rem 0.9rem;
-    font-weight: 700;
+    font-weight: 800;
   }
 }
 
@@ -38,7 +38,7 @@
 
 @mixin glass {
   background-color: rgba(var.$white, 0.75);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(10px);
 
   @supports (not(backdrop-filter: blur(10px))) {
     background-color: rgba(var.$white, 0.9);

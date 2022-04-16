@@ -1,4 +1,4 @@
-const mobileMenu = () => {
+export const mobileMenu = () => {
   const button = document.querySelector('.burger') as HTMLButtonElement
   const menu = document.querySelector('.nav__list') as HTMLUListElement
   button.addEventListener('click', () => {
@@ -7,5 +7,3 @@ const mobileMenu = () => {
     document.body.classList.toggle('locked')
   })
 }
-
-export { mobileMenu }

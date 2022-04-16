@@ -2,6 +2,7 @@ import { offers } from '../../data/offers'
 import { addToCart } from './addToCart'
 import { createOfferList } from './createOfferList'
 import { handleErrorMessage } from '../handleErrorMessage'
+import debounce from 'lodash.debounce'
 
 const container = document.querySelector('.offers') as HTMLUListElement
 
@@ -25,11 +26,11 @@ const filter = () => {
     return filterByMin && filterByMax && filterByStars
   })
   createOfferList(filteredOffers)
-  handleErrorMessage(filteredOffers, container)
+  handleErrorMessage(filteredOffers, container, 'No items found.')
   addToCart()
 }
 
 export const handleFilter = () => {
   const form = document.querySelector('form') as HTMLFormElement
-  form.addEventListener('input', filter)
+  form.addEventListener('input', debounce(filter, 250))
 }

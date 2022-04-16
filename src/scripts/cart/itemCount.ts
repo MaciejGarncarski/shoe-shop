@@ -17,11 +17,7 @@ export const itemCount = () => {
 
       if (prices.length !== 0) {
         const totalCount = prices.reduce((prev: number, next: number) => prev + next)
-        if (totalCount <= 9) {
-          updateCount(totalCount.toString())
-        } else {
-          updateCount('+9')
-        }
+        totalCount <= 9 ? updateCount(totalCount.toString()) : updateCount('9+')
       } else if (countNotification) {
         countNotification.remove()
       }

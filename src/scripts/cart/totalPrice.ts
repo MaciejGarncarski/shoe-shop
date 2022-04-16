@@ -7,12 +7,12 @@ type itemType = offerTypes & {
 export const totalPrice = () => {
   const total = document.querySelector('.cart__total-price') as HTMLSpanElement
   const container = document.querySelector('.cart__total') as HTMLDivElement
-  const cart = JSON.parse(localStorage.getItem('cart') || '')
-  const arr: number[] = [...cart.map(({ price, count }: itemType) => price * count)]
+  const savedCart = JSON.parse(localStorage.getItem('cart') || '')
+  const arr: number[] = [...savedCart.map(({ price, count }: itemType) => price * count)]
   if (arr.length !== 0) {
-    const newPrice = arr.reduce((prev, next) => prev + next)
+    const newPrice = arr.reduce((acc, curr) => acc + curr)
     if (total) {
-      total.textContent = newPrice.toString()
+      total.textContent = `${newPrice.toString()}€`
       container.classList.add('cart__total--active')
     }
   } else if (total) {

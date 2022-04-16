@@ -2,39 +2,39 @@
 @use '../modules/mixins';
 
 .buttons {
-    @include mixins.flex-center;
-    flex-direction: column;
-    width: 100%;
-  
+  @include mixins.flex-center;
+  flex-direction: column;
+  width: 100%;
+
+  &:first-child {
+    display: none;
+  }
+
+  @include mixins.mediaquery('xl') {
+    flex-direction: row;
+    gap: 1rem;
+
     &:first-child {
-      display: none;
-    }
-  
-    @include mixins.mediaquery('xl') {
-      flex-direction: row;
-      gap: 1rem;
-      
-      &:first-child {
-        display: flex;
-      }
-    }
-  
-    &--small-gap {
-      gap: 1rem;
-    }
-  
-    &__button {
-      background-color: var.$white;
-      border: 1px solid var.$black;
-      @include mixins.radius('small');
-      color: var.$black;
-      cursor: pointer;
-      font-weight: 700;
-      padding: 0.5rem;
-      text-transform: uppercase;
-    }
-  
-    &__button--active {
-      background-color: rgba(var.$yellow, 0.4);
+      display: flex;
     }
   }
+
+  &--small-gap {
+    gap: 1rem;
+  }
+
+  &__button {
+    background-color: var.$white;
+    border: 1px solid var.$black;
+    @include mixins.radius('small');
+    color: var.$black;
+    cursor: pointer;
+    font-weight: 800;
+    padding: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  &__button--active {
+    background-color: rgba(var.$yellow, 0.4);
+  }
+}

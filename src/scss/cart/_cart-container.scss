@@ -2,43 +2,51 @@
 @use '../modules/mixins';
 
 .cart {
-    &__heading {
-      font-size: 2.5rem;
-      @include mixins.heading;
-      text-align: center;
+  &__heading {
+    font-size: 2.5rem;
+    @include mixins.heading;
+    text-align: center;
+  }
+
+  &__items {
+    @include mixins.flex-center;
+    flex-direction: column;
+    gap: 3rem;
+    list-style: none;
+    padding: 6rem 0;
+  }
+
+  &__hidden-text {
+    display: none;
+  }
+
+  &__total {
+    @include mixins.glass;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 1rem;
+    width: 60%;
+    gap: 1rem;
+    top: 3.5rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    @include mixins.radius('small');
+
+    @include mixins.mediaquery('xl') {
+      width: auto;
+      padding: 1rem 3rem;
     }
-    &__items{
-        @include mixins.flex-center;
-        flex-direction: column;
-        gap: 3rem;
-        list-style: none;
-        padding: 6rem 0;
-    }
-    &__hidden-text {
-      display: none;
-    }  
-    &__total{
-      @include mixins.glass;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 1rem 1rem;
-      width: 60%;
-      gap: 1rem;
-      top: 3.5rem;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      @include mixins.mediaquery('xl'){
-        width: auto;
-        min-width: 18vw;
-      }
-      &--active{
-        display: flex;
-      }
-    }
-    &__total-price{
-      font-weight: 700;
-      
+
+    &--active {
+      display: flex;
     }
   }
+
+  &__total-price {
+    display: inline-block;
+    min-width: 3rem;
+    text-align: right;
+  }
+}

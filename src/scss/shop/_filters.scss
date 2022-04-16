@@ -8,7 +8,7 @@
   position: fixed;
   z-index: 2;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.25rem;
   @include mixins.radius('small');
 
@@ -30,8 +30,11 @@
   visibility: hidden;
   transition: opacity 300ms ease;
   position: absolute;
+  @include mixins.radius('big');
 
-  @media screen and (max-width: var.$big-screen) {
+
+
+  @media screen and (max-width: 1439px) {
     &--active {
       position: fixed;
       left: 50%;
@@ -151,9 +154,8 @@
 
 
 .not-found-message {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 20rem;
-  font-weight: 900;
+  font-weight: 800;
+  line-height: 5;
+  font-size: 2rem;
+  text-shadow: -2px 2px var.$white;
 }

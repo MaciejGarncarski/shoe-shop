@@ -14,7 +14,8 @@
   background: rgba(var.$white, 0.75);
   border-top: 1px solid rgba(var.$black, 0.1);
   gap: max(2vh, 1rem);
-  @include mixins.mediaquery('xl'){
+
+  @include mixins.mediaquery('xl') {
     padding: max(5vw, 3rem);
     display: flex;
     flex-direction: row;
@@ -22,7 +23,8 @@
     justify-content: flex-start;
     gap: max(10vw, 2rem);
   }
-  &__link{
+
+  &__link {
     color: var.$black;
     text-decoration: none;
     margin: 1rem 0;
@@ -33,45 +35,53 @@
     gap: max(0.5vw, 0.5rem);
     position: relative;
     cursor: pointer;
-    > span {
+
+    >span {
       color: var.$yellow;
     }
   }
-  &__heading{
+
+  &__heading {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1vw;
   }
-  &__item{
+
+  &__item {
     display: flex;
     gap: max(.5rem, 1vh);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @include mixins.mediaquery('xl'){
+
+    @include mixins.mediaquery('xl') {
       align-items: flex-start;
     }
   }
-  &__list{
+
+  &__list {
     list-style: none;
-  }  
-  &__copy-notification{
+  }
+
+  &__copy-notification {
     position: absolute;
     opacity: 0;
     right: -50%;
     transform: translateY(10px);
-    @include mixins.normal-motion{
+
+    @include mixins.normal-motion {
       animation: slide-up 1s ease-in-out forwards;
     }
+
     @include mixins.gradient;
     @include mixins.radius('small');
     padding: 0 0.5rem;
-    font-weight: 700;
+    font-weight: 800;
     text-shadow: -1.5px 1.5px 0 var.$white;
   }
 }
 
-[data-copy]{
+[data-copy] {
   cursor: copy;
 }

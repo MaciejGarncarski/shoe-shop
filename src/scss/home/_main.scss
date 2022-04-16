@@ -2,126 +2,143 @@
 @use '../modules/mixins';
 
 .main {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.2rem;
-    gap: 7vh;
-    justify-content: center;
-    min-height: 60vh;
-    padding: 1.5em;
-    position: relative;
-    @include mixins.mediaquery('xl') {
-      gap: 3em;
-      height: auto;
-      padding: 4em;
-      padding-right: 50%;
-      &__heading, &__description, &__button{
-        @include mixins.normal-motion{
-          opacity: 0;
-          transform: translateY(3em);
-          animation: slide-up 1.25s ease forwards;
-        }
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  gap: 7vh;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 1.5rem;
+  position: relative;
+
+  @include mixins.mediaquery('lg') {
+    padding: 2rem 5rem;
+  }
+
+  @include mixins.mediaquery('xl') {
+    gap: 3rem;
+    height: auto;
+    padding: 4rem;
+    padding-right: 50%;
+
+    &__heading,
+    &__description,
+    &__button {
+      @include mixins.normal-motion {
+        opacity: 0;
+        transform: translateY(3rem);
+        animation: slide-up 1.25s ease forwards;
       }
     }
-    &__heading {
-      @include mixins.heading;
-      font-size: 3rem;
-    }
-    &__description {
-      color: var.$dark;
-      font-size: 1.5rem;
-    }
-    &__button{
-      background: linear-gradient(to bottom right, rgba(var.$white, 1), rgba(var.$gray, 1));
-      @include mixins.shadow;
-      @include mixins.radius('small');
+  }
+
+  &__heading {
+    @include mixins.heading;
+    font-size: 3rem;
+  }
+
+  &__description {
+    color: var.$dark;
+    font-size: 1.5rem;
+  }
+
+  &__button {
+    background: linear-gradient(to right, var.$yellow, var.$lightYellow);
+    @include mixins.shadow;
+    @include mixins.radius('small');
+    color: var.$black;
+    text-shadow: -2px 2px var.$white;
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding: 0.6rem 0.9rem;
+    text-decoration: none;
+    transition: all 300ms ease;
+    background-size: 300% 100%;
+    background-position: left;
+
+    &::selection {
       color: var.$black;
-      text-shadow: -2px 2px var.$white;
-      font-weight: 700;
-      font-size: 1.5rem;
-      padding: 0.6rem 0.9rem;
-      text-decoration: none;
+      text-shadow: none;
+    }
+
+    &:hover,
+    &:focus {
       transition: all 300ms ease;
-      background-size: 300% 100%;
-      background-position: left;
-      &::selection{
-        color: var.$black;
-        text-shadow: none;
-      }
-      &:hover, &:focus{
-        transition: all 300ms ease;
-        background-position: 100% 0;
-      }
-    }    
+      background-position: 100% 0;
+    }
+  }
+
+  &__fire,
+  &__hands,
+  &__bear {
+    opacity: 1;
+    transform: rotate(-15deg) scale(1);
+    position: absolute;
+
+    >img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__fire {
+    bottom: 0;
+    height: 4em;
+    right: 2em;
+    width: 4em;
+  }
+
+  &__hands {
+    transform: rotate(9deg) scale(1);
+    height: 3em;
+    right: 1.5em;
+    top: 3.5em;
+    width: 3em;
+  }
+
+  &__bear {
+    height: 2.5em;
+    left: 1.5em;
+    top: 4.25em;
+    width: 2.5em;
+  }
+
+  @include mixins.mediaquery('xl') {
+
     &__fire,
     &__hands,
     &__bear {
-      opacity: 1;
-      transform: rotate(-15deg) scale(1);
-      position: absolute;
-  
-      > img {
-        height: 100%;
-        width: 100%;
+      @include mixins.normal-motion {
+        animation: popup-left forwards 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        opacity: 0;
+        transform: rotate(0deg) scale(0);
       }
+
+      height: calc(3vw + 1em);
+      width: calc(3vw + 1em);
     }
 
     &__fire {
-      bottom: 0;
-      height: 4em;
-      right: 2em;
-      width: 4em;
-    }
-    
-    &__hands {
-      transform: rotate(9deg) scale(1);
-      height: 3em;
-      right: 1.5em;
-      top: 3.5em;
-      width: 3em;
-    }
-    
-    &__bear {
-      height: 2.5em;
-      left: 1.5em;
-      top: 4.25em;
-      width: 2.5em;
+      bottom: 4em;
+      left: 15em;
     }
 
-    @include mixins.mediaquery('xl') {
-      &__fire,
-      &__hands,
-      &__bear {
-        @include mixins.normal-motion{
-          animation: popup-left forwards 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          opacity: 0;
-          transform: rotate(0deg) scale(0);
-        }
-        height: calc(3vw + 1em);
-        width: calc(3vw + 1em);
-      }
-    
-      &__fire {
-        bottom: 4em;
-        left: 15em;
-      }
-    
-      &__hands {
-        animation-name: popup-right;
-        left: 20em;
-        top: 4em;
-      }
-    
-      &__bear {
-        left: -1em;
-        top: 5em;
-      }
+    &__hands {
+      animation-name: popup-right;
+      left: 20em;
+      top: 4em;
+    }
+
+    &__bear {
+      left: -1em;
+      top: 5em;
     }
   }
-  
-  @for $i from 1 through 4 {
-    .main > span:nth-child(#{$i}n) {
-      animation-delay: #{$i * 0.5}s;
-    }
+}
+
+@for $i from 1 through 4 {
+  .main>span:nth-child(#{$i}n) {
+    animation-delay: #{$i * 0.5}s;
   }
+}

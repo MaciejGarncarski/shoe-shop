@@ -1,32 +1,19 @@
-import { updateHistory } from './updateHistory'
-import { setActivePage } from './setActivePage'
-import { dynamicHash } from './dynamicHash'
 import { fetchPage } from './fetchPage'
+import { setActivePage } from './setActivePage'
 import { subpageFunctions } from './subpageFunctions'
 
-const handleLinkClick = () => {
-  const navLinks = document.querySelectorAll<HTMLLIElement>('.nav__item')
+export const dynamicHash = async () => {
+  const routes = ['home', 'shop', 'cart']
   const hash = location.hash.substring(1)
-
-  navLinks.forEach((link) => {
-    link.addEventListener('click', async (event: MouseEvent) => {
-      event.preventDefault()
-      const destination = link.dataset.to
-      if (destination !== hash) {
-        await fetchPage(`/pages/${destination}.html`)
-        updateHistory(destination)
-        setActivePage()
-        subpageFunctions()
-      }
-    })
-  })
+  if (routes.includes(hash)) {
+    await fetchPage(`pages/${hash}.html`)
+  } else if (hash === '') {
+    await fetchPage('pages/home.html')
+  } else {
+    await fetchPage('pages/404.html')
+  }
+  subpageFunctions()
+  setActivePage()
 }
 
-const changePages = () => {
-  handleLinkClick()
-  window.addEventListener('popstate', () => {
-    dynamicHash()
-  })
-}
-
-export { changePages }
+export const changePages = () => window.addEventListener('hashchange', dynamicHash)

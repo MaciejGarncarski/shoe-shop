@@ -9,10 +9,10 @@ export const deleteItem = () => {
     deleteBtns.forEach((btn) => {
       const currentItem = btn.parentElement?.children[1] as HTMLButtonElement
       btn.addEventListener('click', () => {
-        const newList = cart.filter(({ name }: { name: string }) => name !== currentItem.textContent)
-        localStorage.setItem('cart', JSON.stringify(newList))
+        cart.shift(cart.find(({ name }: { name: string }) => name !== currentItem.textContent))
+        localStorage.setItem('cart', JSON.stringify(cart))
         btn.parentElement?.classList.add('item--active')
-        createCartList(newList)
+        createCartList(cart)
         totalPrice()
         itemCount()
       })
