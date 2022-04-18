@@ -19,7 +19,7 @@ const template = (name: string, count: number, img: string, price: number) => {
                 <source srcset="/images/shoes/png/${img}.png" type="img/png" />
                 <img loading="lazy" src="/images/shoes/png/${img}.png" alt="${name}" />
               </picture>
-              <p class="item__name">${name}, <span class="item__name-price">${price}€</span></p>
+              <p class="item__name"><span class="item__name-text">${name}</span>, <span class="item__name-price">${price}€</span></p>
               <div class="item__change-price">
                   <p class="item__price-container"><span class="item__price">${newPrice}€</span> for</p>
                   <button type="button" id="minus" class="item__change-btn" title="delete one ${name}">
@@ -45,8 +45,8 @@ export const createCartList = (data: offerTypes[]) => {
     container.innerHTML = data
       .map(({ name, price, count, img }: offerTypes) => template(name, count, img, price))
       .join('')
-    handleErrorMessage(data, container, 'No items in cart')
     deleteItem()
     addItems(data)
+    handleErrorMessage(data, container, 'No items in cart')
   }
 }

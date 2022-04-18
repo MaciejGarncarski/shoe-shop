@@ -15,7 +15,7 @@ export const addItems = (data: offerTypes[]) => {
   items.forEach((item) => {
     const minus = item.querySelector('#minus') as HTMLButtonElement
     const plus = item.querySelector('#plus') as HTMLButtonElement
-    const itemName = item.querySelector('.item__name') as HTMLParagraphElement
+    const itemName = item.querySelector('.item__name-text') as HTMLParagraphElement
     const itemPrice = item.querySelector('.item__price') as HTMLParagraphElement
     const itemCount = item.querySelector('.item__count') as HTMLInputElement
     const itemPlural = item.querySelector('.item__pronoun') as HTMLInputElement
@@ -30,7 +30,7 @@ export const addItems = (data: offerTypes[]) => {
 
     const displayNewCount = (currentItemData: offerTypes, oldData: offerTypes[]) => {
       itemPrice.textContent = `${currentItemData.price * currentItemData.count}€`
-      itemCount.value = currentItemData?.count.toString() || ''
+      itemCount.value = currentItemData.count.toString() || ''
       const newData = [currentItemData, ...oldData]
       localStorage.setItem('cart', JSON.stringify(newData))
       totalPrice()

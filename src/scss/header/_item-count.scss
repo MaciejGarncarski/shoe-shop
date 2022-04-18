@@ -4,17 +4,16 @@
 .item-count {
   background-color: var.$yellow;
   display: inline-block;
-  width: 2rem;
-  height: 2rem;
   display: flex;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  min-width: 2rem;
   justify-content: center;
   align-items: center;
   position: absolute;
   right: -32%;
-  top: -1.5vh;
+  top: -3vh;
   transform: translateX(-50%);
-  padding: 0.5rem;
+  padding: 0.2rem 0.3rem;
   @include mixins.radius('small');
   @include mixins.shadow;
 
