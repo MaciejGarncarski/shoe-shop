@@ -4,7 +4,6 @@ import { handleFilter } from './shop/filter'
 import { resetForm } from './shop/reset'
 import { showFilters } from './shop/showFilters'
 import { createCartList } from './cart/createCartList'
-import { deleteItem } from './cart/deleteItem'
 import { addToCart } from './shop/addToCart'
 import { totalPrice } from './cart/totalPrice'
 
@@ -24,7 +23,6 @@ const cartFunctions = () => {
   if (localStorage.getItem('cart') && hash === 'cart') {
     const data = JSON.parse(localStorage.getItem('cart') || '')
     createCartList(data)
-    deleteItem()
     totalPrice()
   }
 }

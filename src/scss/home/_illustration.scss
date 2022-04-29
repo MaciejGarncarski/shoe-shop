@@ -2,26 +2,27 @@
 @use '../modules/mixins';
 
 .illustration {
-    @include mixins.normal-motion{
-      animation: slide-left 1.75s ease forwards;
-      opacity: 0;
-      transform: translateX(4em);
-    }
-    display: none;
-    filter: drop-shadow(2px 2px 1px var.$black)
-      drop-shadow(-2px -2px 1px var.$white);
-    height: 70%;
-    position: absolute;
-    right: 5vw;
-    top: 4em;
-    transform-origin: right;
-    width: calc(25vw + 10rem);
-    @include mixins.mediaquery('xl') {
-      display: block;
-    }
-    > svg {
-      height: auto;
-      width: 100%;
-    }
+  @include mixins.normal-motion {
+    animation: slide-left 1.75s ease forwards;
+    opacity: 0;
+    transform: translateX(4em);
   }
-  
+
+  display: none;
+  filter: drop-shadow(2px 2px 1px var.$black) drop-shadow(-2px -2px 1px var.$white);
+  height: 70%;
+  position: absolute;
+  right: 5vw;
+  top: 4rem;
+  transform-origin: right;
+  width: calc(25vw + 10rem);
+
+  @include mixins.mediaquery('xl') {
+    display: block;
+  }
+
+  >svg {
+    height: auto;
+    width: 100%;
+  }
+}

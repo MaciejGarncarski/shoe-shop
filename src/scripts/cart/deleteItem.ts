@@ -3,21 +3,22 @@ import { itemCount } from './itemCount'
 import { totalPrice } from './totalPrice'
 
 export const deleteItem = () => {
-  const deleteBtns = document.querySelectorAll('.item__delete-btn')
-  if (localStorage.getItem('cart')) {
-    const cart = JSON.parse(localStorage.getItem('cart') || '')
-    deleteBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const target = e.target as HTMLButtonElement
-        const currentItemText = target.parentNode?.children[1].children[0].textContent
-        const currentItem = cart.find(({ name }: { name: string }) => name === currentItemText)
-        cart.pop(currentItem)
-        createCartList(cart)
+  const items = document.querySelectorAll('.item')
+  items.forEach((item) => {
+    const deleteBtn = item.querySelector('.item__delete-btn') as HTMLButtonElement
+    const itemName = item.querySelector('.item__name-text') as HTMLSpanElement
+
+    const handleClick = () => {
+      if (localStorage.getItem('cart')) {
+        const cart = JSON.parse(localStorage.getItem('cart') || '')
+        const newCart = cart.filter(({ name }: { name: string }) => name !== itemName.textContent)
+        createCartList(newCart)
+        localStorage.setItem('cart', JSON.stringify(newCart))
         totalPrice()
         itemCount()
-        btn.parentElement?.classList.add('item--active')
-        localStorage.setItem('cart', JSON.stringify(cart))
-      })
-    })
-  }
+      }
+    }
+
+    deleteBtn.addEventListener('click', handleClick)
+  })
 }
