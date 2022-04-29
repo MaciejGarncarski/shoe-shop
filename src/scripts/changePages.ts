@@ -8,6 +8,7 @@ export const dynamicHash = async () => {
   if (routes.includes(hash)) {
     await fetchPage(`pages/${hash}.html`)
   } else if (hash === '') {
+    window.location.hash = 'home'
     await fetchPage('pages/home.html')
   } else {
     await fetchPage('pages/404.html')

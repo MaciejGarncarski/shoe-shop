@@ -21,8 +21,8 @@ const shopFunctions = () => {
 const cartFunctions = () => {
   const hash = location.hash.substring(1)
   if (localStorage.getItem('cart') && hash === 'cart') {
-    const data = JSON.parse(localStorage.getItem('cart') || '')
-    createCartList(data)
+    const cart = JSON.parse(localStorage.getItem('cart') || '')
+    createCartList(cart)
     totalPrice()
   }
 }
