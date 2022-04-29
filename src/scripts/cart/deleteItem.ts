@@ -9,14 +9,12 @@ export const deleteItem = () => {
     const itemName = item.querySelector('.item__name-text') as HTMLSpanElement
 
     const handleClick = () => {
-      if (localStorage.getItem('cart')) {
-        const cart = JSON.parse(localStorage.getItem('cart') || '')
-        const newCart = cart.filter(({ name }: { name: string }) => name !== itemName.textContent)
-        createCartList(newCart)
-        localStorage.setItem('cart', JSON.stringify(newCart))
-        totalPrice()
-        itemCount()
-      }
+      const cart = JSON.parse(localStorage.getItem('cart') || '')
+      const newCart = cart.filter(({ name }: { name: string }) => name !== itemName.textContent)
+      createCartList(newCart)
+      localStorage.setItem('cart', JSON.stringify(newCart))
+      totalPrice()
+      itemCount()
     }
 
     deleteBtn.addEventListener('click', handleClick)
