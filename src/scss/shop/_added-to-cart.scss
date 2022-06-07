@@ -32,6 +32,10 @@
 
 
   >svg {
+    color: var.$yellow;
+    filter: drop-shadow(-1px 2px 0 var.$black);
+    font-size: 6rem;
+
     @include mixins.normal-motion {
       stroke-dashoffset: 600;
       animation: show-svg 450ms ease-in-out forwards;
@@ -40,29 +44,21 @@
 
   &__close-btn {
     position: absolute;
-    right: 0.25rem;
-    top: 0.25rem;
-    background: transparent;
-    border-color: transparent;
+    right: 3%;
+    top: 6%;
     cursor: pointer;
-    border: 1px solid var.$black;
-    padding: 0.2rem 0.6rem;
-    font-size: 1.5rem;
+    padding: 0.4rem 0.9rem;
     @include mixins.radius('small');
+    @include mixins.button;
+    font-size: 2rem;
 
-
-    transition: background-color 250ms linear;
-
-    &:hover,
-    &:focus {
-      color: var.$yellow;
-      background: var.$black;
-    }
   }
 
   &__text {
     display: inline-block;
     min-width: 50vw;
     text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
   }
 }

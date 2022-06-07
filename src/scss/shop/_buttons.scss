@@ -27,12 +27,12 @@
   &__button {
     background-color: var.$white;
     border: 1px solid var.$black;
-    @include mixins.radius('small');
     color: var.$black;
     cursor: pointer;
     font-weight: 800;
     padding: 0.5rem;
     text-transform: uppercase;
+    @include mixins.radius('small');
   }
 
   &__button--active {

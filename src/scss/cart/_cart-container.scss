@@ -30,10 +30,12 @@
     display: none;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 1.5rem;
-    
+
     @include mixins.radius('big');
     @include mixins.glass;
+
     @include mixins.mediaquery('xl') {
       width: auto;
       padding: 1rem 3rem;
