@@ -88,12 +88,12 @@
       visibility: visible;
       z-index: 3;
 
-      &.additional {
+      &.mobile-cart-btn {
         display: none;
       }
     }
 
-    &.additional {
+    &.mobile-cart-btn  {
       z-index: 3;
       background-color: var.$white;
       padding: 0.5rem;

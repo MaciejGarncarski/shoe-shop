@@ -20,7 +20,6 @@
   }
 
   &__total {
-    @include mixins.glass;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -31,8 +30,10 @@
     display: none;
     justify-content: center;
     align-items: center;
-    @include mixins.radius('small');
-
+    font-size: 1.5rem;
+    
+    @include mixins.radius('big');
+    @include mixins.glass;
     @include mixins.mediaquery('xl') {
       width: auto;
       padding: 1rem 3rem;

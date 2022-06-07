@@ -6,6 +6,10 @@
   flex-direction: column;
   width: 100%;
 
+  &--small-gap {
+    gap: 1rem;
+  }
+
   &:first-child {
     display: none;
   }
@@ -19,9 +23,6 @@
     }
   }
 
-  &--small-gap {
-    gap: 1rem;
-  }
 
   &__button {
     background-color: var.$white;
