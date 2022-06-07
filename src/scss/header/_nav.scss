@@ -43,8 +43,10 @@
 
       @supports (backdrop-filter: blur(20px)) {
         background-color: rgba(var.$white, 0.75);
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(13px);
       }
+
+      font-size: 1.5rem;
 
       opacity: 1;
       visibility: visible;
@@ -76,8 +78,6 @@
     @include mixins.flex-center;
     filter: drop-shadow(-3px 3px 0 var.$white);
     flex-direction: column;
-    font-size: 1.5rem;
-    font-weight: 800;
     gap: 0.5em;
     position: relative;
     text-decoration: none;
@@ -99,6 +99,7 @@
       padding: 0.5rem;
       @include mixins.radius('small');
       @include mixins.shadow;
+      font-size: 2rem;
 
       >span:last-child {
         right: -60%;

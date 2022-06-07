@@ -15,8 +15,10 @@
   border-top: 1px solid rgba(var.$black, 0.1);
   gap: max(2vh, 1rem);
 
+  font-size: 1.25rem;
+
   @include mixins.mediaquery('xl') {
-    padding: max(5vw, 3rem);
+    padding: max(3vw, 3rem);
     display: flex;
     flex-direction: row;
     align-items: flex-start;

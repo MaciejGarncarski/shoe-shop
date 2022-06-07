@@ -3,7 +3,6 @@
 
 .cart {
   &__heading {
-    font-size: 2.5rem;
     @include mixins.heading;
     text-align: center;
   }

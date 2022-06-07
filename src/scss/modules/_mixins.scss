@@ -19,15 +19,13 @@
 @mixin input {
   border: 1px solid var.$yellow;
   @include radius('big');
-  font-size: 1rem;
   padding: 0.5rem 1rem;
   background-color: rgba(var.$white, 0.8);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
+  font-size: 1.3rem;
 
   @media screen and (min-width: var.$big-screen) {
-    font-size: 1.2rem;
-    padding: 0.4rem 0.9rem;
-    font-weight: 800;
+    padding: 0.2rem 0.9rem;
   }
 }
 
@@ -38,9 +36,9 @@
 
 @mixin glass {
   background-color: rgba(var.$white, 0.75);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
 
-  @supports (not(backdrop-filter: blur(10px))) {
+  @supports (not(backdrop-filter: blur(8px))) {
     background-color: rgba(var.$white, 0.9);
   }
 
@@ -54,17 +52,17 @@
   background-color: var.$yellow;
   border: 1px solid rgba(var.$black, 0.1);
   color: var.$white;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 @mixin mediaquery($query) {
   $breakpoints: ('xs': '(min-width: 500px)',
-      'sm': '(min-width: 639px)',
-      'lg': '(min-width: 800px)',
-      'xl': '(min-width: 1150px)',
-      'xxl': '(min-width: 1450px)',
-      'xxxl': '(min-width: 2000px)',
-    );
+    'sm': '(min-width: 639px)',
+    'lg': '(min-width: 800px)',
+    'xl': '(min-width: 1150px)',
+    'xxl': '(min-width: 1450px)',
+    'xxxl': '(min-width: 2000px)',
+  );
 
   @if map-has-key($breakpoints, $query) {
     @media screen and #{map-get($breakpoints, $query)} {
@@ -80,8 +78,8 @@
 
 @mixin radius($size) {
   $breakpoints: ('small': '3px',
-      'big': '6px'
-    );
+    'big': '6px'
+  );
 
   @if map-has-key($breakpoints, $size) {
     border-radius: #{map-get($breakpoints, $size)};

@@ -10,19 +10,18 @@
   justify-content: flex-end;
   padding: 2rem 0;
 
-  &__heading{
+  &__heading {
     display: none;
   }
 
   @include mixins.mediaquery('xl') {
     justify-content: space-between;
-    padding: 3em 6rem;
+    padding: 3rem 6rem;
     padding-right: 0;
 
-    &__heading{
+    &__heading {
       @include mixins.heading;
       display: inline;
-      font-size: 2.5rem;
     }
   }
 }

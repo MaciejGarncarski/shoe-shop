@@ -1,4 +1,4 @@
-import './scss/style.scss'
+import './scss/main.scss'
 import { changePages, dynamicHash } from './scripts/changePages'
 import { setActivePage } from './scripts/setActivePage'
 import { mobileMenu } from './scripts/mobileMenu'

@@ -12,6 +12,8 @@
   transition-property: transform, opacity;
   @include mixins.radius('big');
 
+  font-size: 1.5rem;
+
   @include mixins.normal-motion {
     transform: translateY(1rem);
     opacity: 0.6;
@@ -40,11 +42,9 @@
 
   &__name {
     grid-row: 2 / 3;
-    font-size: 1.5rem;
     font-weight: 800;
 
     @include mixins.mediaquery('xl') {
-      font-size: 1rem;
       grid-row: span 1;
       padding-left: 3vw;
     }
@@ -58,6 +58,7 @@
 
   &__price-container {
     grid-column: 2 / 3;
+    text-align: center;
   }
 
   &__name-price {
@@ -108,11 +109,11 @@
     justify-content: center;
     align-items: center;
     font-weight: 800;
-    font-size: 1.5rem;
     background: none;
     border: none;
     filter: drop-shadow(-1px 1px 0px var.$black);
     cursor: pointer;
+    font-size: 3rem;
 
     &:hover,
     &:focus {
@@ -128,15 +129,13 @@
   &__delete-btn {
     border-color: transparent;
     background-color: var.$yellow;
-    padding: 0.25rem 0.4rem;
+    padding: 1rem 3rem;
     @include mixins.radius('small');
     cursor: pointer;
-    font-size: 1.2rem;
     color: var.$white;
     grid-row: 3 / 4;
-    width: 45%;
-    height: 45%;
     transition: background-color 300ms ease-in-out;
+    font-size: 1.5rem;
 
     &:hover,
     &:focus {
