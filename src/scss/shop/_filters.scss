@@ -32,11 +32,6 @@
   position: absolute;
   font-size: 1.3rem;
 
-
-  @include mixins.radius('big');
-
-
-
   @media screen and (max-width: 1439px) {
     &--active {
       position: fixed;
@@ -49,9 +44,11 @@
       width: min(85vw, 25rem);
       z-index: 1;
       visibility: visible;
+
     }
   }
 
+  @include mixins.radius('big');
 
   @include mixins.mediaquery('xl') {
     gap: 2rem;
@@ -87,7 +84,7 @@
   width: 100%;
 
   @include mixins.mediaquery('xl') {
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
 }
 
@@ -146,15 +143,15 @@
   background: linear-gradient(to right, var.$yellow, var.$lightYellow);
   background-size: 300% 100%;
   background-position: left;
-  transition: all 300ms ease;
+  $transition: all 300ms ease;
+  transition: $transition;
 
-  
   &:hover,
   &:focus {
-    transition: all 300ms ease;
+    transition: $transition;
     background-position: 100% 0;
   }
-  
+
   &::selection {
     color: var.$black;
     text-shadow: none;

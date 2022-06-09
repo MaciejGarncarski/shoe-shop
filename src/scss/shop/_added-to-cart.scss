@@ -28,6 +28,7 @@
   &--active {
     opacity: 1;
     visibility: visible;
+
   }
 
 
@@ -49,9 +50,15 @@
     cursor: pointer;
     padding: 0.4rem 0.9rem;
     @include mixins.radius('small');
-    @include mixins.button;
     font-size: 2rem;
+    border: 1px solid rgba(var.$black, 0.4);
+    background-color: var.$yellow;
+    background-image: linear-gradient(to bottom right, var.$yellow, var.$lightYellow);
+    transition: transform 100ms ease-in-out;
 
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__text {

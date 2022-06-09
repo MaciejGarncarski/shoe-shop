@@ -6,17 +6,17 @@ type itemType = offerTypes & {
 
 export const totalPrice = () => {
   const total = document.querySelector('.cart__total-price') as HTMLSpanElement
-  const container = document.querySelector('.cart__total') as HTMLDivElement
+  const container = document.querySelector('.cart__total-price-container') as HTMLDivElement
   const savedCart = JSON.parse(localStorage.getItem('cart') || '')
   const arr: number[] = [...savedCart.map(({ price, count }: itemType) => price * count)]
   if (arr.length !== 0) {
     const newPrice = arr.reduce((acc, curr) => acc + curr)
     if (total) {
       total.textContent = `${newPrice.toString()}€`
-      container.classList.add('cart__total--active')
+      container.classList.add('cart__total-price-container--active')
     }
   } else if (total) {
     total.textContent = '0'
-    container.classList.remove('cart__total--active')
+    container.classList.remove('cart__total-price-container--active')
   }
 }

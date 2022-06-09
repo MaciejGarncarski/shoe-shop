@@ -23,11 +23,12 @@
   backdrop-filter: blur(8px);
   font-size: 1.3rem;
 
-  @include radius('big');
 
   @media screen and (min-width: var.$big-screen) {
     padding: 0.2rem 0.9rem;
   }
+
+  @include radius('medium');
 }
 
 
@@ -88,6 +89,7 @@
 
 @mixin radius($size) {
   $breakpoints: ('small': '3px',
+    'medium': '4.5px',
     'big': '6px'
   );
 
