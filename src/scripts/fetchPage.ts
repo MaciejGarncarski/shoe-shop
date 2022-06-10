@@ -1,7 +1,5 @@
 const loader = `
-<div class="loader">
-    <span class="loader__circle"></span>
-</div>
+<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 `
 
 const fetchPage = async (url: string) => {

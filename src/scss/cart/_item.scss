@@ -38,8 +38,6 @@
 .item__img {
   grid-column: span 2;
 
-  filter: drop-shadow(-6px 4px 0 var.$yellow) drop-shadow(4px -2px 0 var.$lightYellow);
-
   >img {
     max-height: 7rem;
     object-fit: contain;
@@ -53,6 +51,7 @@
     }
   }
 
+  @include mixins.gradient-shadow;
 }
 
 .item__name {
