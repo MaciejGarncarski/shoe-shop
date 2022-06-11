@@ -5,8 +5,8 @@ import { totalPrice } from './totalPrice'
 export const deleteItem = () => {
   const items = document.querySelectorAll('.item')
   items.forEach((item) => {
-    const deleteBtn = item.querySelector('.item__delete-btn') as HTMLButtonElement
-    const itemName = item.querySelector('.item__name-text') as HTMLSpanElement
+    const deleteBtn = item.querySelector('.item__button--delete') as HTMLButtonElement
+    const itemName = item.querySelector('.item__tag') as HTMLSpanElement
 
     const handleClick = () => {
       const cart = JSON.parse(localStorage.getItem('cart') || '')

@@ -5,18 +5,29 @@ type itemType = offerTypes & {
 }
 
 export const totalPrice = () => {
-  const total = document.querySelector('.cart__total-price') as HTMLSpanElement
-  const container = document.querySelector('.cart__total-price-container') as HTMLDivElement
+  const container = document.querySelector('.cart__total-container') as HTMLDivElement
+  const total = document.querySelector('.cart__total--normal') as HTMLSpanElement
+  const totalVat = document.querySelector('.cart__total--vat') as HTMLSpanElement
   const savedCart = JSON.parse(localStorage.getItem('cart') || '')
-  const arr: number[] = [...savedCart.map(({ price, count }: itemType) => price * count)]
-  if (arr.length !== 0) {
-    const newPrice = arr.reduce((acc, curr) => acc + curr)
-    if (total) {
-      total.textContent = `${newPrice.toString()}€`
-      container.classList.add('cart__total-price-container--active')
+  const cartItems: number[] = [...savedCart.map(({ price, count }: itemType) => price * count)]
+
+  if (cartItems.length !== 0 && total) {
+    const newPrice = cartItems.reduce((acc, curr) => acc + curr)
+    const priceWithVat = () => {
+      const withVat = (newPrice * 1.23).toFixed(2)
+      const cents = withVat.substring(withVat.length - 2, withVat.length)
+      if (cents === '00') {
+        return withVat.substring(0, withVat.length - 3)
+      }
+      return withVat
     }
-  } else if (total) {
-    total.textContent = '0'
-    container.classList.remove('cart__total-price-container--active')
+
+    total.textContent = `${newPrice.toString()}€`
+    totalVat.textContent = `${priceWithVat()}€`
+    container.classList.remove('cart__total-container--hidden')
+  } else {
+    total.textContent = ''
+    totalVat.textContent = ''
+    container.classList.add('cart__total-container--hidden')
   }
 }

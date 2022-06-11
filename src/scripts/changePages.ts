@@ -22,10 +22,20 @@ export const dynamicHash = async () => {
       await fetchPage('pages/cart.html')
       cartFunctions()
     },
+    checkout: async () => {
+      await fetchPage('pages/checkout.html')
+      cartFunctions()
+    },
   }
 
   setActivePage()
-  routes[hash] ? routes[hash]() : await fetchPage('pages/404.html')
+  if (routes[hash]) {
+    routes[hash]()
+  } else if (hash === '') {
+    window.location.hash = 'home'
+  } else {
+    await fetchPage('pages/404.html')
+  }
 }
 
 export const changePages = () => window.addEventListener('hashchange', dynamicHash)

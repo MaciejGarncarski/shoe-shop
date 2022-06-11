@@ -13,23 +13,12 @@ type offerTypes = {
 export const addItems = (data: offerTypes[]) => {
   const items = document.querySelectorAll<HTMLLIElement>('.item')
   items.forEach((item) => {
-    const minus = item.querySelector('#minus') as HTMLButtonElement
-    const plus = item.querySelector('#plus') as HTMLButtonElement
-    const itemName = item.querySelector('.item__name-text') as HTMLParagraphElement
-    const itemPrice = item.querySelector('.item__price') as HTMLParagraphElement
-    const itemCount = item.querySelector('.item__count') as HTMLInputElement
-    const itemPlural = item.querySelector('.item__pronoun') as HTMLInputElement
-
-    const setPlural = (currentItemData: offerTypes) => {
-      if (currentItemData.count === 1) {
-        itemPlural.textContent = 'item'
-      } else {
-        itemPlural.textContent = 'items'
-      }
-    }
+    const addBtn = item.querySelector('[data-type="add"]') as HTMLButtonElement
+    const removeBtn = item.querySelector('[data-type="remove"]') as HTMLButtonElement
+    const itemName = item.querySelector('.item__tag') as HTMLParagraphElement
+    const itemCount = item.querySelector('.item__input') as HTMLInputElement
 
     const displayNewCount = (currentItemData: offerTypes, oldData: offerTypes[]) => {
-      itemPrice.textContent = `${currentItemData.price * currentItemData.count}€`
       itemCount.value = currentItemData.count.toString() || ''
       const newData = [currentItemData, ...oldData]
       localStorage.setItem('cart', JSON.stringify(newData))
@@ -50,7 +39,6 @@ export const addItems = (data: offerTypes[]) => {
         currentItemData.count = 1
       }
       displayNewCount(currentItemData, oldData)
-      setPlural(currentItemData)
     }
 
     const updateItem = (operation: string) => {
@@ -60,18 +48,16 @@ export const addItems = (data: offerTypes[]) => {
         if (currentItemData.count >= 1 && currentItemData.count <= 50 && +itemCount.value <= 50) {
           currentItemData.count = +itemCount.value + 1
         }
-        setPlural(currentItemData)
       } else if (operation === 'minus') {
         if (currentItemData.count > 1 && +itemCount.value > 1) {
           currentItemData.count = +itemCount.value - 1
         }
-        setPlural(currentItemData)
       }
       displayNewCount(currentItemData, oldData)
     }
 
-    plus.addEventListener('click', () => updateItem('plus'))
-    minus.addEventListener('click', () => updateItem('minus'))
+    addBtn.addEventListener('click', () => updateItem('plus'))
+    removeBtn.addEventListener('click', () => updateItem('minus'))
     itemCount.addEventListener('change', handleInputChange)
   })
 }

@@ -11,7 +11,6 @@ type offerTypes = {
 }
 
 const template = (name: string, count: number, img: string, price: number) => {
-  const newPrice = count * price
   return `
           <li class="item">
               <picture class="item__img">
@@ -19,19 +18,19 @@ const template = (name: string, count: number, img: string, price: number) => {
                 <source srcset="/images/shoes/png/${img}.png" type="img/png" />
                 <img loading="lazy" src="/images/shoes/png/${img}.png" alt="${name}" />
               </picture>
-              <p class="item__name"><span class="item__name-text">${name}</span>, <span class="item__name-price">${price}€</span></p>
+              <div class="item__name-container">
+                <span class="item__tag">${name}</span><span class="item__price">${price}€</span>
+              </div>
               <div class="item__change-price">
-                  <p class="item__price-container"><span class="item__price">${newPrice}€</span> for</p>
-                  <button type="button" id="minus" class="item__change-btn" title="delete one ${name}">
+                  <button type="button" id="minus" class="item__button" data-type="remove" title="delete one ${name}">
                     <span class="fa-solid fa-minus"></span>
                   </button>
-                  <input type="number" value="${count}" min="1" step="1" title="${name} count" class="item__count"/>
-                  <button type="button" id="plus" class="item__change-btn" title="add one ${name}">
+                  <input type="number" value="${count}" min="1" step="1" title="${name} count" class="item__input"/>
+                  <button type="button" id="plus" class="item__button" data-type="add" title="add one ${name}">
                     <span class="fa-solid fa-plus "></span>
                   </button>
-                  <p class="item__pronoun">${count === 1 ? 'item' : 'items'}</p>
               </div>
-              <button class="item__delete-btn" type="button" title="delete item">
+              <button class="item__button item__button--delete" type="button" title="delete item">
                   <span class="fa-solid fa-trash-can"></span>
               </button>
           </li>
