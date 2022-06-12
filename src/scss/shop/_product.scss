@@ -5,10 +5,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr repeat(2, 1fr);
-  max-height: 11rem;
-  padding: 0 1rem;
+  padding: 0rem 1rem;
   min-width: 19rem;
   font-size: 1.25rem;
+  overflow: hidden;
 
   &:hover,
   &:focus {
@@ -28,6 +28,19 @@
 
   @include mixins.mediaquery('xl') {
     max-height: 13rem;
+  }
+
+
+  &__on-sale-badge {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(-32deg) translateX(-25%) translateY(-1rem);
+    padding: 0.5rem 0;
+    width: 13rem;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var.$yellow;
   }
 }
 
@@ -69,10 +82,11 @@
   align-self: center;
   justify-self: flex-end;
   margin-bottom: 0.3rem;
-  padding: 0.4rem;
+  padding: 0.4rem 0.5rem;
   user-select: none;
   transition: all 0.3s ease-in-out;
   transition-property: color, background-color;
+  font-size: 1.3rem;
 
   &:hover,
   &:focus {
@@ -102,6 +116,7 @@
 
 .product__discount {
   color: var.$yellow;
+  text-shadow: -2px 2px 2px var.$black, 1px -1px 2px var.$black;
 }
 
 .product__price--discounted {
@@ -119,10 +134,11 @@
 }
 
 .product__star {
-  color: var.$yellow;
+  color: var.$white;
+  @include mixins.gradient-shadow;
 
   path {
     stroke: var.$black;
-    stroke-width: 12px;
+    stroke-width: 30px;
   }
 }

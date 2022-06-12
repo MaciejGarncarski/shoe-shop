@@ -39,6 +39,7 @@ body {
   overflow-x: hidden;
   position: relative;
   font-size: clamp(calc(1rem + 0.75vw), 16px, 32px);
+  color: var.$dark;
 
   &::before {
     content: "";

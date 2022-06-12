@@ -41,7 +41,7 @@
 
   &:hover,
   &:focus {
-    text-shadow: -2px 1px var.$yellow;
+    filter: drop-shadow(-2px 2px 0 var.$yellow) drop-shadow(2px -2px 0 var.$lightYellow);
   }
 
   >span {

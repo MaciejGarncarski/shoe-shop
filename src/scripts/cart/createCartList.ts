@@ -46,6 +46,10 @@ export const createCartList = (data: offerTypes[]) => {
       .join('')
     deleteItem()
     addItems(data)
-    handleErrorMessage(data, container, 'No items in cart')
+    const message = `
+      No items in cart
+      <a href="#home">go back to shopping!</a>
+    `
+    handleErrorMessage(data, container, message)
   }
 }

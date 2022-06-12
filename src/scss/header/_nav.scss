@@ -39,13 +39,7 @@
     }
 
     &--active {
-      background-color: rgba(var.$white, 0.9);
-
-      @supports (backdrop-filter: blur(20px)) {
-        background-color: rgba(var.$white, 0.75);
-        backdrop-filter: blur(13px);
-      }
-
+      @include mixins.glass;
       font-size: 1.5rem;
 
       opacity: 1;
@@ -60,6 +54,7 @@
     stroke: var.$yellow;
     top: -0.8em;
     width: 12em;
+    filter: drop-shadow(6px -5px 0 var.$lightYellow);
 
     @include mixins.mediaquery('xl') {
       left: -1.5em;
@@ -93,7 +88,7 @@
       }
     }
 
-    &.mobile-cart-btn  {
+    &.mobile-cart-btn {
       z-index: 3;
       background-color: var.$white;
       padding: 0.5rem;

@@ -8,8 +8,16 @@ const template = (name: string, img: string, discount: number, price: number, st
 
   const starCount = [...Array(stars)]
 
+  const onSaleBadge = () => {
+    if (discount !== 1) {
+      return '<p class="product__on-sale-badge">on sale</p>'
+    }
+    return ''
+  }
+
   return `
   <li class="product">
+      ${onSaleBadge()}
       <picture class="product__img">
         <source srcset="/images/shoes/webp/${img}.webp" type="img/webp" />
         <source srcset="/images/shoes/png/${img}.png" type="img/png" />

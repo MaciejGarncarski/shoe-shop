@@ -104,6 +104,7 @@
   max-width: 70%;
 
   @include mixins.input;
+  text-align: center;
 
   @include mixins.mediaquery('xl') {
     max-width: initial;
@@ -122,6 +123,14 @@
 .filters__star {
   font-size: 2rem;
   margin-left: 0.5rem;
+  color: var.$white;
+  @include mixins.gradient-shadow;
+
+  path {
+    fill: var.$white;
+    stroke: var.$black;
+    stroke-width: 20px;
+  }
 }
 
 .filters__star-count {
@@ -133,40 +142,16 @@
 .filters__reset {
   @include mixins.shadow;
   @include mixins.radius('big');
-  text-transform: capitalize;
-  cursor: pointer;
   font-size: 1.3rem;
-  color: var.$black;
-  border: 1px solid rgba(var.$black, 0.3);
   padding: 0.4rem 0.9rem;
   text-decoration: none;
-  background: linear-gradient(to right, var.$yellow, var.$lightYellow);
-  background-size: 300% 100%;
-  background-position: left;
-  $transition: all 300ms ease;
-  transition: $transition;
+  @include mixins.button;
 
-  &:hover,
-  &:focus {
-    transition: $transition;
-    background-position: 100% 0;
-  }
-
-  &::selection {
-    color: var.$black;
-    text-shadow: none;
+  &:hover {
+    cursor: pointer;
   }
 }
 
-.filters__label-icon {
-  color: var.$yellow;
-  justify-self: center;
-
-  path {
-    stroke: var.$black;
-    stroke-width: 12px;
-  }
-}
 
 .filters__label-text {
   position: absolute;

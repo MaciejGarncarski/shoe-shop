@@ -8,6 +8,7 @@ const showNotification = () => {
   const active = 'added-to-cart--active'
   overlay.classList.remove(active)
   overlay.classList.add(active)
+  closeBtn.focus()
   closeBtn.addEventListener('click', () => overlay.classList.remove(active))
 }
 
@@ -19,13 +20,15 @@ if (localStorage.getItem('cart')) {
 }
 
 export const addToCart = () => {
-  const addBtn = document.querySelectorAll('.product__cart-btn')
+  const items = document.querySelectorAll('.product')
   if (localStorage.getItem('cart')) {
     cart = JSON.parse(localStorage.getItem('cart') || '')
   }
 
-  addBtn.forEach((btn) => {
-    const currentItem = btn.parentElement?.childNodes[3] as HTMLParagraphElement
+  items.forEach((item) => {
+    console.log(item)
+    const btn = item.querySelector('.product__cart-btn') as HTMLButtonElement
+    const currentItem = item.querySelector('.product__name') as HTMLHeadingElement
 
     const handleClick = () => {
       const { name, price, discount, img } = offers.find(({ name }) => currentItem.textContent === name) || defaultObj

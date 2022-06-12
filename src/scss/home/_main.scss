@@ -20,16 +20,6 @@
     height: auto;
     padding: 4rem;
     padding-right: 50%;
-
-    &__heading,
-    &__description,
-    &__button {
-      @include mixins.normal-motion {
-        opacity: 0;
-        transform: translateY(3rem);
-        animation: slide-up 1.25s ease forwards;
-      }
-    }
   }
 
   &__heading {
@@ -41,27 +31,15 @@
   }
 
   &__button {
-    background: linear-gradient(to right, var.$yellow, var.$lightYellow);
-    @include mixins.shadow;
     @include mixins.radius('small');
-    color: var.$black;
+    @include mixins.button;
     padding: 0.6rem 1rem;
     text-decoration: none;
-    background-size: 300% 100%;
-    background-position: left;
-    border: 1px solid rgba(var.$black, 0.2);
-    transition: all 300ms ease;
-
+    display: inline-block;
 
     &::selection {
       color: var.$black;
       text-shadow: none;
-    }
-
-    &:hover,
-    &:focus {
-      transition: all 300ms ease;
-      background-position: 100% 0;
     }
   }
 }

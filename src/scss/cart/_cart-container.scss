@@ -2,6 +2,19 @@
 @use '../modules/mixins';
 
 .cart {
+  @include mixins.glass;
+  @include mixins.radius('big');
+  margin: 0 1rem;
+  padding: 3rem 0;
+  margin-inline: auto;
+  width: min(80%, 30rem);
+
+  @include mixins.mediaquery('xl') {
+    width: clamp(25vw, 60rem, 50vw);
+    padding: 3rem 3rem;
+    border-radius: 1rem;
+  }
+
   &__heading {
     @include mixins.heading;
     text-align: center;
@@ -12,50 +25,62 @@
     flex-direction: column;
     gap: 3rem;
     list-style: none;
-    padding: 6rem 0;
   }
 
   &__hidden-text {
     display: none;
   }
-}
 
-.cart__total-price-container {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 1rem 1rem;
-  width: 60%;
-  gap: 1rem;
-  top: 3.75rem;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 1.5rem;
-
-  @include mixins.radius('big');
-  @include mixins.glass;
-
-  @include mixins.mediaquery('xl') {
-    width: calc(5vw + 20rem);
-    padding: 1rem 3rem;
-    padding-left: 4rem;
-  }
-
-  &--active {
+  &__price {
     display: flex;
+    justify-content: space-between;
   }
-}
 
-.cart__total-price {
-  display: inline-block;
-  min-width: 3rem;
-  text-align: right;
-  font-weight: 700;
+  &__total {
+    font-weight: 700;
+  }
 
-  @include mixins.mediaquery('xl') {
-    min-width: 7rem;
-    text-align: left;
+  &__shipping-price {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &__checkout-link {
+    @include mixins.button;
+    @include mixins.radius('big');
+    padding: 0.5rem 1.25rem;
+    margin-top: 2rem;
+    justify-self: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var.$black;
+  }
+
+
+  &__total-container {
+    margin: 4rem 2rem;
+    padding: 2rem 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-top: 2px solid var.$yellow;
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: repeat(2, 1fr);
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__cart__total-price {
+    display: inline-block;
+    min-width: 3rem;
+    text-align: right;
+    font-weight: 700;
+
+    @include mixins.mediaquery('xl') {
+      min-width: 7rem;
+      text-align: left;
+    }
   }
 }
