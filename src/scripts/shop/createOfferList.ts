@@ -1,5 +1,4 @@
 import { offerTypes } from '../../types/types'
-import { handleErrorMessage } from '../handleErrorMessage'
 
 const template = (name: string, img: string, discount: number, price: number, stars: number) => {
   const discountValue = discount * price
@@ -44,6 +43,10 @@ export const createOfferList = (data: offerTypes[]) => {
     offersContainer.innerHTML = data
       .map(({ name, price, discount, img, stars }) => template(name, img, discount, price, stars))
       .join('')
-    handleErrorMessage(data, offersContainer, 'No items Found')
+  }
+  if (offersContainer.childElementCount === 0) {
+    offersContainer.innerHTML = `
+          <span class="not-found-message">No offers found.</span>
+          `
   }
 }

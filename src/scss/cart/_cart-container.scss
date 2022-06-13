@@ -8,12 +8,18 @@
   padding: 3rem 0;
   margin-inline: auto;
   width: min(80%, 30rem);
+  min-height: 15rem;
+
+  @media screen and (max-width: 280px) {
+    width: 100%;
+  }
 
   @include mixins.mediaquery('xl') {
     width: clamp(25vw, 60rem, 50vw);
     padding: 3rem 3rem;
     border-radius: 1rem;
   }
+
 
   &__heading {
     @include mixins.heading;
@@ -25,10 +31,22 @@
     flex-direction: column;
     gap: 3rem;
     list-style: none;
+
+    >.not-found-message {
+      text-align: center;
+      padding: 3rem
+    }
+
   }
 
   &__hidden-text {
     display: none;
+  }
+
+  &__link {
+    text-decoration: underline dashed;
+    text-decoration-color: var.$black;
+    color: var.$yellow;
   }
 
   &__price {

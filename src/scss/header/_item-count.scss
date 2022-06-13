@@ -2,23 +2,20 @@
 @use '../modules/mixins';
 
 .item-count {
-  display: flex;
   min-width: 2rem;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   right: -32%;
   top: -2.2vh;
   transform: translateX(-50%);
   padding: 0.2rem 0.3rem;
-
-  border: 1px solid rgba(var.$black, 0.3);
+  text-align: center;
+  border: 1px solid rgba(var.$black, 0.2);
   font-size: 1.3rem;
   background: linear-gradient(to right, var.$yellow, var.$lightYellow);
   background-size: 300% 100%;
   background-position: left;
 
-  @include mixins.radius('big');
+  @include mixins.radius('small');
   @include mixins.shadow;
 
   @include mixins.normal-motion {

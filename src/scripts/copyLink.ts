@@ -7,6 +7,14 @@ const createNotification = (parent: HTMLSpanElement) => {
 
 const hasClipboard = () => navigator && navigator.clipboard && navigator.clipboard.writeText
 
+//
+//
+//
+// TO-DO parent-children
+//
+//
+//
+
 const copy = (el: ClipboardEvent | MouseEvent) => {
   if (el.target instanceof HTMLSpanElement) {
     const data = el.target.dataset.copy || ''

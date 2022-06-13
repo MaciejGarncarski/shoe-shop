@@ -1,4 +1,3 @@
-import { handleErrorMessage } from '../handleErrorMessage'
 import { addItems } from './addItems'
 import { deleteItem } from './deleteItem'
 
@@ -22,15 +21,15 @@ const template = (name: string, count: number, img: string, price: number) => {
                 <span class="item__tag">${name}</span><span class="item__price">${price}€</span>
               </div>
               <div class="item__change-price">
-                  <button type="button" id="minus" class="item__button" data-type="remove" title="delete one ${name}">
+                  <button type="button" id="minus" class="item__button" data-type="remove" title="delete one ${name} from cart">
                     <span class="fa-solid fa-minus"></span>
                   </button>
-                  <input type="number" value="${count}" min="1" step="1" title="${name} count" class="item__input"/>
-                  <button type="button" id="plus" class="item__button" data-type="add" title="add one ${name}">
+                  <input type="number" value="${count}" min="1" step="1" title="${name} count in cart" class="item__input"/>
+                  <button type="button" id="plus" class="item__button" data-type="add" title="add one ${name} to cart">
                     <span class="fa-solid fa-plus "></span>
                   </button>
               </div>
-              <button class="item__button item__button--delete" type="button" title="delete item">
+              <button class="item__button item__button--delete" type="button" title="delete all ${name} from cart">
                   <span class="fa-solid fa-trash-can"></span>
               </button>
           </li>
@@ -48,8 +47,15 @@ export const createCartList = (data: offerTypes[]) => {
     addItems(data)
     const message = `
       No items in cart
-      <a href="#home">go back to shopping!</a>
+      <a href="#shop" class="cart__link">go back to shopping</a>
+      !
     `
-    handleErrorMessage(data, container, message)
+
+    console.log(container.childElementCount)
+    if (container.childElementCount === 0) {
+      container.innerHTML = `
+        <span class="not-found-message">${message}</span>
+        `
+    }
   }
 }

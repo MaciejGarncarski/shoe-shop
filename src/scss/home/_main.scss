@@ -2,14 +2,14 @@
 @use '../modules/mixins';
 
 .main {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  gap: 7vh;
-  justify-content: center;
   min-height: 60vh;
   padding: 1.5rem;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  row-gap: 7vh;
 
   @include mixins.mediaquery('lg') {
     padding: 2rem 5rem;
@@ -28,6 +28,7 @@
 
   &__description {
     color: var.$dark;
+    position: relative;
   }
 
   &__button {
@@ -36,11 +37,7 @@
     padding: 0.6rem 1rem;
     text-decoration: none;
     display: inline-block;
-
-    &::selection {
-      color: var.$black;
-      text-shadow: none;
-    }
+    align-self: flex-start;
   }
 }
 
@@ -59,7 +56,7 @@
 }
 
 .main__fire {
-  bottom: 0;
+  bottom: -2em;
   height: 4em;
   right: 2em;
   width: 4em;
@@ -69,14 +66,14 @@
   transform: rotate(9deg) scale(1);
   height: 3em;
   right: 1.5em;
-  top: 3.5em;
+  top: -3em;
   width: 3em;
 }
 
 .main__bear {
   height: 2.5em;
   left: 1.5em;
-  top: 4.25em;
+  top: -3em;
   width: 2.5em;
 }
 
@@ -91,24 +88,24 @@
       transform: rotate(0deg) scale(0);
     }
 
-    height: calc(3vw + 1em);
-    width: calc(3vw + 1em);
+    height: calc(3vw + 0.75em);
+    width: calc(3vw + 0.75em);
   }
 
   .main__fire {
-    bottom: 4em;
+    bottom: -2em;
     left: 15em;
   }
 
   .main__hands {
     animation-name: popup-right;
-    left: 22em;
-    top: 4em;
+    right: 0;
+    top: -2em;
   }
 
   .main__bear {
     left: 0em;
-    top: 5em;
+    top: -2em;
   }
 }
 

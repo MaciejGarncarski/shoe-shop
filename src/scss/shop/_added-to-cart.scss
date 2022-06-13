@@ -20,8 +20,8 @@
 
   @include mixins.mediaquery('xl') {
     left: 55%;
-    top: 60%;
-    padding: 7rem 2vw;
+    top: 55%;
+    padding: 9rem 2vw;
     font-size: 2rem;
   }
 
@@ -31,11 +31,14 @@
 
   }
 
-
   >svg {
-    color: var.$yellow;
-    filter: drop-shadow(-1px 2px 0 var.$black);
+    color: var.$white;
+    @include mixins.gradient-shadow;
     font-size: 6rem;
+
+    fill: var.$white;
+    stroke: var.$black;
+    stroke-width: 7px;
 
     @include mixins.normal-motion {
       stroke-dashoffset: 600;

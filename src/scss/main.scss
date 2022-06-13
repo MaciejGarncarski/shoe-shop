@@ -18,8 +18,9 @@
 
 ::selection {
   background: var.$yellow;
-  color: var.$white;
+  color: var.$black;
   filter: none;
+  text-shadow: none;
 }
 
 html,
@@ -34,6 +35,11 @@ button {
   font-family: 'Montserrat', sans-serif;
 }
 
+input,
+button {
+  font-family: inherit;
+}
+
 body {
   background-image: linear-gradient(to bottom left, var.$gray 30%, var.$white 100%);
   overflow-x: hidden;
@@ -41,27 +47,40 @@ body {
   font-size: clamp(calc(1rem + 0.75vw), 16px, 32px);
   color: var.$dark;
 
-  &::before {
-    content: "";
-    width: 50%;
-    height: 100%;
-    left: -1%;
+  .locked {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+}
+
+.blob-decoration {
+  z-index: -1;
+  position: absolute;
+
+  &--big {
+
+    left: -10%;
     top: -1%;
     background-image: url("/images/bg.svg");
     background-repeat: no-repeat;
     background-size: contain;
-    position: absolute;
-    z-index: -1;
+    width: 90vw;
+    min-height: 50vh;
+
+    @include mixins.mediaquery('xl') {
+      width: 60vw;
+      min-height: 105vh;
+    }
   }
 
-  &::after {
-    content: "";
-    z-index: -1;
-    $size: 90vw;
+
+  &--small {
+    counter-reset: 2;
+    $size: 75vw;
     width: $size;
     height: $size;
-    top: 20%;
-    right: 0;
+    top: 27%;
+    right: 3%;
     position: fixed;
     background-image: url("/images/blob.svg");
     background-repeat: no-repeat;
@@ -76,12 +95,9 @@ body {
       top: 31vh;
     }
   }
-
-  .locked {
-    max-height: 100vh;
-    overflow: hidden;
-  }
 }
+
+
 
 .app {
   min-height: 78vh;

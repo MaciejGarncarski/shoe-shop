@@ -13,17 +13,17 @@ export const totalPrice = () => {
 
   if (cartItems.length !== 0 && total) {
     const newPrice = cartItems.reduce((acc, curr) => acc + curr)
-    const priceWithVat = () => {
-      const withVat = (newPrice * 1.23).toFixed(2)
-      const cents = withVat.substring(withVat.length - 2, withVat.length)
+    const totalNetto = () => {
+      const withoutVat = (newPrice / 1.23).toFixed(2)
+      const cents = withoutVat.substring(withoutVat.length - 2, withoutVat.length)
       if (cents === '00') {
-        return withVat.substring(0, withVat.length - 3)
+        return withoutVat.substring(0, withoutVat.length - 3)
       }
-      return withVat
+      return withoutVat
     }
 
-    total.textContent = `${newPrice.toString()}€`
-    totalVat.textContent = `${priceWithVat()}€`
+    total.textContent = `${totalNetto()}€`
+    totalVat.textContent = `${newPrice.toString()}€`
     container.classList.remove('cart__total-container--hidden')
   } else {
     total.textContent = ''

@@ -141,7 +141,7 @@
 
 .filters__reset {
   @include mixins.shadow;
-  @include mixins.radius('big');
+  @include mixins.radius('small');
   font-size: 1.3rem;
   padding: 0.4rem 0.9rem;
   text-decoration: none;
@@ -161,6 +161,5 @@
 
 .not-found-message {
   font-weight: 800;
-  line-height: 5;
   text-shadow: -2px 2px var.$white;
 }

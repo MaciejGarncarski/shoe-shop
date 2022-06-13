@@ -26,7 +26,6 @@ export const addToCart = () => {
   }
 
   items.forEach((item) => {
-    console.log(item)
     const btn = item.querySelector('.product__cart-btn') as HTMLButtonElement
     const currentItem = item.querySelector('.product__name') as HTMLHeadingElement
 

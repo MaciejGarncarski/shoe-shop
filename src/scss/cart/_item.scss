@@ -1,18 +1,31 @@
 @use '../modules/mixins';
+@use '../var';
 
 .item {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr auto;
   place-items: center;
-  padding: 0 2rem;
   width: 100%;
+  position: relative;
+  padding: 0 2rem;
 
+  &:not(:last-child) {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 2rem;
+      bottom: -60px;
+      width: calc(100% - 4rem);
+      height: 20px;
+      border-top: 2px solid var.$yellow;
+    }
+  }
 
   &__img {
     width: 8rem;
     justify-self: flex-start;
-    @include mixins.gradient-shadow;
+    filter: drop-shadow(0 0 1.2px var.$black) drop-shadow(-7px 4px 0 var.$yellow) drop-shadow(7px -4px 0 var.$lightYellow);
 
     >img {
       width: 100%;
@@ -70,7 +83,7 @@
     width: max(30%, 3.25rem);
     @include mixins.input;
     padding: 0.25rem;
-    padding-right: 0.2rem;
+    padding-right: 0;
     text-align: right;
   }
 }

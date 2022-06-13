@@ -72,10 +72,4 @@
   background-color: var.$white;
   @include mixins.radius('small');
   @include mixins.shadow;
-
-  &::selection {
-    color: var.$black;
-    text-shadow: none;
-  }
-
 }

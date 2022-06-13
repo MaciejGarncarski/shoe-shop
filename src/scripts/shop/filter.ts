@@ -1,10 +1,7 @@
 import { offers } from '../../data/offers'
 import { addToCart } from './addToCart'
 import { createOfferList } from './createOfferList'
-import { handleErrorMessage } from '../handleErrorMessage'
 import debounce from 'lodash.debounce'
-
-const container = document.querySelector('.offers') as HTMLUListElement
 
 const filter = () => {
   const minPrice = document.querySelector('#min-price') as HTMLInputElement
@@ -26,7 +23,6 @@ const filter = () => {
     return filterByMin && filterByMax && filterByStars
   })
   createOfferList(filteredOffers)
-  handleErrorMessage(filteredOffers, container, 'No items found.')
   addToCart()
 }
 
