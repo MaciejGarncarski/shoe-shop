@@ -15,9 +15,10 @@
   }
 
   @include mixins.mediaquery('xl') {
-    width: clamp(25vw, 60rem, 50vw);
+    width: clamp(25vw, 60rem, 40vw);
     padding: 3rem 3rem;
     border-radius: 1rem;
+    margin-top: 3rem;
   }
 
 

@@ -1,5 +1,4 @@
 import { fetchPage } from './fetchPage'
-import { markActivePage } from './markActivePage'
 import { shopFunctions, cartFunctions } from './subpageFunctions'
 
 type routesType = {
@@ -35,8 +34,6 @@ export const dynamicHash = async () => {
   } else {
     await fetchPage('pages/404.html')
   }
-
-  markActivePage()
 }
 
 export const changePages = () => window.addEventListener('hashchange', dynamicHash)

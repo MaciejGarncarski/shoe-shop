@@ -23,7 +23,7 @@
   }
 
   &__img {
-    width: 8rem;
+    width: calc(25% + 5rem);
     justify-self: flex-start;
     filter: drop-shadow(0 0 1.2px var.$black) drop-shadow(-7px 4px 0 var.$yellow) drop-shadow(7px -4px 0 var.$lightYellow);
 
@@ -49,10 +49,9 @@
   &__change-price {
     display: flex;
     gap: 0.5rem;
-    justify-self: flex-start;
 
-    @include mixins.mediaquery('lg') {
-      justify-self: center;
+    @include mixins.mediaquery('less-lg') {
+      justify-self: flex-start;
     }
   }
 
@@ -84,6 +83,6 @@
     @include mixins.input;
     padding: 0.25rem;
     padding-right: 0;
-    text-align: right;
+    text-align: center;
   }
 }

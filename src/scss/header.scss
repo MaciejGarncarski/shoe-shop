@@ -14,6 +14,7 @@
     display: none;
   }
 
+
   @include mixins.mediaquery('xl') {
     justify-content: space-between;
     padding: 3rem 6rem;

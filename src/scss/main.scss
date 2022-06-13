@@ -76,11 +76,11 @@ body {
 
   &--small {
     counter-reset: 2;
-    $size: 75vw;
+    $size: clamp(20rem, 60vw, 35rem);
     width: $size;
     height: $size;
     top: 27%;
-    right: 3%;
+    right: 6%;
     position: fixed;
     background-image: url("/images/blob.svg");
     background-repeat: no-repeat;

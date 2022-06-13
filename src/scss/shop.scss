@@ -1,20 +1,18 @@
 @use 'var';
 @use 'modules/animations';
 @use 'modules/mixins';
-@use 'shop/buttons';
 @use 'shop/offers';
 @use 'shop/product';
 @use 'shop/filters';
 @use 'shop/added-to-cart';
 
 .shop-container {
-  align-items: center;
   display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem;
 
-  @include mixins.mediaquery('xl') {
+  @include mixins.mediaquery('lg') {
     flex-direction: row;
     justify-content: flex-start;
+    padding: 4rem 3rem;
   }
 }

@@ -8,27 +8,26 @@
   margin-top: 6rem;
   border-radius: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   gap: max(2vh, 1rem);
   font-size: 1.25rem;
 
   @include mixins.glass;
 
-  @include mixins.mediaquery('xl') {
+  @include mixins.mediaquery('less-lg') {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include mixins.mediaquery('lg') {
     padding: max(3vw, 3rem);
-    display: flex;
-    flex-direction: row;
     align-items: flex-start;
-    justify-content: flex-start;
     gap: max(10vw, 2rem);
   }
 
   &__list {
     list-style: none;
   }
-
 
   &__heading {
     display: flex;
@@ -40,18 +39,17 @@
   &__copy-notification {
     position: absolute;
     opacity: 0;
-    right: -50%;
+    right: -60%;
     transform: translateY(10px);
     padding: 0 0.5rem;
-    font-weight: 800;
-    text-shadow: -1.5px 1.5px 0 var.$white;
+    font-weight: 700;
+    filter: drop-shadow(-2px 2px 0 var.$yellow) drop-shadow(2px -2px 0 var.$lightYellow);
+
+    @include mixins.radius('small');
 
     @include mixins.normal-motion {
       animation: slide-up 1s ease-in-out forwards;
     }
-
-    @include mixins.gradient;
-    @include mixins.radius('small');
   }
 
   &__item {
@@ -61,7 +59,7 @@
     justify-content: center;
     align-items: center;
 
-    @include mixins.mediaquery('xl') {
+    @include mixins.mediaquery('lg') {
       align-items: flex-start;
     }
   }
@@ -72,11 +70,14 @@
     margin: 1rem 0;
     line-height: 1.5;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     gap: max(0.5vw, 0.5rem);
     position: relative;
     cursor: pointer;
+
+    @include mixins.mediaquery('less-lg') {
+      justify-content: center;
+    }
 
     &:hover {
       filter: drop-shadow(-2px 2px 0 var.$yellow) drop-shadow(2px -2px 0 var.$lightYellow);

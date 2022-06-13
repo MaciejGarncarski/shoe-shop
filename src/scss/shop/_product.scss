@@ -6,7 +6,6 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr repeat(2, minmax(min-content, 3.5rem));
   padding: 0rem 1rem;
-  min-width: 19rem;
   overflow: hidden;
 
   &:hover,

@@ -50,8 +50,6 @@ export const createCartList = (data: offerTypes[]) => {
       <a href="#shop" class="cart__link">go back to shopping</a>
       !
     `
-
-    console.log(container.childElementCount)
     if (container.childElementCount === 0) {
       container.innerHTML = `
         <span class="not-found-message">${message}</span>

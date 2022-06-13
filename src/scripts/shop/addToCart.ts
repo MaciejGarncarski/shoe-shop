@@ -1,16 +1,7 @@
 import { offers } from '../../data/offers'
 import { defaultObj, itemTypes } from '../../types/types'
 import { itemCount } from '../cart/itemCount'
-
-const showNotification = () => {
-  const overlay = document.querySelector('.added-to-cart') as HTMLDivElement
-  const closeBtn = document.querySelector('.added-to-cart__close-btn') as HTMLDivElement
-  const active = 'added-to-cart--active'
-  overlay.classList.remove(active)
-  overlay.classList.add(active)
-  closeBtn.focus()
-  closeBtn.addEventListener('click', () => overlay.classList.remove(active))
-}
+import { addedToCartPopup } from './popup'
 
 let cart: itemTypes[] = []
 
@@ -20,6 +11,7 @@ if (localStorage.getItem('cart')) {
 }
 
 export const addToCart = () => {
+  let timeout: ReturnType<typeof setTimeout>
   const items = document.querySelectorAll('.product')
   if (localStorage.getItem('cart')) {
     cart = JSON.parse(localStorage.getItem('cart') || '')
@@ -45,7 +37,7 @@ export const addToCart = () => {
         cart.push(item)
       }
       localStorage.setItem('cart', JSON.stringify(cart))
-      showNotification()
+      addedToCartPopup(timeout)
       itemCount()
     }
 
