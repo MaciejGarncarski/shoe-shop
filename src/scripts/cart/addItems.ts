@@ -38,8 +38,8 @@ export const addItems = (data: offerTypes[]) => {
       if (itemCount.valueAsNumber <= 0 || itemCount.valueAsNumber > 50) {
         currentItemData.count = 1
       }
-      updateInputValue(currentItemData)
       saveNewCart(cart)
+      updateInputValue(currentItemData)
     }
 
     const updateItem = (operation: string) => {
@@ -49,8 +49,8 @@ export const addItems = (data: offerTypes[]) => {
       } else if (operation === 'removeOneItem' && itemCount.valueAsNumber > 1) {
         currentItemData.count = itemCount.valueAsNumber - 1
       }
-      updateInputValue(currentItemData)
       saveNewCart(cart)
+      updateInputValue(currentItemData)
     }
 
     addBtn.addEventListener('click', () => updateItem('addOneItem'))

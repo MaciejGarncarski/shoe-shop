@@ -51,6 +51,12 @@
     }
   }
 
+  &__timer {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+  }
+
   &__close-btn {
     position: absolute;
     right: 3%;
