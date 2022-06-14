@@ -1,4 +1,4 @@
-const handleClick = () => {
+const onClick = () => {
   const btn = document.querySelector('.show-filters') as HTMLDivElement
   const filters = document.querySelector('.filters') as HTMLDivElement
   document.body.classList.toggle('locked')
@@ -13,5 +13,5 @@ const handleClick = () => {
 
 export const showFilters = () => {
   const btn = document.querySelector('.show-filters') as HTMLDivElement
-  btn.addEventListener('click', handleClick)
+  btn.addEventListener('click', onClick)
 }

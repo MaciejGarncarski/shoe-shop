@@ -21,11 +21,11 @@ const template = (name: string, count: number, img: string, price: number) => {
                 <span class="item__tag">${name}</span><span class="item__price">${price}€</span>
               </div>
               <div class="item__change-price">
-                  <button type="button" id="minus" class="item__button" data-type="remove" title="delete one ${name} from cart">
+                  <button type="button" id="removeOneItem" class="item__button" data-type="remove" title="delete one ${name} from cart">
                     <span class="fa-solid fa-minus"></span>
                   </button>
-                  <input type="number" value="${count}" min="1" step="1" title="${name} count in cart" class="item__input"/>
-                  <button type="button" id="plus" class="item__button" data-type="add" title="add one ${name} to cart">
+                  <input type="number" value="${count}" min="1" step="1" max="50" title="${name} count in cart" class="item__input"/>
+                  <button type="button" id="addOneItem" class="item__button" data-type="add" title="add one ${name} to cart">
                     <span class="fa-solid fa-plus "></span>
                   </button>
               </div>
@@ -45,8 +45,10 @@ export const createCartList = (data: offerTypes[]) => {
       .join('')
     deleteItem()
     addItems(data)
+
     const message = `
       No items in cart
+      <br />
       <a href="#shop" class="cart__link">go back to shopping</a>
       !
     `

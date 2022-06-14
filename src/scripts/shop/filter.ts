@@ -3,7 +3,7 @@ import { addToCart } from './addToCart'
 import { createOfferList } from './createOfferList'
 import debounce from 'lodash.debounce'
 
-const filter = () => {
+const onFilterChange = () => {
   const minPrice = document.querySelector('#min-price') as HTMLInputElement
   const maxPrice = document.querySelector('#max-price') as HTMLInputElement
   const starsCount = document.querySelector('#star-count') as HTMLInputElement
@@ -16,9 +16,9 @@ const filter = () => {
       discountedPrice = discountValue
     }
 
-    const filterByMin = !+minPrice.value || +minPrice.value <= discountedPrice
-    const filterByMax = !+maxPrice.value || +maxPrice.value >= discountedPrice
-    const filterByStars = !starsCount.value || +starsCount.value === stars
+    const filterByMin = !minPrice.valueAsNumber || minPrice.valueAsNumber <= discountedPrice
+    const filterByMax = !maxPrice.valueAsNumber || maxPrice.valueAsNumber >= discountedPrice
+    const filterByStars = starsCount.valueAsNumber || starsCount.valueAsNumber === stars
 
     return filterByMin && filterByMax && filterByStars
   })
@@ -26,7 +26,7 @@ const filter = () => {
   addToCart()
 }
 
-export const handleFilter = () => {
+export const runFilters = () => {
   const form = document.querySelector('form') as HTMLFormElement
-  form.addEventListener('input', debounce(filter, 500))
+  form.addEventListener('change', debounce(onFilterChange, 350))
 }

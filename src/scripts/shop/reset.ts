@@ -1,7 +1,7 @@
 import { offers } from '../../data/offers'
 import { createOfferList } from './createOfferList'
 import { addToCart } from './addToCart'
-import { handleFilter } from './filter'
+import { runFilters } from './filter'
 import { showFilters } from './showFilters'
 
 export const resetForm = () => {
@@ -10,8 +10,7 @@ export const resetForm = () => {
     resetButton.addEventListener('click', () => {
       createOfferList(offers)
       addToCart()
-      handleFilter()
-      resetForm()
+      runFilters()
       showFilters()
     })
   }

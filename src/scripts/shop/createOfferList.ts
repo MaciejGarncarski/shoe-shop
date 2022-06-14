@@ -1,4 +1,5 @@
 import { offerTypes } from '../../types/types'
+import { resetForm } from './reset'
 
 const template = (name: string, img: string, discount: number, price: number, stars: number) => {
   const discountValue = discount * price
@@ -49,4 +50,5 @@ export const createOfferList = (data: offerTypes[]) => {
           <span class="not-found-message">No offers found.</span>
           `
   }
+  resetForm()
 }

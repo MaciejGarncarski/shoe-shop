@@ -5,6 +5,13 @@ export const addedToCartPopup = (timeout: ReturnType<typeof setTimeout>) => {
   window.clearTimeout(timeout)
   overlay.classList.add(active)
   timeout = window.setTimeout(() => overlay.classList.remove(active), 10000)
+
   closeBtn.focus()
-  closeBtn.addEventListener('click', () => overlay.classList.remove(active))
+
+  const onBtnClick = () => {
+    window.clearTimeout(timeout)
+    overlay.classList.remove(active)
+  }
+
+  closeBtn.addEventListener('click', onBtnClick)
 }
