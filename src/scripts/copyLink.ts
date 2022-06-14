@@ -5,12 +5,10 @@ const createNotification = (parent: HTMLSpanElement) => {
   parent.appendChild(notification)
 }
 
-const hasClipboard = () => navigator && navigator.clipboard && navigator.clipboard.writeText
-
 const copy = (el: ClipboardEvent | MouseEvent) => {
   if (el.target instanceof HTMLSpanElement) {
     const data = el.target.dataset.copy || ''
-    if (hasClipboard())
+    if (navigator.clipboard.writeText)
       navigator.clipboard
         .writeText(data)
         .then(() => {

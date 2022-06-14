@@ -47,10 +47,11 @@ body {
   font-size: clamp(calc(1rem + 0.75vw), 16px, 32px);
   color: var.$dark;
 
-  .locked {
-    max-height: 100vh;
-    overflow: hidden;
-  }
+}
+
+.locked {
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .blob-decoration {

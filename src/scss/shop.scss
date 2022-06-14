@@ -2,7 +2,7 @@
 @use 'modules/animations';
 @use 'modules/mixins';
 @use 'shop/offers';
-@use 'shop/product';
+@use 'shop/shop-item';
 @use 'shop/filters';
 @use 'shop/added-to-cart';
 
@@ -13,6 +13,7 @@
   @include mixins.mediaquery('lg') {
     flex-direction: row;
     justify-content: flex-start;
-    padding: 4rem 3rem;
+    padding: 4rem 0;
+    margin-inline: 6rem;
   }
 }

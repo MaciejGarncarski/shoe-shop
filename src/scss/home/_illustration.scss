@@ -4,12 +4,6 @@
 .illustration {
   display: none;
 
-  @include mixins.normal-motion {
-    animation: slide-left 1.75s ease forwards;
-    opacity: 0;
-    transform: translateX(4em);
-  }
-
   @include mixins.mediaquery('xl') {
     display: inline-block;
     filter: drop-shadow(2px 2px 1px var.$black) drop-shadow(-2px -2px 1px var.$white);

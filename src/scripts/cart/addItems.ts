@@ -1,26 +1,22 @@
 import { itemCount as cartItemCount } from './itemCount'
 import { totalPrice } from './totalPrice'
+import { saveNewCart } from './saveNewCart'
 
-type offerTypes = {
-  name: string
-  price: number
-  discount: number
-  count: number
-  img: string
-}
+import type { offerType } from '../../types/types'
 
-export const addItems = (data: offerTypes[]) => {
+type cartOfferType = offerType & { count: number }
+
+export const addItems = (data: cartOfferType[]) => {
   const items = document.querySelectorAll<HTMLLIElement>('.item')
   items.forEach((item) => {
     const addBtn = item.querySelector('[data-type="add"]') as HTMLButtonElement
     const removeBtn = item.querySelector('[data-type="remove"]') as HTMLButtonElement
-    const itemName = item.querySelector('.item__tag') as HTMLParagraphElement
-    const itemCount = item.querySelector('.item__input') as HTMLInputElement
+    const itemName = item.querySelector('.cart-item__tag') as HTMLParagraphElement
+    const itemCount = item.querySelector('.cart-item__input') as HTMLInputElement
 
     const findItemByName = ({ name }: { name: string }) => itemName.textContent === name
-    const saveNewCart = (newCart: offerTypes | offerTypes[]) => localStorage.setItem('cart', JSON.stringify(newCart))
 
-    const updateInputValue = (currentItemData: offerTypes) => {
+    const updateInputValue = (currentItemData: cartOfferType) => {
       itemCount.value = currentItemData.count.toString() || ''
       totalPrice()
       cartItemCount()
@@ -28,7 +24,7 @@ export const addItems = (data: offerTypes[]) => {
 
     const getCartData = () => {
       const cart = data
-      const currentItemData = data.find(findItemByName) as offerTypes
+      const currentItemData = data.find(findItemByName) as cartOfferType
       return { cart, currentItemData }
     }
 

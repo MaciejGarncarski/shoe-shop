@@ -3,22 +3,24 @@
 
 .main {
   min-height: 60vh;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
+  margin-inline: 1.5rem;
   position: relative;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   row-gap: 7vh;
 
   @include mixins.mediaquery('lg') {
-    padding: 2rem 5rem;
+    padding: 2rem 0;
+    margin-inline: 4rem;
   }
 
   @include mixins.mediaquery('xl') {
     gap: 3rem;
     height: auto;
-    padding: 4rem;
+    padding: 4rem 0;
+    margin-inline: 6rem;
     padding-right: 50%;
   }
 
@@ -68,6 +70,7 @@
   right: 1.5em;
   top: -3em;
   width: 3em;
+
 }
 
 .main__bear {
@@ -75,6 +78,7 @@
   left: 1.5em;
   top: -3em;
   width: 2.5em;
+  transform: none;
 }
 
 @include mixins.mediaquery('xl') {
@@ -82,14 +86,8 @@
   .main__fire,
   .main__hands,
   .main__bear {
-    @include mixins.normal-motion {
-      animation: popup-left forwards 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      opacity: 0;
-      transform: rotate(0deg) scale(0);
-    }
-
-    height: calc(3vw + 0.75em);
-    width: calc(3vw + 0.75em);
+    height: calc(2.5vw + 0.75em);
+    width: calc(2.5vw + 0.75em);
   }
 
   .main__fire {
@@ -104,14 +102,14 @@
   }
 
   .main__bear {
-    left: 0em;
-    top: -2em;
+    left: 8em;
+    top: -3.5em;
   }
 }
 
 
 @for $i from 1 through 4 {
-  .main>span:nth-child(#{$i}n) {
+  .main__description>span:nth-child(#{$i}n) {
     animation-delay: #{$i * 0.5}s;
   }
 }

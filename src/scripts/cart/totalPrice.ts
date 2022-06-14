@@ -1,6 +1,6 @@
-import { offerTypes } from '../../types/types'
+import type { offerType } from '../../types/types'
 
-type itemType = offerTypes & {
+type itemType = offerType & {
   count: number
 }
 
@@ -25,7 +25,7 @@ export const totalPrice = () => {
     total.textContent = `${totalNetto()}€`
     totalVat.textContent = `${newPrice.toString()}€`
     container.classList.remove('cart__total-container--hidden')
-  } else {
+  } else if (total) {
     total.textContent = ''
     totalVat.textContent = ''
     container.classList.add('cart__total-container--hidden')

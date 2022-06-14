@@ -1,14 +1,18 @@
 @use '../modules/mixins';
 @use '../var';
 
-.item {
+.cart-item {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr auto;
   place-items: center;
   width: 100%;
   position: relative;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
+
+  @include mixins.mediaquery('lg') {
+    padding: 0 2rem;
+  }
 
   &:not(:last-child) {
     &::before {
@@ -48,14 +52,15 @@
 
   &__change-price {
     display: flex;
-    gap: 0.5rem;
     justify-self: flex-start;
+    gap: 0.5rem;
+
   }
 
   &__button {
     @include mixins.button;
     @include mixins.radius('small');
-    font-size: 1rem;
+    font-size: 1em;
     padding: 0.5rem 0.65rem;
 
     @include mixins.mediaquery('lg') {
@@ -76,7 +81,7 @@
   }
 
   &__input {
-    width: max(30%, 3.25rem);
+    max-width: 3.5rem;
     @include mixins.input;
     padding: 0.25rem;
     padding-right: 0;

@@ -3,10 +3,10 @@
 
 .nav {
   @include mixins.flex-center;
-  padding-right: 2.5rem;
+  margin-right: 2.5rem;
 
   @include mixins.mediaquery('xl') {
-    padding-right: 6rem;
+    margin-right: 0;
   }
 
   &__list {
@@ -41,7 +41,6 @@
     &--active {
       @include mixins.glass;
       font-size: 1.5rem;
-
       opacity: 1;
       visibility: visible;
     }

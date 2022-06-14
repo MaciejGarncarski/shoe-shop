@@ -17,8 +17,8 @@
 
   @include mixins.mediaquery('xl') {
     justify-content: space-between;
-    padding: 3rem 6rem;
-    padding-right: 0;
+    padding: 3rem 0;
+    margin: 0 6rem;
 
     &__heading {
       @include mixins.heading;

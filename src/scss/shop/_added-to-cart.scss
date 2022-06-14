@@ -44,11 +44,9 @@
     stroke-width: 7px;
 
     @include mixins.gradient-shadow;
-
-    @include mixins.normal-motion {
-      stroke-dashoffset: 600;
-      animation: show-svg 450ms ease-in-out forwards;
-    }
+    //draw
+    stroke-dashoffset: 600;
+    animation: show-svg 450ms ease-in-out forwards;
   }
 
   &__timer {
@@ -73,12 +71,12 @@
     display: inline-block;
     text-transform: uppercase;
     text-align: center;
-    white-space: nowrap;
     margin: 0 auto;
 
     @include mixins.mediaquery('xl') {
       padding-right: 3rem;
       text-align: left;
+      white-space: nowrap;
     }
   }
 }

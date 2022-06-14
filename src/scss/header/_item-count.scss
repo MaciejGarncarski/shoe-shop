@@ -4,8 +4,8 @@
 .item-count {
   min-width: 2rem;
   position: absolute;
-  right: -32%;
-  top: -2.2vh;
+  right: -3.2rem;
+  top: -1rem;
   transform: translateX(-50%);
   padding: 0.2rem 0.3rem;
   text-align: center;
@@ -17,10 +17,4 @@
 
   @include mixins.radius('small');
   @include mixins.shadow;
-
-  @include mixins.normal-motion {
-    opacity: 0;
-    transform: translateX(-50%) translateY(1rem);
-    animation: slide-up 800ms ease forwards;
-  }
 }

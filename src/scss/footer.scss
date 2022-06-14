@@ -46,10 +46,6 @@
     filter: drop-shadow(-2px 2px 0 var.$yellow) drop-shadow(2px -2px 0 var.$lightYellow);
 
     @include mixins.radius('small');
-
-    @include mixins.normal-motion {
-      animation: slide-up 1s ease-in-out forwards;
-    }
   }
 
   &__item {

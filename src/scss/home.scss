@@ -3,9 +3,3 @@
 @use 'modules/animations';
 @use 'home/illustration';
 @use 'home/main';
-
-.home {
-  @include mixins.mediaquery('xl') {
-    padding: 0.5rem 3rem;
-  }
-}
