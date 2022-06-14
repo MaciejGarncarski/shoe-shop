@@ -49,10 +49,7 @@
   &__change-price {
     display: flex;
     gap: 0.5rem;
-
-    @include mixins.mediaquery('less-lg') {
-      justify-self: flex-start;
-    }
+    justify-self: flex-start;
   }
 
   &__button {

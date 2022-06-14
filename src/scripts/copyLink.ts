@@ -7,14 +7,6 @@ const createNotification = (parent: HTMLSpanElement) => {
 
 const hasClipboard = () => navigator && navigator.clipboard && navigator.clipboard.writeText
 
-//
-//
-//
-// TO-DO parent-children
-//
-//
-//
-
 const copy = (el: ClipboardEvent | MouseEvent) => {
   if (el.target instanceof HTMLSpanElement) {
     const data = el.target.dataset.copy || ''
@@ -23,7 +15,8 @@ const copy = (el: ClipboardEvent | MouseEvent) => {
         .writeText(data)
         .then(() => {
           const parent = el.target as HTMLSpanElement
-          if (!parent.childNodes[3]) {
+          const copiedContainer = parent.querySelector('.footer__copy-notification')
+          if (!copiedContainer) {
             createNotification(parent)
           } else {
             parent.querySelector('.footer__copy-notification')?.remove()
