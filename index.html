@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shoe shop</title>
+  <title>Shoe Shop</title>
   <meta name="description"
     content="Shoe Shop offers womnen's, men's and children's shoes. Fashionable footwear as: Air Max, Vapormax, YZY shoes, Puma, Adidas. We invite you to buy famous shoes in resonable price!">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +13,10 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="dns-prefetch" href="https://kit.fontawesome.com">
-  <link rel="icon" href="/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/images/favicon.svg">
   <script type="module" src="https://kit.fontawesome.com/2dcaacc216.js" async crossorigin="anonymous"></script>
 </head>
 
@@ -30,8 +30,8 @@
     <h1 class="header__heading">Shoe Shop <span class="fa-solid fa-code"></span></h1>
     <nav class="nav">
       <ul class="nav__list">
-        <li class="nav__item" data-to="home">
-          <a class="nav__link" href="#home">
+        <li class="nav__item">
+          <a class="nav__link" href="/">
             <span class="fa-solid fa-home"></span>
             home
             <span class="nav__svg">
@@ -43,9 +43,9 @@
             </span>
           </a>
         </li>
-        <li class="nav__item" data-to="shop">
-          <a class="nav__link" href="#shop">
-            <i class="fa-solid fa-tags"></i>
+        <li class="nav__item">
+          <a class="nav__link" href="/shop">
+            <span class="fa-solid fa-tags"></span>
             shop
             <span class="nav__svg">
               <svg width="204" height="69" viewBox="0 0 204 69" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,8 +56,8 @@
             </span>
           </a>
         </li>
-        <li class="nav__item" data-to="cart">
-          <a class="nav__link" href="#cart">
+        <li class="nav__item">
+          <a class="nav__link" href="/cart">
             <span class="fa-solid fa-basket-shopping 2x"></span>
             cart
             <span class="nav__svg">
@@ -67,7 +67,7 @@
                   stroke="#fca311" stroke-width="3" />
               </svg>
             </span>
-            <span class="item-count">${totalCount}</span>
+            <span class="item-count"></span>
           </a>
         </li>
       </ul>
@@ -76,10 +76,10 @@
         <span class="burger__bar burger__bar--middle"></span>
         <span class="burger__bar burger__bar--bottom"></span>
       </button>
-      <a title="cart" class="nav__link mobile-cart-btn" href="#cart">
+      <a title="cart" class="nav__link mobile-cart-btn" href="/cart">
         <span class="fa-solid fa-cart-shopping"></span>
         <span class="cart__hidden-text">cart</span>
-        <span class="item-count">${totalCount}</span>
+        <span class="item-count"></span>
       </a>
     </nav>
   </header>
@@ -103,8 +103,7 @@
       <h3>Contact</h3>
       <ul class="footer__list">
         <li>
-          <a class="footer__link" href="ts3server://gildiafart.pl?port=9987/"><span
-              class="fa-brands fa-teamspeak"></span>teamspeak</a>
+          <a class="footer__link" href="#"><span class="fa-brands fa-teamspeak"></span>teamspeak</a>
         </li>
         <li>
           <span class="footer__link" data-copy="Maciej#1842"><span class="fa-brands fa-discord"></span>discord</span>

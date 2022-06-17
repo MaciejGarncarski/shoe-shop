@@ -19,14 +19,6 @@ export const addToCart = () => {
 
       const currentCart = getCartItems()
 
-      const cartItem: cartItem = {
-        name,
-        price: discount * price,
-        discount,
-        img: img,
-        count: 1,
-      }
-
       if (currentCart.find(findItemByName)) {
         const currentCartItem = currentCart.find(findItemByName) as cartItem
         const newCartItem = Object.assign({}, currentCartItem, { count: currentCartItem.count + 1 })
@@ -34,6 +26,13 @@ export const addToCart = () => {
         const newCart = currentCart.map(mapCartItems)
         saveNewCart(newCart)
       } else {
+        const cartItem: cartItem = {
+          name,
+          price: discount * price,
+          discount,
+          img: img,
+          count: 1,
+        }
         const newCart = [...currentCart, cartItem]
         saveNewCart(newCart)
       }

@@ -1,5 +1,5 @@
 import './scss/main.scss'
-import { changePages, dynamicHash } from './scripts/changePages'
+import { handleLocation, changePages } from './scripts/changePages'
 import { markActivePage } from './scripts/markActivePage'
 import { enableMobileMenu } from './scripts/enableMobileMenu'
 import { copyLink } from './scripts/copyLink'
@@ -9,9 +9,9 @@ import { saveNewCart } from './scripts/cart/saveNewCart'
 markActivePage()
 changePages()
 enableMobileMenu()
-dynamicHash()
-countCartItems()
+handleLocation()
 copyLink()
+countCartItems()
 
 if (!localStorage.getItem('cart')) {
   saveNewCart([])
