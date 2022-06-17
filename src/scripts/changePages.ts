@@ -1,5 +1,5 @@
 import { fetchPage } from './fetchPage'
-import { shopFunctions, cartFunctions } from './subpageFunctions'
+import { homeFunctions, shopFunctions, cartFunctions } from './subpageFunctions'
 
 type routesType = {
   [key: string]: {
@@ -13,6 +13,7 @@ const routes: routesType = {
   '/': {
     path: 'pages/home.html',
     title: 'Shoe Shop | Homepage',
+    function: homeFunctions,
   },
   '/shop': {
     path: 'pages/shop.html',
@@ -50,13 +51,18 @@ export const urlRoutes = (event: MouseEvent) => {
   const target = event.target as HTMLAnchorElement
   if (target.pathname !== window.location.pathname) {
     window.history.pushState({}, '', target.href)
+    changeOnClick()
     handleLocation()
   }
 }
 
 export const changeOnClick = () => {
-  const links = document.querySelectorAll<HTMLAnchorElement>('.nav__link')
-  links.forEach((link) => link.addEventListener('click', urlRoutes))
+  const links = document.querySelectorAll<HTMLAnchorElement>('a')
+  const linksWithoutFooter = Array.from(links).filter((link) => link.className !== 'footer__link')
+  linksWithoutFooter.forEach((link) => {
+    link.removeEventListener('click', urlRoutes)
+    link.addEventListener('click', urlRoutes)
+  })
 }
 
 export const changePages = () => {

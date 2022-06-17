@@ -1,5 +1,5 @@
 @mixin shadow {
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.06) 0px 0px 8px;
 }
 
 @mixin gradient-shadow {
@@ -74,15 +74,16 @@
 
 
 @mixin glass {
-  border: 1px solid rgba(var(--dark-rgb), 0.15);
+  border: 1px solid rgba(var(--dark-rgb), 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  background-image: linear-gradient(to bottom right, rgba(var(--white-rgb), 0.75), rgba(var(--white-rgb), 0.6));
+  background-image: linear-gradient(to bottom right, rgba(var(--white-rgb), 0.5), rgba(var(--white-rgb), 0.5));
 
 
 
   @include mediaquery('lg') {
-    backdrop-filter: blur(16px) saturate(180%);
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.69), rgba(var(--white-rgb), 0.52));
+    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
   }
 

@@ -7,12 +7,18 @@ import { addToCart } from './shop/addToCart'
 import { calculateTotalPrice } from './cart/calculateTotalPrice'
 import { getCartItems } from './cart/getCartItems'
 import { countCartItems } from './cart/countCartItems'
+import { changeOnClick } from './changePages'
+
+export const homeFunctions = () => {
+  changeOnClick()
+}
 
 export const shopFunctions = () => {
   createOfferList(offers)
   addToCart()
   runFilters()
   showFilters()
+  changeOnClick()
 }
 
 export const cartFunctions = () => {
@@ -20,4 +26,5 @@ export const cartFunctions = () => {
   createCartList(cart)
   countCartItems()
   calculateTotalPrice()
+  changeOnClick()
 }

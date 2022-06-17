@@ -12,7 +12,7 @@
   --dark: #1f283d;
   --yellow: #fca311;
   --lightYellow: #FCE305;
-  --white: #ebebeb;
+  --white: #f8f8f8;
 
   --dark-rgb: 31, 40, 61;
   --yellow-rgb: 252, 163, 17;
@@ -59,6 +59,8 @@ button {
 
 body {
   background-image: linear-gradient(to bottom left, #e5e5e5 30%, var(--white) 100%);
+  background-color: #b8c6db;
+  background-image: linear-gradient(350deg, #cdcfd3 0%, #f5f7fa 60%);
   font-size: clamp(calc(1rem + 0.75vw), 16px, 32px);
   color: var(--dark);
 }
@@ -114,6 +116,6 @@ body {
 
 
 .app {
-  min-height: 78vh;
+  min-height: 80vh;
   position: relative;
 }
