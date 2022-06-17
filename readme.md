@@ -1,5 +1,6 @@
 ## Overview 🎉
-Typescript app, created to understand how much React makes life easier. I learned a lot of typescript/javascript too. 
+Typescript app, created to learn typescript and understand how much React makes life easier.
+This app is imitating e-commerce shop, but without checkout & payments yet sadly.
 
 ## List of functions 📃
 - Routing
