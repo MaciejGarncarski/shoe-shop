@@ -1,4 +1,3 @@
-@use '../var';
 @use '../modules/mixins';
 @use '../modules/animations';
 
@@ -18,7 +17,7 @@
   }
 
   &__description {
-    color: var.$dark;
+    color: var(--dark);
     position: relative;
   }
 
@@ -97,4 +96,25 @@
     }
   }
 
+}
+
+.illustration {
+  display: none;
+  @include animations.slide-up;
+
+  @include mixins.mediaquery('lg') {
+    display: inline-block;
+    grid-column: 2 / 3;
+    filter: drop-shadow(2px 2px 1px var(--dark)) drop-shadow(-2px -2px 1px var(--white));
+    right: 5vw;
+    top: 0rem;
+    transform-origin: right;
+    width: clamp(30rem, 35vw, 40rem);
+    justify-self: flex-end;
+  }
+
+  >svg {
+    height: auto;
+    width: 100%;
+  }
 }

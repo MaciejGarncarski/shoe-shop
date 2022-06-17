@@ -1,4 +1,3 @@
-@use '../var';
 @use '../modules/mixins';
 
 .added-to-cart {
@@ -19,10 +18,10 @@
   transition-property: visibility, opacity, transform;
 
   >svg {
-    color: var.$white;
+    color: var(--white);
     font-size: 6rem;
-    fill: var.$white;
-    stroke: var.$black;
+    fill: var(--white);
+    stroke: var(--dark);
     stroke-width: 7px;
     @include mixins.gradient-shadow;
   }

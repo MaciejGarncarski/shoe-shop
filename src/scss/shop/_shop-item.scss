@@ -1,4 +1,3 @@
-@use '../var';
 @use '../modules/mixins';
 @use '../modules/animations';
 
@@ -35,7 +34,7 @@
     width: 13rem;
     text-align: center;
     text-transform: uppercase;
-    background-color: var.$yellow;
+    background-color: var(--yellow);
   }
 }
 
@@ -61,7 +60,7 @@
     }
   }
 
-  filter: drop-shadow(0 0 1px var.$black) drop-shadow(-4px 4px 0 var.$yellow) drop-shadow(4px -4px 0 var.$lightYellow);
+  filter: drop-shadow(0 0 1px var(--dark)) drop-shadow(-4px 4px 0 var(--yellow)) drop-shadow(4px -4px 0 var(--lightYellow));
 }
 
 .shop-item__name {
@@ -83,17 +82,6 @@
   transition-property: color, background-color;
   font-size: 1.3rem;
 
-  &:hover,
-  &:focus {
-    background-color: var.$gray;
-    color: var.$black;
-    cursor: pointer;
-  }
-
-  &:focus {
-    outline-offset: 5px;
-  }
-
   @include mixins.button;
   @include mixins.radius('small');
 }
@@ -110,8 +98,8 @@
 }
 
 .shop-item__discount {
-  color: var.$yellow;
-  text-shadow: -2px 2px 2px var.$black, 1px -1px 2px var.$black;
+  color: var(--yellow);
+  text-shadow: -2px 2px 2px var(--dark), 1px -1px 2px var(--dark);
 }
 
 .shop-item__price--discounted {
@@ -129,11 +117,11 @@
 }
 
 .shop-item__star {
-  color: var.$white;
-  filter: drop-shadow(-3px 2.5px 0 var.$yellow) drop-shadow(3px -3px 0 var.$lightYellow);
+  color: var(--white);
+  filter: drop-shadow(-3px 2.5px 0 var(--yellow)) drop-shadow(3px -3px 0 var(--lightYellow));
 
   path {
-    stroke: var.$black;
+    stroke: var(--dark);
     stroke-width: 21px;
   }
 }
