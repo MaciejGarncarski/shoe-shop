@@ -28,13 +28,13 @@ This app is imitating e-commerce shop, but without checkout & payments yet sadly
 
 ### Install node dependencies
 ```
-yarn install
+pnpm install
 ```
 
 ### Start dev server
 ```
-yarn dev
+pnpm run dev
 ```
 
 ## Live 📍
-https://shoe-shop-omega.vercel.app/#home
+https://shoe-shop-omega.vercel.app/
