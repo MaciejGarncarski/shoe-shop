@@ -1,12 +1,29 @@
 @use 'modules/animations';
 @use 'modules/mixins';
-@use 'var';
 @use 'header';
 @use 'footer';
 @use 'home';
 @use 'shop';
 @use 'cart';
 @use 'misc';
+
+
+:root {
+  --dark: #1f283d;
+  --yellow: #fca311;
+  --lightYellow: #FCE305;
+  --white: #ebebeb;
+
+  --dark-rgb: 31, 40, 61;
+  --yellow-rgb: 252, 163, 17;
+  --lightYellow-rgb: 252, 228, 5;
+  --white-rgb: 235, 235, 235;
+}
+
+[dark]:root {
+  --dark: pink;
+}
+
 
 *,
 *::before,
@@ -17,8 +34,8 @@
 }
 
 ::selection {
-  background: var.$yellow;
-  color: var.$black;
+  background: var(--yellow);
+  color: var(--dark);
   filter: none;
   text-shadow: none;
 }
@@ -41,9 +58,9 @@ button {
 }
 
 body {
-  background-image: linear-gradient(to bottom left, var.$gray 30%, var.$white 100%);
+  background-image: linear-gradient(to bottom left, #e5e5e5 30%, var(--white) 100%);
   font-size: clamp(calc(1rem + 0.75vw), 16px, 32px);
-  color: var.$dark;
+  color: var(--dark);
 }
 
 .locked {

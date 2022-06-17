@@ -1,4 +1,3 @@
-@use '../var';
 @use '../modules/mixins';
 @use '../modules/animations';
 
@@ -10,9 +9,9 @@
   transform: translateX(-50%);
   padding: 0.2rem 0.3rem;
   text-align: center;
-  border: 1px solid rgba(var.$black, 0.2);
+  border: 1px solid rgba(var(--dark-rgb), 0.2);
   font-size: 1.3rem;
-  background: linear-gradient(to right, var.$yellow, var.$lightYellow);
+  background: linear-gradient(to right, var(--yellow), var(--lightYellow));
   background-size: 300% 100%;
   background-position: left;
   opacity: 0;

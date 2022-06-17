@@ -1,4 +1,3 @@
-@use '../var';
 @use '../modules/mixins';
 @use '../modules/animations';
 
@@ -25,14 +24,14 @@
       bottom: -60px;
       width: calc(100% - 4rem);
       height: 20px;
-      border-top: 2px solid var.$yellow;
+      border-top: 2px solid var(--yellow);
     }
   }
 
   &__img {
     width: calc(25% + 5rem);
     justify-self: flex-start;
-    filter: drop-shadow(0 0 1.2px var.$black) drop-shadow(-7px 4px 0 var.$yellow) drop-shadow(7px -4px 0 var.$lightYellow);
+    filter: drop-shadow(0 0 1.2px var(--dark)) drop-shadow(-7px 4px 0 var(--yellow)) drop-shadow(7px -4px 0 var(--lightYellow));
 
     >img {
       width: 100%;

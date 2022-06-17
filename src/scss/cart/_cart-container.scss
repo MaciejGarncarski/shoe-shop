@@ -1,4 +1,3 @@
-@use '../var';
 @use '../modules/mixins';
 
 .cart {
@@ -88,7 +87,7 @@
     padding: 2rem 0;
     margin-bottom: 0;
     padding-bottom: 0;
-    border-top: 2px solid var.$yellow;
+    border-top: 2px solid var(--yellow);
     display: grid;
     gap: 1rem;
     grid-template-rows: repeat(2, 1fr);
