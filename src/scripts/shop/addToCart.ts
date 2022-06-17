@@ -23,8 +23,8 @@ export const addToCart = () => {
         const currentCartItem = currentCart.find(findItemByName) as cartItem
         const newCartItem = Object.assign({}, currentCartItem, { count: currentCartItem.count + 1 })
         const mapCartItems = (item: itemType) => (item.name === currentItemName.textContent ? newCartItem : item)
-        const newCart = currentCart.map(mapCartItems)
-        saveNewCart(newCart)
+        const existingItemCart = currentCart.map(mapCartItems)
+        saveNewCart(existingItemCart)
       } else {
         const cartItem: cartItem = {
           name,
@@ -33,8 +33,8 @@ export const addToCart = () => {
           img: img,
           count: 1,
         }
-        const newCart = [...currentCart, cartItem]
-        saveNewCart(newCart)
+        const newItemCart = [...currentCart, cartItem]
+        saveNewCart(newItemCart)
       }
 
       addedToCartPopup(timeout)
