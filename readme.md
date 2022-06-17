@@ -2,6 +2,8 @@
 Typescript app, created to understand how much React makes life easier. I learned a lot of typescript/javascript too. 
 
 ## List of functions 📃
+- Routing
+- Custom 404 page
 - Adding items to cart
 - Filter
     - Star count
