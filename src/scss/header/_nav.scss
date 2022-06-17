@@ -20,12 +20,19 @@
     opacity: 0;
     padding: 2em 0;
     position: absolute;
-    gap: 5.5rem;
+    gap: 9vh;
     transition: all 150ms;
     transition-property: opacity, visibility;
     visibility: hidden;
     width: 100%;
     z-index: 4;
+
+    &--active {
+      @include mixins.glass;
+      font-size: 1.5rem;
+      opacity: 1;
+      visibility: visible;
+    }
 
     @include mixins.mediaquery('xl') {
       background: none;
@@ -35,14 +42,13 @@
       opacity: 1;
       padding: 0;
       position: static;
+
+      &--active {
+        visibility: hidden;
+        font-size: inherit;
+      }
     }
 
-    &--active {
-      @include mixins.glass;
-      font-size: 1.5rem;
-      opacity: 1;
-      visibility: visible;
-    }
   }
 
   &__svg {
