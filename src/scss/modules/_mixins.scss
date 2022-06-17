@@ -74,12 +74,10 @@
 
 
 @mixin glass {
-  border: 1px solid rgba(var(--dark-rgb), 0.15);
+  border: 1px solid rgba(var(--dark-rgb), 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  background-image: linear-gradient(to bottom right, rgba(var(--white-rgb), 0.75), rgba(var(--white-rgb), 0.6));
-
-
+  background-image: linear-gradient(to bottom right, rgba(var(--white-rgb), 0.5), rgba(var(--white-rgb), 0.5));
 
   @include mediaquery('lg') {
     background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.69), rgba(var(--white-rgb), 0.52));
