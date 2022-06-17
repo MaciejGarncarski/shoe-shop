@@ -1,16 +1,15 @@
 export const markActivePage = () => {
-  const linkList = document.querySelectorAll<HTMLLIElement>('.nav__item')
-  const linkToHome = document.querySelector('.nav__link[href="#home"]') as HTMLAnchorElement
-  const hash = location.hash.substring(1)
+  const linkList = document.querySelectorAll<HTMLAnchorElement>('.nav__link')
+  const linkToHome = document.querySelector('.nav__link[href="/"]') as HTMLAnchorElement
+  const path = location.pathname
 
   const activeClass = 'nav__link--active'
 
-  linkList.forEach((link) => {
-    const linkAnchor = link.querySelector('.nav__link') as HTMLAnchorElement
-    linkAnchor.classList.remove(activeClass)
-    if (hash === link.dataset.to) {
-      linkAnchor.classList.add(activeClass)
-    } else if (hash === '') {
+  linkList.forEach((link: HTMLAnchorElement) => {
+    link.classList.remove(activeClass)
+    if (path === link.pathname) {
+      link.classList.add(activeClass)
+    } else if (path === '/' || path === '') {
       linkToHome.classList.add(activeClass)
     }
   })

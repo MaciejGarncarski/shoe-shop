@@ -1,7 +1,7 @@
 import { markActivePage } from './markActivePage'
 
 const loader = `
-<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+<div class="loading"><div></div><div></div><div></div><div></div></div>
 `
 
 export const fetchPage = async (url: string) => {
