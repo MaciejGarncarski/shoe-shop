@@ -14,11 +14,11 @@ Typescript app, created to understand how much React makes life easier. I learne
 - Font Awesome
 
 ## Screenshot 📺
-### Light Theme
+### Homepage
 ![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/home.png?raw=true?raw=true "Homepage")
-### Dark Theme
+### Offer list and filters
 ![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/shop.png?raw=true?raw=true  "Shop")
-### Page Preview
+### Shopping cart
 ![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/cart.png?raw=true?raw=true  "Cart")
 
 ## Instalation & running 💾
