@@ -1,27 +1,16 @@
 @use '../var';
 @use '../modules/mixins';
+@use '../modules/animations';
 
 .main {
-  min-height: 60vh;
-  padding: 1.5rem 0;
-  margin-inline: 1.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   row-gap: 7vh;
-
-  @include mixins.mediaquery('lg') {
-    padding: 2rem 0;
-    margin-inline: 4rem;
-  }
 
   @include mixins.mediaquery('xl') {
     gap: 3rem;
-    height: auto;
-    padding: 4rem 0;
-    margin-inline: 6rem;
-    padding-right: 50%;
+    justify-content: center
   }
 
   &__heading {
@@ -34,82 +23,78 @@
   }
 
   &__button {
-    @include mixins.radius('small');
+    @include mixins.radius('medium');
     @include mixins.button;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1.2rem;
     text-decoration: none;
     display: inline-block;
     align-self: flex-start;
   }
 }
 
+.emoji {
+  opacity: 0;
 
-.main__fire,
-.main__hands,
-.main__bear {
-  opacity: 1;
-  transform: rotate(-15deg) scale(1);
-  position: absolute;
+  @include animations.emoji-popup;
 
-  >img {
-    height: 100%;
-    width: 100%;
-  }
-}
+  &__bear,
+  &__fire,
+  &__hands {
+    transform: rotate(-15deg) scale(1);
+    position: absolute;
 
-.main__fire {
-  bottom: -2em;
-  height: 4em;
-  right: 2em;
-  width: 4em;
-}
-
-.main__hands {
-  transform: rotate(9deg) scale(1);
-  height: 3em;
-  right: 1.5em;
-  top: -3em;
-  width: 3em;
-
-}
-
-.main__bear {
-  height: 2.5em;
-  left: 1.5em;
-  top: -3em;
-  width: 2.5em;
-  transform: none;
-}
-
-@include mixins.mediaquery('xl') {
-
-  .main__fire,
-  .main__hands,
-  .main__bear {
-    height: calc(2.5vw + 0.75em);
-    width: calc(2.5vw + 0.75em);
+    >img {
+      height: 100%;
+      width: 100%;
+    }
   }
 
-  .main__fire {
+  &__fire {
     bottom: -2em;
-    left: 15em;
+    height: 4em;
+    right: 2em;
+    width: 4em;
   }
 
-  .main__hands {
-    animation-name: popup-right;
-    right: 0;
-    top: -2em;
+  &__hands {
+    transform: rotate(9deg) scale(1);
+    height: 3em;
+    right: 1.5em;
+    top: -3em;
+    width: 3em;
+
   }
 
-  .main__bear {
-    left: 8em;
-    top: -3.5em;
+  &__bear {
+    height: 2.5em;
+    left: 0em;
+    top: -2.5em;
+    width: 2.5em;
   }
-}
 
+  @include mixins.mediaquery('xl') {
 
-@for $i from 1 through 4 {
-  .main__description>span:nth-child(#{$i}n) {
-    animation-delay: #{$i * 0.5}s;
+    &__fire,
+    &__hands,
+    &__bear {
+      height: calc(2.5vw + 0.75em);
+      width: calc(2.5vw + 0.75em);
+    }
+
+    &__fire {
+      bottom: -2em;
+      left: 15em;
+    }
+
+    &__hands {
+      right: 0;
+      top: -2em;
+    }
+
+    &__bear {
+      left: 8em;
+      top: -3.5em;
+    }
   }
+
 }

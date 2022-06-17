@@ -3,14 +3,14 @@ import { changePages, dynamicHash } from './scripts/changePages'
 import { markActivePage } from './scripts/markActivePage'
 import { enableMobileMenu } from './scripts/enableMobileMenu'
 import { copyLink } from './scripts/copyLink'
-import { itemCount } from './scripts/cart/itemCount'
+import { countCartItems } from './scripts/cart/countCartItems'
 import { saveNewCart } from './scripts/cart/saveNewCart'
 
 markActivePage()
 changePages()
 enableMobileMenu()
 dynamicHash()
-itemCount()
+countCartItems()
 copyLink()
 
 if (!localStorage.getItem('cart')) {

@@ -1,5 +1,6 @@
 @use '../var';
 @use '../modules/mixins';
+@use '../modules/animations';
 
 .show-filters {
   @include mixins.glass;
@@ -65,6 +66,7 @@
     position: sticky;
     font-size: 1.5rem;
 
+    @include animations.slide-up;
   }
 }
 

@@ -19,25 +19,13 @@
   align-items: center;
 }
 
+
 @mixin input {
   border: 1.5px solid var.$yellow;
   padding: 0.5rem 1rem;
   background-color: var.$white;
   font-size: 1.3rem;
   @include radius('small');
-}
-
-@mixin glass {
-  background-image: linear-gradient(to bottom right, rgba(var.$white, 0.75), rgba(var.$white, 0.6));
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(var.$black, 0.15);
-
-  @supports (not(backdrop-filter: blur(8px))) {
-    background-color: rgba(var.$white, 0.95);
-  }
-
-  @include shadow;
 }
 
 @mixin button {
@@ -83,6 +71,26 @@
 }
 
 
+@mixin glass {
+  background-image: linear-gradient(to bottom right, rgba(var.$white, 0.75), rgba(var.$white, 0.6));
+  border: 1px solid rgba(var.$black, 0.15);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  @include mediaquery('lg') {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  @supports (not(backdrop-filter: blur(8px))) {
+    background-color: rgba(var.$white, 0.95);
+  }
+
+  @include shadow;
+}
+
+
 @mixin radius($size) {
   $breakpoints: ('small': '3px',
     'medium': '4.5px',
@@ -100,7 +108,7 @@
   }
 }
 
-@mixin normal-motion {
+@mixin reduced-motion-off {
   @media (prefers-reduced-motion: no-preference) {
     @content;
   }

@@ -31,13 +31,13 @@ const template = (name: string, img: string, discount: number, price: number, st
           ${discount !== 1 ? withDiscount : withoutDiscount}
       </div>
       <div class="shop-item__stars-container">
-          ${starCount.map(() => `<span class="shop-item__star fa-solid fa-star"></span>`).join('')}
+          ${starCount.map(() => '<span class="shop-item__star fa-solid fa-star"></span>').join('')}
       </div>
   </li>
 `
 }
 
-export const createOfferList = (data: offerType[]) => {
+export const createOfferList = (data: readonly offerType[]) => {
   const offersContainer = document.querySelector('.offers') as HTMLDivElement
   if (offersContainer) {
     offersContainer.textContent = ''

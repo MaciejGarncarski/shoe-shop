@@ -9,21 +9,30 @@
   position: fixed;
   left: 50%;
   bottom: 15%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(2rem);
   z-index: 1;
   padding: 3rem 5rem;
   font-size: 1.5rem;
   opacity: 0;
   visibility: hidden;
   transition: all 270ms ease-in-out;
-  transition-property: visibility, opacity;
+  transition-property: visibility, opacity, transform;
+
+  >svg {
+    color: var.$white;
+    font-size: 6rem;
+    fill: var.$white;
+    stroke: var.$black;
+    stroke-width: 7px;
+    @include mixins.gradient-shadow;
+  }
 
   @include mixins.mediaquery('less-lg') {
     flex-direction: column;
   }
 
-  @include mixins.mediaquery('xl') {
-    left: 55%;
+  @include mixins.mediaquery('lg') {
+    left: 50%;
     top: initial;
     bottom: 7%;
     font-size: 2rem;
@@ -33,20 +42,8 @@
 
   &--active {
     opacity: 1;
+    transform: translateX(-50%) translateY(0);
     visibility: visible;
-  }
-
-  >svg {
-    color: var.$white;
-    font-size: 6rem;
-    fill: var.$white;
-    stroke: var.$black;
-    stroke-width: 7px;
-
-    @include mixins.gradient-shadow;
-    //draw
-    stroke-dashoffset: 600;
-    animation: show-svg 450ms ease-in-out forwards;
   }
 
   &__timer {
@@ -73,7 +70,7 @@
     text-align: center;
     margin: 0 auto;
 
-    @include mixins.mediaquery('xl') {
+    @include mixins.mediaquery('lg') {
       padding-right: 3rem;
       text-align: left;
       white-space: nowrap;

@@ -1,5 +1,6 @@
 @use 'var';
 @use 'modules/_mixins';
+@use 'modules/animations';
 
 .footer {
   color: var.$dark;
@@ -38,14 +39,13 @@
 
   &__copy-notification {
     position: absolute;
-    opacity: 0;
     right: -60%;
-    transform: translateY(10px);
     padding: 0 0.5rem;
     font-weight: 700;
     filter: drop-shadow(-2px 2px 0 var.$yellow) drop-shadow(2px -2px 0 var.$lightYellow);
 
     @include mixins.radius('small');
+    @include animations.slide-up;
   }
 
   &__item {
@@ -80,11 +80,4 @@
     }
   }
 
-}
-
-
-
-
-[data-copy] {
-  cursor: copy;
 }

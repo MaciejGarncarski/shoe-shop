@@ -1,5 +1,6 @@
-@use '../modules/mixins';
 @use '../var';
+@use '../modules/mixins';
+@use '../modules/animations';
 
 .cart-item {
   display: grid;
@@ -12,6 +13,8 @@
 
   @include mixins.mediaquery('lg') {
     padding: 0 2rem;
+    @include animations.slide-up;
+    opacity: 1;
   }
 
   &:not(:last-child) {

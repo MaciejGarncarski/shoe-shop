@@ -1,18 +1,20 @@
 @use '../var';
 @use '../modules/mixins';
+@use '../modules/animations';
 
 .illustration {
   display: none;
+  @include animations.slide-up;
 
-  @include mixins.mediaquery('xl') {
+  @include mixins.mediaquery('lg') {
     display: inline-block;
+    grid-column: 2 / 3;
     filter: drop-shadow(2px 2px 1px var.$black) drop-shadow(-2px -2px 1px var.$white);
-    height: 70%;
-    position: absolute;
     right: 5vw;
-    top: 4rem;
+    top: 0rem;
     transform-origin: right;
     width: clamp(30rem, 35vw, 40rem);
+    justify-self: flex-end;
   }
 
   >svg {

@@ -1,8 +1,8 @@
 import { createCartList } from './createCartList'
 import { getCartItems } from './getCartItems'
-import { itemCount } from './itemCount'
+import { countCartItems } from './countCartItems'
 import { saveNewCart } from './saveNewCart'
-import { totalPrice } from './totalPrice'
+import { calculateTotalPrice } from './calculateTotalPrice'
 
 export const deleteItem = () => {
   const items = document.querySelectorAll('.cart-item')
@@ -15,8 +15,8 @@ export const deleteItem = () => {
       const newCart = cart.filter(({ name }: { name: string }) => name !== itemName.textContent)
       createCartList(newCart)
       saveNewCart(newCart)
-      totalPrice()
-      itemCount()
+      calculateTotalPrice()
+      countCartItems()
     }
 
     deleteBtn.addEventListener('click', onClick)

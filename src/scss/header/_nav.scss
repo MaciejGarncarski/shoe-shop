@@ -3,7 +3,7 @@
 
 .nav {
   @include mixins.flex-center;
-  margin-right: 2.5rem;
+  margin-right: 2rem;
 
   @include mixins.mediaquery('xl') {
     margin-right: 0;
@@ -31,7 +31,7 @@
     @include mixins.mediaquery('xl') {
       background: none;
       flex-direction: row;
-      gap: max(6vw, 8rem);
+      gap: calc(1rem + 7vw);
       height: auto;
       opacity: 1;
       padding: 0;
@@ -93,20 +93,15 @@
       @include mixins.radius('small');
       @include mixins.shadow;
       font-size: 2rem;
-
-      >span:last-child {
-        right: -60%;
-        top: -50%;
-      }
     }
 
     &--active>.nav__svg {
-      display: block;
+      display: inline-block;
       stroke-dasharray: 600;
       stroke-dashoffset: 600;
-      animation: show-svg 450ms ease-in-out forwards;
+      animation: draw-svg 800ms ease forwards;
 
-      @media (prefers-reduced-motion) {
+      @include mixins.reduced-motion {
         stroke-dasharray: 0;
         stroke-dashoffset: 0;
         animation: none;

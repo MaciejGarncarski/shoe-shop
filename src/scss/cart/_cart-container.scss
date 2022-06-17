@@ -4,9 +4,8 @@
 .cart {
   @include mixins.glass;
   @include mixins.radius('big');
-  margin: 0 1rem;
+  margin-inline: 2rem;
   padding: 3rem 0;
-  margin-inline: calc(3vw + 0.5rem);
   min-height: 15rem;
 
   @media screen and (max-width: 280px) {
@@ -14,11 +13,11 @@
   }
 
   @include mixins.mediaquery('lg') {
-    width: clamp(32rem, 55vw, 48rem);
-    padding: 3rem 1.5rem;
+    width: clamp(32rem, 50vw, 45rem);
+    padding: 4rem 1.5rem;
     border-radius: 1rem;
     margin-inline: auto;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
   }
 
 
@@ -35,7 +34,12 @@
 
     >.not-found-message {
       text-align: center;
-      padding: 3rem;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
   }
@@ -91,6 +95,7 @@
 
     @include mixins.mediaquery('lg') {
       margin: 4rem 2rem;
+      margin-bottom: 0;
       gap: 1.5rem;
 
     }

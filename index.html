@@ -45,7 +45,7 @@
         </li>
         <li class="nav__item" data-to="shop">
           <a class="nav__link" href="#shop">
-            <i class="fa-solid fa-cash-register"></i>
+            <i class="fa-solid fa-tags"></i>
             shop
             <span class="nav__svg">
               <svg width="204" height="69" viewBox="0 0 204 69" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@
         </li>
         <li class="nav__item" data-to="cart">
           <a class="nav__link" href="#cart">
-            <span class="fa-solid fa-cart-shopping 2x"></span>
+            <span class="fa-solid fa-basket-shopping 2x"></span>
             cart
             <span class="nav__svg">
               <svg width="181" height="66" viewBox="0 0 181 66" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,6 +67,7 @@
                   stroke="#fca311" stroke-width="3" />
               </svg>
             </span>
+            <span class="item-count">${totalCount}</span>
           </a>
         </li>
       </ul>
@@ -78,6 +79,7 @@
       <a title="cart" class="nav__link mobile-cart-btn" href="#cart">
         <span class="fa-solid fa-cart-shopping"></span>
         <span class="cart__hidden-text">cart</span>
+        <span class="item-count">${totalCount}</span>
       </a>
     </nav>
   </header>

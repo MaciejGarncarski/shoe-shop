@@ -1,11 +1,12 @@
 @use '../var';
 @use '../modules/mixins';
+@use '../modules/animations';
 
 .item-count {
   min-width: 2rem;
   position: absolute;
-  right: -3.2rem;
-  top: -1rem;
+  right: -1.6rem;
+  top: -1.25rem;
   transform: translateX(-50%);
   padding: 0.2rem 0.3rem;
   text-align: center;
@@ -14,6 +15,16 @@
   background: linear-gradient(to right, var.$yellow, var.$lightYellow);
   background-size: 300% 100%;
   background-position: left;
+  opacity: 0;
+
+  &--active {
+    @include animations.slide-up;
+  }
+
+  @include mixins.mediaquery('lg') {
+    right: -2.5rem;
+    top: -1rem;
+  }
 
   @include mixins.radius('small');
   @include mixins.shadow;

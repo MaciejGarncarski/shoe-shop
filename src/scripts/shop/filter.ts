@@ -9,16 +9,11 @@ const onFilterChange = () => {
   const starsCount = document.querySelector('#star-count') as HTMLInputElement
 
   const filteredOffers = offers.filter(({ price, discount, stars }) => {
-    let discountedPrice = price
+    const itemPrice = discount * price
 
-    if (discount !== 1) {
-      const discountValue = discount * price
-      discountedPrice = discountValue
-    }
-
-    const filterByMin = !minPrice.valueAsNumber || minPrice.valueAsNumber <= discountedPrice
-    const filterByMax = !maxPrice.valueAsNumber || maxPrice.valueAsNumber >= discountedPrice
-    const filterByStars = starsCount.valueAsNumber || starsCount.valueAsNumber === stars
+    const filterByMin = !minPrice.valueAsNumber || minPrice.valueAsNumber <= itemPrice
+    const filterByMax = !maxPrice.valueAsNumber || maxPrice.valueAsNumber >= itemPrice
+    const filterByStars = !starsCount.valueAsNumber || starsCount.valueAsNumber === stars
 
     return filterByMin && filterByMax && filterByStars
   })
@@ -28,5 +23,5 @@ const onFilterChange = () => {
 
 export const runFilters = () => {
   const form = document.querySelector('form') as HTMLFormElement
-  form.addEventListener('change', debounce(onFilterChange, 350))
+  form.addEventListener('input', debounce(onFilterChange, 350))
 }

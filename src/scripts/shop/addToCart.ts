@@ -1,46 +1,45 @@
 import { offers } from '../../data/offers'
-import type { itemType, offerType } from '../../types/types'
 import { getCartItems } from '../cart/getCartItems'
-import { itemCount } from '../cart/itemCount'
+import { countCartItems } from '../cart/countCartItems'
 import { saveNewCart } from '../cart/saveNewCart'
 import { addedToCartPopup } from './popup'
-
-let cart: itemType[] = []
-
-if (localStorage.getItem('cart')) {
-  const cartItems = getCartItems()
-  const cartItemsArray = [cartItems]
-  cartItemsArray.forEach((item: itemType) => cart.push(item))
-}
+import type { itemType, cartItem } from '../../types/types'
 
 export const addToCart = () => {
   const items = document.querySelectorAll('.shop-item')
   let timeout: ReturnType<typeof setTimeout>
-  cart = getCartItems()
 
   items.forEach((item) => {
     const btn = item.querySelector('.shop-item__cart-btn') as HTMLButtonElement
-    const currentItem = item.querySelector('.shop-item__name') as HTMLHeadingElement
-    const findItemByName = ({ name }: { name: string }) => currentItem.textContent === name
+    const currentItemName = item.querySelector('.shop-item__name') as HTMLHeadingElement
+    const findItemByName = ({ name }: { readonly name: string }) => currentItemName.textContent === name
 
     const onClick = () => {
-      const { name, price, discount, img } = offers.find(findItemByName) as offerType
-      const cartItem: itemType = {
+      const { name, price, discount, img } = offers.find(findItemByName) as itemType
+
+      const currentCart = getCartItems()
+
+      const cartItem: cartItem = {
         name,
         price: discount * price,
         discount,
         img: img,
         count: 1,
       }
-      if (cart.find(findItemByName)) {
-        const current: itemType = cart.find(findItemByName) as itemType
-        current.count++
+
+      if (currentCart.find(findItemByName)) {
+        const currentCartItem = currentCart.find(findItemByName) as cartItem
+        const newCartItem = Object.assign({}, currentCartItem, { count: currentCartItem.count + 1 })
+        const mapCartItems = (item: itemType) => (item.name === currentItemName.textContent ? newCartItem : item)
+        const newCart = currentCart.map(mapCartItems)
+        saveNewCart(newCart)
       } else {
-        cart.push(cartItem)
+        const newCart = [...currentCart, cartItem]
+        saveNewCart(newCart)
       }
-      saveNewCart(cart)
+
       addedToCartPopup(timeout)
-      itemCount()
+      countCartItems()
     }
 
     btn.addEventListener('click', onClick)

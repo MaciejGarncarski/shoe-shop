@@ -1,8 +1,6 @@
 import { addItems } from './addItems'
 import { deleteItem } from './deleteItem'
-import type { offerType } from '../../types/types'
-
-type cartOfferType = offerType & { count: number }
+import type { cartItem } from '../../types/types'
 
 const template = (name: string, count: number, img: string, price: number) => {
   return `
@@ -31,19 +29,18 @@ const template = (name: string, count: number, img: string, price: number) => {
       `
 }
 
-export const createCartList = (data: cartOfferType[]) => {
+export const createCartList = (data: cartItem[]) => {
   const container = document.querySelector('.cart__items') as HTMLDivElement
   if (container) {
     container.innerHTML = ''
     container.innerHTML = data
-      .map(({ name, price, count, img }: cartOfferType) => template(name, count, img, price))
+      .map(({ name, price, count, img }: cartItem) => template(name, count, img, price))
       .join('')
     deleteItem()
-    addItems(data)
+    addItems()
 
     const message = `
       No items in cart
-      <br />
       <a href="#shop" class="cart__link">go back to shopping!</a>
     `
     if (container.childElementCount === 0) {

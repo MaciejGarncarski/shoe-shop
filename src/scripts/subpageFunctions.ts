@@ -4,7 +4,7 @@ import { runFilters } from './shop/filter'
 import { showFilters } from './shop/showFilters'
 import { createCartList } from './cart/createCartList'
 import { addToCart } from './shop/addToCart'
-import { totalPrice } from './cart/totalPrice'
+import { calculateTotalPrice } from './cart/calculateTotalPrice'
 import { getCartItems } from './cart/getCartItems'
 
 export const shopFunctions = () => {
@@ -17,5 +17,5 @@ export const shopFunctions = () => {
 export const cartFunctions = () => {
   const cart = getCartItems()
   createCartList(cart)
-  totalPrice()
+  calculateTotalPrice()
 }
