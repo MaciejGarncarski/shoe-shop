@@ -1,4 +1,4 @@
-import type { offerType } from '../../types/types'
+import type { itemType, stars } from '../../types/types'
 import { resetForm } from './reset'
 
 const template = (name: string, img: string, discount: number, price: number, stars: number) => {
@@ -37,13 +37,16 @@ const template = (name: string, img: string, discount: number, price: number, st
 `
 }
 
-export const createOfferList = (data: readonly offerType[]) => {
+export const createOfferList = (data: itemType[]) => {
   const offersContainer = document.querySelector('.offers') as HTMLDivElement
+
+  const htmlData = data
+    .map(({ name, price, discount, img, stars }) => template(name, img, discount, price, stars as stars))
+    .join('')
+
   if (offersContainer) {
     offersContainer.textContent = ''
-    offersContainer.innerHTML = data
-      .map(({ name, price, discount, img, stars }) => template(name, img, discount, price, stars))
-      .join('')
+    offersContainer.innerHTML = htmlData
   }
   if (offersContainer.childElementCount === 0) {
     offersContainer.innerHTML = `

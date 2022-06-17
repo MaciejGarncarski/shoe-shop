@@ -31,22 +31,23 @@ const template = (name: string, count: number, img: string, price: number) => {
 
 export const createCartList = (data: cartItem[]) => {
   const container = document.querySelector('.cart__items') as HTMLDivElement
+
+  const message = `
+    <span class="not-found-message">
+      No items in cart
+      <a href="#shop" class="cart__link">go back to shopping!</a>
+    </span>
+  `
+
   if (container) {
-    container.innerHTML = ''
     container.innerHTML = data
       .map(({ name, price, count, img }: cartItem) => template(name, count, img, price))
       .join('')
     deleteItem()
     addItems()
 
-    const message = `
-      No items in cart
-      <a href="#shop" class="cart__link">go back to shopping!</a>
-    `
     if (container.childElementCount === 0) {
-      container.innerHTML = `
-        <span class="not-found-message">${message}</span>
-        `
+      container.innerHTML = message
     }
   }
 }
