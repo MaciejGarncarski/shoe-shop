@@ -1,5 +1,5 @@
 import { fetchPage } from './fetchPage'
-import { shopFunctions, cartFunctions } from './subpageFunctions'
+import { homeFunctions, shopFunctions, cartFunctions } from './subpageFunctions'
 
 type routesType = {
   [key: string]: {

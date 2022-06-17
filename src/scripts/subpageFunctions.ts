@@ -13,6 +13,7 @@ export const shopFunctions = () => {
   addToCart()
   runFilters()
   showFilters()
+  changeOnClick()
 }
 
 export const cartFunctions = () => {
@@ -20,4 +21,5 @@ export const cartFunctions = () => {
   createCartList(cart)
   countCartItems()
   calculateTotalPrice()
+  changeOnClick()
 }

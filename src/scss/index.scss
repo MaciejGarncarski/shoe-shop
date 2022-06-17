@@ -13,7 +13,6 @@
   --yellow: #fca311;
   --lightYellow: #FCE305;
   --white: #ebebeb;
-
   --dark-rgb: 31, 40, 61;
   --yellow-rgb: 252, 163, 17;
   --lightYellow-rgb: 252, 228, 5;
@@ -59,7 +58,9 @@ button {
 
 body {
   background-image: linear-gradient(to bottom left, #e5e5e5 30%, var(--white) 100%);
-  font-size: clamp(calc(1rem + 0.75vw), 16px, 32px);
+  <<<<<<< HEAD: src/scss/main.scss=======background-color: #b8c6db;
+  background-image: linear-gradient(350deg, #cdcfd3 0%, #f5f7fa 60%);
+  >>>>>>>d878ad0be64d988d101789f91f0c0cc9199ea576: src/scss/index.scss font-size: clamp(calc(1rem + 0.75vw), 16px, 32px);
   color: var(--dark);
 }
 
@@ -114,6 +115,6 @@ body {
 
 
 .app {
-  min-height: 78vh;
+  min-height: 80vh;
   position: relative;
 }
