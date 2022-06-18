@@ -75,18 +75,18 @@
 
 @mixin glass {
   border: 1px solid rgba(var(--dark-rgb), 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  background-image: linear-gradient(to bottom right, rgba(var(--white-rgb), 0.5), rgba(var(--white-rgb), 0.5));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.69), rgba(var(--white-rgb), 0.5));
 
   @include mediaquery('lg') {
-    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.69), rgba(var(--white-rgb), 0.52));
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.73), rgba(var(--white-rgb), 0.57));
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
   }
 
   @supports (not(backdrop-filter: blur(8px))) {
-    background-color: rgba(var(--white-rgb), 0.95)
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.85), rgba(var(--white-rgb), 0.9));
   }
 
   @include shadow;

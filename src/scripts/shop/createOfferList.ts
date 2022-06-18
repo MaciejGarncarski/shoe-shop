@@ -1,4 +1,4 @@
-import type { itemType, stars } from '../../types/types'
+import type { item, stars } from '../../types/types'
 import { resetForm } from './reset'
 
 const template = (name: string, img: string, discount: number, price: number, stars: number) => {
@@ -37,7 +37,7 @@ const template = (name: string, img: string, discount: number, price: number, st
 `
 }
 
-export const createOfferList = (data: itemType[]) => {
+export const createOfferList = (data: item[]) => {
   const offersContainer = document.querySelector('.offers') as HTMLDivElement
 
   const htmlData = data

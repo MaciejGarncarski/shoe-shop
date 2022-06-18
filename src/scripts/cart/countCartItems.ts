@@ -18,7 +18,7 @@ export const countCartItems = () => {
     }
 
     if (cartItemsPrices.length !== 0) {
-      const totalCount = cartItemsPrices.reduce((prev: number, next: number) => prev + next)
+      const totalCount = cartItemsPrices.reduce((prev: number, next: number) => prev + next) || ''
       totalCount <= 9 ? updateCount(totalCount.toString()) : updateCount('9+')
     } else if (countNotification) {
       countNotification.classList.remove(activeClass)

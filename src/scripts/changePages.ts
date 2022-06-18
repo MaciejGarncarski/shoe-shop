@@ -1,7 +1,7 @@
 import { fetchPage } from './fetchPage'
 import { homeFunctions, shopFunctions, cartFunctions } from './subpageFunctions'
 
-type routesType = {
+type routesInfo = {
   [key: string]: {
     path: string
     title: string
@@ -9,7 +9,7 @@ type routesType = {
   }
 }
 
-const routes: routesType = {
+const routes: routesInfo = {
   '/': {
     path: 'pages/home.html',
     title: 'Shoe Shop | Homepage',
@@ -67,5 +67,6 @@ export const changeOnClick = () => {
 
 export const changePages = () => {
   changeOnClick()
+  window.removeEventListener('popstate', handleLocation)
   window.addEventListener('popstate', handleLocation)
 }

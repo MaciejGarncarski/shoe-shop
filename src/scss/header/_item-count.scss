@@ -20,7 +20,7 @@
     @include animations.slide-up;
   }
 
-  @include mixins.mediaquery('lg') {
+  @include mixins.mediaquery('xl') {
     right: -2.5rem;
     top: -1rem;
   }
