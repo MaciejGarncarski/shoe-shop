@@ -12,7 +12,7 @@
   }
 
   @include mixins.mediaquery('lg') {
-    width: clamp(32rem, 50vw, 45rem);
+    width: clamp(32rem, 45vw, 45rem);
     padding: 4rem 1.5rem;
     border-radius: 1rem;
     margin-inline: auto;
@@ -30,6 +30,11 @@
     flex-direction: column;
     gap: 3rem;
     list-style: none;
+
+    @include mixins.mediaquery('xl') {
+      gap: 2.5rem;
+    }
+
 
     >.not-found-message {
       text-align: center;

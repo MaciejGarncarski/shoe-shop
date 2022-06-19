@@ -6,7 +6,6 @@ export const filterOffers = () => {
   const minPrice = document.querySelector('#min-price') as HTMLInputElement
   const maxPrice = document.querySelector('#max-price') as HTMLInputElement
   const markedStars = document.querySelectorAll('.clicked')
-  console.log(markedStars)
 
   const filteredOffers = offers.filter(({ price, discount, stars }) => {
     const itemPrice: number = discount * price
