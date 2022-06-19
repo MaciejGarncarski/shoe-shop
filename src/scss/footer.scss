@@ -38,10 +38,13 @@
 
   &__copy-notification {
     position: absolute;
-    right: -60%;
+    right: -6.5rem;
     padding: 0 0.5rem;
     font-weight: 700;
-    filter: drop-shadow(-2px 2px 0 var(--yellow)) drop-shadow(2px -2px 0 var(--lightYellow));
+
+    @include mixins.mediaquery('xl') {
+      right: -5.5rem;
+    }
 
     @include mixins.radius('small');
     @include animations.slide-up;

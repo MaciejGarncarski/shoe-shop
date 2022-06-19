@@ -1,6 +1,6 @@
 import { createOfferList } from './shop/createOfferList'
 import { offers } from '../data/offers'
-import { runFilters } from './shop/filter'
+import { initFilters } from './shop/initFilter'
 import { showFilters } from './shop/showFilters'
 import { createCartList } from './cart/createCartList'
 import { addToCart } from './shop/addToCart'
@@ -16,7 +16,7 @@ export const homeFunctions = () => {
 export const shopFunctions = () => {
   createOfferList(offers)
   addToCart()
-  runFilters()
+  initFilters()
   showFilters()
   changeOnClick()
 }
