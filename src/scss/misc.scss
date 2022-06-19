@@ -73,3 +73,8 @@
   backdrop-filter: blur(16px);
   @include mixins.radius('small');
 }
+
+.not-found-message {
+  font-weight: 800;
+  text-shadow: -2px 2px var(--white);
+}

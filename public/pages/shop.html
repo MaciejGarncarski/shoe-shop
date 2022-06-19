@@ -8,10 +8,10 @@
             style="--fa-animation-iteration-count: 1;"></span>
         <p class="added-to-cart__text">item added to cart</p>
     </div>
-    <button type="button" class="show-filters">
-        show filters
-    </button>
     <div class="filters">
+        <button type="button" class="show-filters">
+            show filters
+        </button>
         <form class="filters__form">
             <div class="filters__price-range">
                 <h2 class="filters__heading">Price range</h2>
@@ -28,27 +28,40 @@
                 <h2 class="filters__heading filters__heading--star">Rating</h2>
 
                 <div class="filters__stars-container">
-                    <div class="filters__stars">
-                        <div class="filters__star-icon"><img src="/images/star-solid.svg" alt="star"></div>
+                    <div class="filters__star">
+                        <input class="filters__star-checkbox" type="checkbox" id="star-1" />
+                        <label for="star-1">
+                            <img class="filters__star-icon" src="/images/star-solid.svg" alt="star" />
+                        </label>
                     </div>
-                    <div class="filters__stars">
-                        <div class="filters__star-icon"><img src="/images/star-solid.svg" alt="star"></div>
+                    <div class="filters__star">
+                        <input class="filters__star-checkbox" type="checkbox" id="star-2" />
+                        <label for="star-2">
+                            <img class="filters__star-icon" src="/images/star-solid.svg" alt="star" />
+                        </label>
                     </div>
-                    <div class="filters__stars">
-                        <div class="filters__star-icon"><img src="/images/star-solid.svg" alt="star"></div>
+                    <div class="filters__star">
+                        <input class="filters__star-checkbox" type="checkbox" id="star-3" />
+                        <label for="star-3">
+                            <img class="filters__star-icon" src="/images/star-solid.svg" alt="star" />
+                        </label>
                     </div>
-                    <div class="filters__stars">
-                        <div class="filters__star-icon"><img src="/images/star-solid.svg" alt="star"></div>
+                    <div class="filters__star">
+                        <input class="filters__star-checkbox" type="checkbox" id="star-4" />
+                        <label for="star-4">
+                            <img class="filters__star-icon" src="/images/star-solid.svg" alt="star" />
+                        </label>
                     </div>
-                    <div class="filters__stars">
-                        <div class="filters__star-icon"><img src="/images/star-solid.svg" alt="star"></div>
+                    <div class="filters__star">
+                        <input class="filters__star-checkbox" type="checkbox" id="star-5" />
+                        <label for="star-5">
+                            <img class="filters__star-icon" src="/images/star-solid.svg" alt="star" />
+                        </label>
                     </div>
                 </div>
-
             </div>
             <input type="reset" class="filters__reset" value="reset">
         </form>
-
     </div>
     <ul class="offers">
     </ul>

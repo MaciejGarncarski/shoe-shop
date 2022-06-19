@@ -7,11 +7,11 @@ import { showFilters } from './showFilters'
 export const resetForm = () => {
   const resetButton = document.querySelector('.filters__reset')
 
-  const stars = document.querySelectorAll<HTMLImageElement>('.filters__star-icon img')
+  const stars = document.querySelectorAll<HTMLImageElement>('.filters__star')
 
   if (resetButton) {
     resetButton.addEventListener('click', () => {
-      stars.forEach((star) => star.classList.remove('filters__star-icon--active', 'clicked'))
+      stars.forEach((star) => star.classList.remove('filters__star--active', 'clicked'))
       createOfferList(offers)
       addToCart()
       initFilters()
