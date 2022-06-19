@@ -3,7 +3,7 @@ import { resetForm } from './reset'
 
 const template = (name: string, img: string, discount: number, price: number, stars: number) => {
   const discountValue = discount * price
-  const withDiscount = `<p class="shop-item__price product__price--discounted">${price}€</p><p class="shop-item__discount">${discountValue}€</p>`
+  const withDiscount = `<p class="shop-item__price shop-item__price--discounted">${price}€</p><p class="shop-item__discount">${discountValue}€</p>`
   const withoutDiscount = `<p class="shop-item__price">${price}€</p>`
 
   const starCount = [...Array(stars)]
