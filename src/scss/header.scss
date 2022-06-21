@@ -4,8 +4,8 @@
 @use 'header/item-count';
 
 .header {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   padding: 2rem 0;
 
@@ -17,11 +17,13 @@
   @include mixins.mediaquery('xl') {
     justify-content: space-between;
     padding: 3rem 0;
-    margin: 0 6rem;
+    margin-inline: 5rem;
 
     &__heading {
       @include mixins.heading;
       display: inline;
+      font-size: 3.5rem;
+      letter-spacing: 0.03em;
     }
   }
 }

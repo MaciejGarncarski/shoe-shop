@@ -1,63 +1,53 @@
 @use '../modules/mixins';
 
 .nav {
-  @include mixins.flex-center;
-  margin-right: 2rem;
-
-  @include mixins.mediaquery('xl') {
-    margin-right: 0;
-  }
 
   &__list {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    left: 0;
-    top: 0;
     list-style: none;
-    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 2em 0;
-    position: absolute;
-    gap: 9vh;
     transition: all 150ms;
     transition-property: opacity, visibility;
+    opacity: 0;
     visibility: hidden;
-    width: 100%;
     z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-    &--active {
-      @include mixins.glass;
-      font-size: 1.5rem;
-      opacity: 1;
-      visibility: visible;
+    @include mixins.mediaquery('less-xl') {
+      &--active {
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        gap: 9vh;
+        @include mixins.glass;
+        opacity: 1;
+        visibility: visible;
+      }
     }
 
     @include mixins.mediaquery('xl') {
-      background: none;
       flex-direction: row;
-      gap: calc(1rem + 7vw);
+      gap: 8vw;
       height: auto;
       opacity: 1;
       padding: 0;
       position: static;
 
-      &--active {
-        visibility: hidden;
-        font-size: inherit;
-      }
     }
 
   }
 
   &__svg {
     display: none;
-    left: -4em;
     position: absolute;
-    stroke: var(--yellow);
+    left: -4em;
     top: -0.8em;
     width: 12em;
+    stroke: var(--yellow);
 
     @include mixins.mediaquery('xl') {
       left: -1.5em;
@@ -74,12 +64,12 @@
   &__link {
     color: var(--dark);
     @include mixins.flex-center;
-    filter: drop-shadow(-3px 3px 0 var(--white));
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.35em;
     position: relative;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    font-weight: 700;
 
     >svg {
       pointer-events: none;
@@ -101,7 +91,7 @@
       padding: 0.5rem;
       @include mixins.radius('small');
       @include mixins.shadow;
-      font-size: 2rem;
+      margin-right: 2rem;
     }
 
     &--active>.nav__svg {

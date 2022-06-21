@@ -9,7 +9,6 @@
   border-radius: 0;
   display: flex;
   gap: max(2vh, 1rem);
-  font-size: 1.25rem;
 
   @include mixins.glass;
 
@@ -38,16 +37,15 @@
 
   &__copy-notification {
     position: absolute;
-    right: -6.5rem;
+    right: -4.2em;
     padding: 0 0.5rem;
     font-weight: 700;
 
     @include mixins.mediaquery('xl') {
-      right: -5.5rem;
+      right: -4.5em;
     }
 
     @include mixins.radius('small');
-    @include animations.slide-up;
   }
 
   &__item {

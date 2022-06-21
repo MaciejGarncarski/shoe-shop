@@ -21,6 +21,8 @@
   }
 
   &--active {
+    position: absolute;
+
     .burger__bar {
       filter: none;
     }

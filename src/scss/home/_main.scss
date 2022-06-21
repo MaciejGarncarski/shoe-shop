@@ -6,33 +6,33 @@
   display: flex;
   flex-direction: column;
   row-gap: 7vh;
-  font-size: 1.25rem;
+
+  font-size: 1.75rem;
 
   @include mixins.mediaquery('xl') {
-    font-size: 1em;
-    gap: 3rem;
+    gap: 1.5em;
     justify-content: center
   }
 
   &__heading {
     @include mixins.heading;
+    font-size: 3.5rem;
+    letter-spacing: 0.03em;
   }
 
   &__description {
     color: var(--dark);
     position: relative;
-    line-height: 2.5rem;
+    line-height: 1.5;
 
     @include mixins.mediaquery('xl') {
-      line-height: 3rem;
-      text-shadow: -1px 1px 0 var(--white);
+      text-shadow: -0.04em 0.04em 0 var(--white);
     }
   }
 
   &__button {
     @include mixins.radius('medium');
-    @include mixins.button;
-    padding: 0.6rem 1.2rem;
+    padding: 0.4em 0.8em;
     text-decoration: none;
     display: inline-block;
     align-self: flex-start;
@@ -40,9 +40,8 @@
 }
 
 .emoji {
-  opacity: 0;
-
   @include animations.emoji-popup;
+  --size: 2.5em;
 
   &__bear,
   &__fire,
@@ -57,49 +56,42 @@
   }
 
   &__fire {
-    bottom: -2em;
-    height: 4em;
-    right: 2em;
-    width: 4em;
+    bottom: -2.5em;
+    height: var(--size);
+    right: 1.5em;
+    width: var(--size);
   }
 
   &__hands {
     transform: rotate(9deg) scale(1);
-    height: 3em;
+    height: var(--size);
+    width: var(--size);
     right: 1.5em;
-    top: -3em;
-    width: 3em;
+    top: -2.5em;
 
   }
 
   &__bear {
-    height: 2.5em;
     left: 0em;
-    top: -2.5em;
-    width: 2.5em;
+    top: -2.2em;
+    height: var(--size);
+    width: var(--size);
   }
 
   @include mixins.mediaquery('xl') {
 
-    &__fire,
-    &__hands,
-    &__bear {
-      height: calc(2.5vw + 0.75em);
-      width: calc(2.5vw + 0.75em);
-    }
-
     &__fire {
       bottom: -2em;
-      left: 15em;
+      left: 9em;
     }
 
     &__hands {
-      right: 0;
-      top: -2em;
+      right: 1em;
+      top: -2.5em;
     }
 
     &__bear {
-      left: 8em;
+      left: 11em;
       top: -3.5em;
     }
   }
@@ -112,12 +104,11 @@
 
   @include mixins.mediaquery('lg') {
     display: inline-block;
-    grid-column: 2 / 3;
     filter: drop-shadow(2px 2px 1px var(--dark)) drop-shadow(-2px -2px 1px var(--white));
     right: 5vw;
     top: 0rem;
-    transform-origin: right;
-    width: clamp(30rem, 35vw, 40rem);
+    max-width: clamp(22em, 32vw, 37em);
+    align-self: center;
     justify-self: flex-end;
   }
 

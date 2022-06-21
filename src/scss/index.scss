@@ -61,8 +61,8 @@ body {
   background-color: #b8c6db;
   background-image: linear-gradient(350deg, #cdcfd3 0%, #f5f7fa 60%);
   background-size: cover;
-  font-size: clamp(calc(1rem + 0.75vw), 16px, 32px);
   color: var(--dark);
+  font-size: clamp(16px, calc(1rem + 3vw), 24px);
 }
 
 .locked {
@@ -112,8 +112,8 @@ body {
       $size: 33vw;
       width: $size;
       height: $size;
-      right: 11vw;
-      top: 31vh;
+      right: 6rem;
+      top: 25vh;
     }
   }
 }

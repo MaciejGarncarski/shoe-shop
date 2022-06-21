@@ -20,14 +20,13 @@
 
 @mixin input {
   border: 1.5px solid var(--yellow);
-  padding: 0.5rem 1rem;
+  padding: 0.2em 0.6em;
   background-color: var(--white);
-  font-size: 1.3rem;
   @include radius('small');
 }
 
 @mixin button {
-  color: var(--dark);
+  color: inherit;
   background: linear-gradient(to right, var(--yellow), var(--lightYellow));
   background-size: 240% 100%;
   background-position: left;
@@ -35,7 +34,6 @@
   transition-property: background-size, background-position, transform;
   text-transform: capitalize;
   border: 1px solid rgba(var(--dark-rgb), 0.1);
-  text-shadow: -2px 2px var(--white);
   font-weight: 700;
 
   &:hover {
@@ -95,9 +93,9 @@
 
 
 @mixin radius($size) {
-  $breakpoints: ('small': '3px',
-    'medium': '4.5px',
-    'big': '6px'
+  $breakpoints: ('small': '0.2em',
+    'medium': '0.3em',
+    'big': '0.4em'
   );
 
   @if map-has-key($breakpoints, $size) {

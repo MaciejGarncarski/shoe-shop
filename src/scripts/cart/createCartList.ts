@@ -14,16 +14,16 @@ const template = (name: string, count: number, img: string, price: number) => {
                 <span class="cart-item__tag">${name}</span><span class="cart-item__price">${price}€</span>
               </div>
               <div class="cart-item__change-price">
-                  <button type="button" id="removeOneItem" class="cart-item__button" data-type="remove" title="delete one ${name} from cart">
+                  <button type="button" id="removeOneItem" class="button cart-item__button" data-type="remove" title="delete one ${name} from cart">
                     <span class="fa-solid fa-minus"></span>
                   </button>
                   <input type="number" value="${count}" min="1" step="1" max="50" title="${name} count in cart" class="cart-item__input"/>
-                  <button type="button" id="addOneItem" class="cart-item__button" data-type="add" title="add one ${name} to cart">
+                  <button type="button" id="addOneItem" class="button cart-item__button" data-type="add" title="add one ${name} to cart">
                     <span class="fa-solid fa-plus "></span>
                   </button>
               </div>
-              <button class="cart-item__button cart-item__button--delete" type="button" title="delete all ${name} from cart">
-                  <span class="fa-solid fa-trash-can"></span>
+              <button class="button cart-item__button cart-item__button--delete" type="button" title="delete all ${name} from cart">
+                  <span class="fa-solid fa-trash"></span>
               </button>
           </li>
       `
@@ -35,7 +35,7 @@ export const createCartList = (data: cartItem[]) => {
   const message = `
     <span class="not-found-message">
       No items in cart
-      <a href="/shop" class="cart__link">go back to shopping!</a>
+      <a href="/shop" class="cart__link button">go back to shopping!</a>
     </span>
   `
 

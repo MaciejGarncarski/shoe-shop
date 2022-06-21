@@ -1,7 +1,6 @@
 @use 'modules/mixins';
 
 .not-found {
-  font-size: 1.5rem;
   @include mixins.flex-center;
   min-height: 65vh;
   flex-direction: column;
@@ -13,7 +12,6 @@
     color: #fff;
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 1em;
   }
 }
 
@@ -66,15 +64,15 @@
 
 
 .bold {
-  color: var(--dark);
-  text-shadow: -2px 2px var(--white);
-  border: 1px solid rgba(var(--dark-rgb), 0.2);
-  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.73), rgba(var(--white-rgb), 0.87));
-  backdrop-filter: blur(16px);
+  @include mixins.glass;
   @include mixins.radius('small');
 }
 
 .not-found-message {
   font-weight: 800;
   text-shadow: -2px 2px var(--white);
+}
+
+.button {
+  @include mixins.button;
 }
