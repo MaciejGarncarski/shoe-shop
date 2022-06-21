@@ -1,6 +1,6 @@
 import { markActivePage } from './markActivePage'
 
-const loader = `
+export const loader = `
 <div class="loading"><div></div><div></div><div></div><div></div></div>
 `
 

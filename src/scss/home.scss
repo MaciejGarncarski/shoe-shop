@@ -3,23 +3,17 @@
 @use 'home/main';
 
 .home {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto);
-    margin-inline: 1.5rem calc(0.5rem + 4vw);
-
     margin: 3rem 2rem;
 
-    @include mixins.mediaquery('less-lg') {
-        display: block;
-    }
-
     @include mixins.mediaquery('lg') {
-        margin: 2.5rem 4rem;
+        display: grid;
+        grid-template-columns: 0.85fr auto;
+        grid-template-rows: repeat(2, auto);
+        margin: 1rem 4rem;
     }
 
     @include mixins.mediaquery('xl') {
-        margin: 2.5rem 6rem;
+        margin: 1rem 6rem;
     }
 
 }

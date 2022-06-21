@@ -16,13 +16,13 @@
     padding: 4rem 1.5rem;
     border-radius: 1rem;
     margin-inline: auto;
-    margin-top: 2.5rem;
+    margin-top: 1rem;
   }
 
 
   &__heading {
-    @include mixins.heading;
     text-align: center;
+    font-size: 3rem;
   }
 
   &__items {
@@ -56,7 +56,6 @@
     text-decoration: none;
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    @include mixins.button;
     @include mixins.radius('small');
 
   }
@@ -76,7 +75,6 @@
   }
 
   &__checkout-link {
-    @include mixins.button;
     @include mixins.radius('big');
     margin-top: 2rem;
     padding: calc(1vh + 0.25rem) 1.25rem;

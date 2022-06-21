@@ -8,30 +8,22 @@ const template = (name: string, img: string, discount: number, price: number, st
 
   const starCount = [...Array(stars)]
 
-  const onSaleBadge = () => {
-    if (discount !== 1) {
-      return '<p class="shop-item__on-sale-badge">on sale</p>'
-    }
-    return ''
-  }
-
   return `
   <li class="shop-item">
-      ${onSaleBadge()}
+      <div class="shop-item__stars-container">
+      ${starCount.map(() => '<span class="shop-item__star fa-solid fa-star"></span>').join('')}
+      </div>
+      <button title="add to cart" type="button" class="button shop-item__cart-btn">
+          <span class="fas fa-cart-plus"></span>
+      </button>
       <picture class="shop-item__img">
         <source srcset="/images/shoes/webp/${img}.webp" type="img/webp" />
         <source srcset="/images/shoes/png/${img}.png" type="img/png" />
         <img  loading="lazy" src="/images/shoes/png/${img}.png" alt="${name}" />
       </picture>
       <h2 class="shop-item__name">${name}</h2>
-      <button title="add to cart" type="button" class="shop-item__cart-btn">
-          <span class="fas fa-cart-plus"></span>
-      </button>
       <div class="shop-item__price-container">
           ${discount !== 1 ? withDiscount : withoutDiscount}
-      </div>
-      <div class="shop-item__stars-container">
-          ${starCount.map(() => '<span class="shop-item__star fa-solid fa-star"></span>').join('')}
       </div>
   </li>
 `
@@ -39,7 +31,6 @@ const template = (name: string, img: string, discount: number, price: number, st
 
 export const createOfferList = (data: item[]) => {
   const offersContainer = document.querySelector('.offers') as HTMLDivElement
-
   const htmlData = data
     .map(({ name, price, discount, img, stars }) => template(name, img, discount, price, stars as stars))
     .join('')
@@ -50,8 +41,8 @@ export const createOfferList = (data: item[]) => {
   }
   if (offersContainer.childElementCount === 0) {
     offersContainer.innerHTML = `
-          <span class="not-found-message">No offers found.</span>
-          `
+      <span class="not-found-message">No offers found.</span>
+      `
   }
   resetForm()
 }

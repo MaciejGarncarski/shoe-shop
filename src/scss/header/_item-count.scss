@@ -10,7 +10,7 @@
   padding: 0.2rem 0.3rem;
   text-align: center;
   border: 1px solid rgba(var(--dark-rgb), 0.2);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   background: linear-gradient(to right, var(--yellow), var(--lightYellow));
   background-size: 300% 100%;
   background-position: left;
@@ -21,7 +21,7 @@
   }
 
   @include mixins.mediaquery('xl') {
-    right: -2.5rem;
+    right: -2.2rem;
     top: -1rem;
   }
 

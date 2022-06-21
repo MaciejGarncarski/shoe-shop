@@ -60,14 +60,10 @@
   }
 
   &__button {
-    @include mixins.button;
     @include mixins.radius('small');
-    font-size: 1em;
-    padding: 0.5rem 0.65rem;
+    font-size: 1.5rem;
+    padding: 0.2em 0.5em;
 
-    @include mixins.mediaquery('lg') {
-      font-size: 1.5rem;
-    }
 
     &:hover {
       cursor: pointer;
@@ -77,16 +73,16 @@
       justify-self: flex-end;
 
       @include mixins.mediaquery('xl') {
-        padding: 0.5rem 1rem;
+        padding: 0.2em 0.5em;
       }
     }
   }
 
   &__input {
-    max-width: 3.5rem;
+    max-width: 3.5em;
     @include mixins.input;
-    padding: 0.25rem;
     padding-right: 0;
     text-align: center;
+    font-size: 1.5rem;
   }
 }

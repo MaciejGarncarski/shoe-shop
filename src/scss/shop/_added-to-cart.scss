@@ -10,20 +10,18 @@
   bottom: 15%;
   transform: translateX(-50%) translateY(2rem);
   z-index: 1;
-  padding: 3rem 5rem;
-  font-size: 1.5rem;
+  padding: 3em 4em;
   opacity: 0;
   visibility: hidden;
   transition: all 270ms ease-in-out;
-  transition-property: visibility, opacity, transform;
 
   >svg {
     color: var(--white);
-    font-size: 6rem;
     fill: var(--white);
     stroke: var(--dark);
     stroke-width: 7px;
     @include mixins.gradient-shadow;
+    font-size: 5rem;
   }
 
   @include mixins.mediaquery('less-lg') {
@@ -34,8 +32,7 @@
     left: 50%;
     top: initial;
     bottom: 7%;
-    font-size: 2rem;
-    padding: 2rem 5rem;
+    padding: 1em 3em;
     gap: 3rem;
   }
 
@@ -45,32 +42,25 @@
     visibility: visible;
   }
 
-  &__timer {
-    position: absolute;
-    left: 2rem;
-    top: 1rem;
-  }
-
   &__close-btn {
     position: absolute;
-    right: 3%;
-    top: 6%;
+    right: 0.5em;
+    top: 0.5em;
     cursor: pointer;
     padding: 0.4rem 0.9rem;
-    font-size: 2rem;
-    @include mixins.button;
     @include mixins.radius('medium');
+    font-size: 1.5rem;
   }
 
   &__text {
-    font-size: 2.5rem;
     display: inline-block;
     text-transform: uppercase;
     text-align: center;
     margin: 0 auto;
+    font-size: 2rem;
 
     @include mixins.mediaquery('lg') {
-      padding-right: 3rem;
+      padding-right: 1em;
       text-align: left;
       white-space: nowrap;
     }

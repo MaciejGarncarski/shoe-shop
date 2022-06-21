@@ -16,6 +16,8 @@ export const initFilters = () => {
   const starsArray = Array.from(stars)
   const activeClass = 'filters__star--active'
 
+  const removeActiveClass = () => stars.forEach((star) => star.classList.remove(activeClass, 'clicked'))
+
   starsContainer.addEventListener('mouseleave', () => {
     stars.forEach((star) => {
       if (!star.classList.contains('clicked')) {
@@ -24,9 +26,7 @@ export const initFilters = () => {
     })
   })
 
-  const removeActiveClass = () => stars.forEach((star) => star.classList.remove(activeClass, 'clicked'))
-
-  const addStarClasses = (mouseEvent: MouseEvent, isCheckbox?: boolean) => {
+  const markStars = (mouseEvent: MouseEvent, isCheckbox?: boolean) => {
     const target = mouseEvent.target as HTMLImageElement
     const targetParent = getParentElement(target, isCheckbox)
     const hoveredStar = starsArray.indexOf(targetParent)
@@ -45,12 +45,10 @@ export const initFilters = () => {
 
   const markStar = (star: HTMLDivElement) => {
     const checkbox = star.querySelector('.filters__star-checkbox') as HTMLInputElement
-    star.addEventListener('mouseover', (mouseEvent: MouseEvent) => addStarClasses(mouseEvent))
-    checkbox.addEventListener('click', (mouseEvent: MouseEvent) => addStarClasses(mouseEvent, true))
+    star.addEventListener('mouseover', (mouseEvent: MouseEvent) => markStars(mouseEvent))
+    checkbox.addEventListener('click', (mouseEvent: MouseEvent) => markStars(mouseEvent, true))
   }
 
   stars.forEach(markStar)
-  if (form) {
-    form.addEventListener('input', debounce(filterOffers, 350))
-  }
+  form.addEventListener('input', debounce(filterOffers, 350))
 }
