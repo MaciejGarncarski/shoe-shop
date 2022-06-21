@@ -10,8 +10,12 @@
   margin: 4rem 2rem;
 
   @include mixins.mediaquery('lg') {
+    margin: 4rem 6rem;
+  }
+
+  @include mixins.mediaquery('xl') {
     flex-direction: row;
     padding: 0;
-    margin: 1rem 6rem;
+    margin: 1rem 7rem;
   }
 }

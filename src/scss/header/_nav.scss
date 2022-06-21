@@ -65,10 +65,11 @@
     color: var(--dark);
     @include mixins.flex-center;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.35em;
     position: relative;
     text-decoration: none;
     text-transform: capitalize;
+    font-weight: 700;
 
     >svg {
       pointer-events: none;

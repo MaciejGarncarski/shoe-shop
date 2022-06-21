@@ -34,7 +34,6 @@
   transition-property: background-size, background-position, transform;
   text-transform: capitalize;
   border: 1px solid rgba(var(--dark-rgb), 0.1);
-  text-shadow: -2px 2px var(--white);
   font-weight: 700;
 
   &:hover {

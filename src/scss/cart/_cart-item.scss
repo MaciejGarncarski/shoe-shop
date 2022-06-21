@@ -43,7 +43,7 @@
   &__name-container {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.2em;
     justify-self: flex-end;
     text-align: right;
   }
@@ -79,7 +79,7 @@
   }
 
   &__input {
-    max-width: 3.5em;
+    max-width: 2.75em;
     @include mixins.input;
     padding-right: 0;
     text-align: center;

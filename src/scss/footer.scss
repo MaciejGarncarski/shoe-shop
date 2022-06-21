@@ -37,12 +37,12 @@
 
   &__copy-notification {
     position: absolute;
-    right: -6.5rem;
+    right: -4.2em;
     padding: 0 0.5rem;
     font-weight: 700;
 
     @include mixins.mediaquery('xl') {
-      right: -5.5rem;
+      right: -4.5em;
     }
 
     @include mixins.radius('small');
