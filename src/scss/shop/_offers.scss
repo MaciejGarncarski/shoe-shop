@@ -8,6 +8,7 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   row-gap: 1.5em;
   column-gap: 1em;
+  transition: margin 700ms ease-in-out;
 
   @include mixins.mediaquery('xl') {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

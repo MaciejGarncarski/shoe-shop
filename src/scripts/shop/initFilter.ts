@@ -1,4 +1,3 @@
-import debounce from 'lodash.debounce'
 import { filterOffers } from './filterOffers'
 
 const getParentElement = (target: HTMLImageElement, isCheckbox?: boolean) => {
@@ -49,5 +48,5 @@ export const initFilters = () => {
   }
 
   stars.forEach(markStar)
-  form.addEventListener('input', debounce(filterOffers, 350))
+  form.addEventListener('input', filterOffers)
 }

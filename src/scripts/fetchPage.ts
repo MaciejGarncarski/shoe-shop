@@ -14,9 +14,10 @@ export const injectPage = async (url: string) => {
       const data = await response.text()
       app.innerHTML = data
       markActivePage()
-      return response.status
+      return response.ok
+    } else {
+      throw new Error(`Http error: ${response.status}`)
     }
-    throw new Error(`Http error: ${response.status}`)
   } catch (error) {
     console.error(error)
     app.innerHTML = errorMsg

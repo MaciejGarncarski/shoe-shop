@@ -18,7 +18,6 @@ const template = (name: string, img: string, discount: number, price: number, st
       </button>
       <picture class="shop-item__img">
         <source srcset="/images/shoes/webp/${img}.webp" type="img/webp" />
-        <source srcset="/images/shoes/png/${img}.png" type="img/png" />
         <img  loading="lazy" src="/images/shoes/png/${img}.png" alt="${name}" />
       </picture>
       <h2 class="shop-item__name">${name}</h2>

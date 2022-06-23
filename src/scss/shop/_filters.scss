@@ -22,47 +22,52 @@
   z-index: 1;
 }
 
-
 @mixin visible {
   opacity: 1;
   visibility: visible;
 }
 
 .filters {
+
   @include mixins.mediaquery('less-xl') {
-    display: none;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-5rem);
+    transition: all 750ms ease-in-out;
+    transition-property: opacity, transform;
+    margin-top: 2rem;
 
     &--active {
-      display: block;
+      opacity: 1;
+      transform: translateY(0em);
     }
+
+    &--active+.offers {
+      margin-top: 28rem;
+    }
+
   }
 }
 
 .filters__form {
   flex-direction: column;
-  padding: 2.5rem;
   gap: 1.5rem;
-  height: auto;
-
-  opacity: 0;
-  visibility: hidden;
-
+  padding: 2em 0;
   @include mixins.flex-center;
   @include mixins.radius('big');
 
-  &--active {
-    width: min(85vw, 25rem);
-    padding: 2rem;
-    @include visible;
-    @include animations.slide-up;
+  @include mixins.mediaquery('less-xl') {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 
-
   @include mixins.mediaquery('xl') {
+    @include animations.slide-up;
     position: sticky;
     padding: 4vh 1vw;
     top: 5%;
-    @include visible;
   }
 
 }
@@ -101,7 +106,7 @@
   @include mixins.flex-center;
 
   @include mixins.mediaquery('xl') {
-    max-width: 10rem;
+    max-width: 10em;
   }
 
   >input {
