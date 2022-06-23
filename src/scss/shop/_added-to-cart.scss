@@ -6,21 +6,27 @@
   gap: 3rem;
   position: fixed;
   left: 50%;
-  bottom: 15%;
-  transform: translateX(-50%) translateY(2rem);
+  bottom: 0;
+  transform: translateX(-50%);
   z-index: 1;
   padding: 3em 4em;
   opacity: 0;
   visibility: hidden;
-  transition: all 270ms ease-in-out;
+  transition: all var(--transition-short);
+
+  &--active {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5em);
+    visibility: visible;
+  }
 
   >svg {
     color: var(--white);
     fill: var(--white);
     stroke: var(--dark);
-    stroke-width: 7px;
-    @include mixins.gradient-shadow;
+    stroke-width: 9px;
     font-size: 5rem;
+    filter: drop-shadow(-4px 2px var(--yellow)) drop-shadow(4px -2px var(--lightYellow));
   }
 
   @include mixins.mediaquery('less-lg') {
@@ -30,16 +36,12 @@
   @include mixins.mediaquery('lg') {
     left: 50%;
     top: initial;
-    bottom: 7%;
+    bottom: 0;
     padding: 1em 3em;
     gap: 3rem;
   }
 
-  &--active {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-40%);
-    visibility: visible;
-  }
+
 
   &__close-btn {
     position: absolute;

@@ -18,9 +18,11 @@
 .loading {
   display: inline-block;
   position: absolute;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
   width: calc(10rem + 10vw);
   height: calc(10rem + 10vw);
   filter: drop-shadow(-2px 2px 0 var(--yellow)) drop-shadow(2px -5px 0 var(--lightYellow));

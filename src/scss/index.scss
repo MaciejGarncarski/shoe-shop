@@ -17,6 +17,8 @@
   --yellow-rgb: 252, 163, 17;
   --lightYellow-rgb: 252, 228, 5;
   --white-rgb: 235, 235, 235;
+  --transition-short: 200ms ease-in-out;
+  --transition-long: 400ms ease-in-out;
 }
 
 [dark]:root {
@@ -37,6 +39,14 @@
   color: var(--dark);
   filter: none;
   text-shadow: none;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--dark);
 }
 
 html,
@@ -89,8 +99,8 @@ body {
     background-image: url("/images/bg.svg");
     background-repeat: no-repeat;
     background-size: contain;
-    width: 80vw;
-    min-height: 50vh;
+    width: 76vw;
+    min-height: 20em;
 
     @include mixins.mediaquery('xl') {
       width: 50vw;

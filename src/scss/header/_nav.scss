@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     padding: 2em 0;
-    transition: all 150ms;
+    transition: all var(--transition-short);
     transition-property: opacity, visibility;
     z-index: 2;
     position: absolute;
@@ -17,7 +17,7 @@
     opacity: 0;
     visibility: hidden;
     width: 100%;
-    height: 105%;
+    height: 100%;
 
     @include mixins.mediaquery('less-xl') {
       &--active {
@@ -92,13 +92,15 @@
     }
 
     &.mobile-cart-btn {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
       background-color: var(--white);
       padding: 0.4em;
       font-size: 1.5rem;
       @include mixins.button;
       @include mixins.radius('small');
       @include mixins.shadow;
-      margin-right: 2rem;
     }
 
     @include mixins.mediaquery('xl') {

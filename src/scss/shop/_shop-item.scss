@@ -29,7 +29,7 @@
   align-self: center;
   grid-column: span 4;
   grid-row: 2 / 3;
-  transition: transform 300ms ease-in-out;
+  transition: transform var(--transition-short);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,4 @@
-import { addItems } from './addItems'
+import { addItems, maximumItems } from './addItems'
 import { deleteItem } from './deleteItem'
 import type { cartItem } from '../../types/types'
 
@@ -7,7 +7,6 @@ const template = (name: string, count: number, img: string, price: number) => {
           <li class="cart-item">
               <picture class="cart-item__img">
                 <source srcset="/images/shoes/webp/${img}.webp" type="img/webp" />
-                <source srcset="/images/shoes/png/${img}.png" type="img/png" />
                 <img loading="lazy" src="/images/shoes/png/${img}.png" alt="${name}" />
               </picture>
               <div class="cart-item__name-container">
@@ -17,7 +16,7 @@ const template = (name: string, count: number, img: string, price: number) => {
                   <button type="button" id="removeOneItem" class="button cart-item__button" data-type="remove" title="delete one ${name} from cart">
                     <span class="fa-solid fa-minus"></span>
                   </button>
-                  <input type="number" value="${count}" min="1" step="1" max="50" title="count of ${name} in cart" class="cart-item__input"/>
+                  <input type="number" value="${count}" min="1" step="1" max="${maximumItems}" title="count of ${name} in cart" class="cart-item__input"/>
                   <button type="button" id="addOneItem" class="button cart-item__button" data-type="add" title="add one ${name} to cart">
                     <span class="fa-solid fa-plus "></span>
                   </button>
