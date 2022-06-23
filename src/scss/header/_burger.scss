@@ -1,18 +1,21 @@
 @use '../modules/mixins';
 
-.burger {
-  cursor: pointer;
-  align-items: center;
+
+
+
+.burger-label {
+  padding: 0 0.3em;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.6rem;
-  left: 2rem;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
+  left: 2rem;
+  top: 2rem;
+  justify-content: center;
+  align-items: center;
   background-color: var(--white);
-  border: 1px solid transparent;
-  padding: 0.5rem;
+  --size: 3rem;
+  width: var(--size);
+  height: var(--size);
   @include mixins.radius('small');
   @include mixins.shadow;
 
@@ -20,32 +23,76 @@
     display: none;
   }
 
-  &--active {
-    position: absolute;
-    border-color: var(--dark);
-
-
-    .burger__bar {
-      filter: none;
-    }
-
-    .burger__bar--top {
-      transform: translateY(14px) rotate(45deg);
-    }
-
-    .burger__bar--middle {
-      transform: rotate(-45deg);
-    }
-
-    .burger__bar--bottom {
-      opacity: 0;
-      transform: translateY(-15px);
-    }
+  @mixin bar {
+    height: 3px;
+    width: 2rem;
+    background-color: var(--dark);
+    transition: all var(--transition-short);
   }
 
   &__bar {
-    border-bottom: 3px solid var(--dark);
-    transition: all var(--transition-short);
-    width: 2rem;
+    @include bar;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -0.5em;
+      @include bar;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      @include bar;
+    }
+  }
+}
+
+
+.burger-input {
+  z-index: -1;
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  &:focus+.burger-label,
+  &:checked+.burger-label {
+    box-shadow: inset 0 0 0 2px var(--dark);
+  }
+}
+
+.burger-input:checked {
+  &~.burger-label>.burger-label__bar {
+    background: transparent;
+  }
+
+  &~.burger-label>.burger-label__bar::before,
+  &~.burger-label>.burger-label__bar::after {
+    top: 0;
+  }
+
+  &~.burger-label>.burger-label__bar::before {
+    transform: rotate(-45deg);
+  }
+
+  &~.burger-label>.burger-label__bar::after {
+    transform: rotate(45deg);
+  }
+
+  &~.nav__list {
+    @include mixins.mediaquery('less-xl') {
+      flex-direction: column;
+      gap: 9vh;
+      @include mixins.glass;
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }

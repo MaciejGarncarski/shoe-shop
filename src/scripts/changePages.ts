@@ -68,6 +68,5 @@ export const changeOnClick = () => {
 
 export const changePages = () => {
   changeOnClick()
-  window.removeEventListener('popstate', handleLocation)
   window.addEventListener('popstate', handleLocation)
 }

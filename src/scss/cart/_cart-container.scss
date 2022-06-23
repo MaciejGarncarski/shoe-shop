@@ -3,7 +3,8 @@
 .cart {
   @include mixins.radius('big');
   margin-inline: 2rem;
-  padding: 3rem 0;
+  padding: 2rem 0;
+  margin-top: 2rem;
   min-height: 15rem;
 
   @media screen and (max-width: 280px) {
