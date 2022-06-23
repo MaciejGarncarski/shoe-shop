@@ -33,7 +33,7 @@
     width: 100%;
     opacity: 0;
     transform: translateY(-5rem);
-    transition: all 750ms ease-in-out;
+    transition: all var(--transition-long);
     transition-property: opacity, transform;
     margin-top: 2rem;
 
@@ -146,7 +146,7 @@
     width: 1.75rem;
     height: 1.75rem;
 
-    transition: all 250ms ease-in-out;
+    transition: all var(--transition-short);
     transition-property: opacity, filter;
 
     &--active {

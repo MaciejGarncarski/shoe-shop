@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     padding: 2em 0;
-    transition: all 150ms;
+    transition: all var(--transition-short);
     transition-property: opacity, visibility;
     z-index: 2;
     position: absolute;

@@ -17,6 +17,8 @@
   --yellow-rgb: 252, 163, 17;
   --lightYellow-rgb: 252, 228, 5;
   --white-rgb: 235, 235, 235;
+  --transition-short: 200ms ease-in-out;
+  --transition-long: 400ms ease-in-out;
 }
 
 [dark]:root {

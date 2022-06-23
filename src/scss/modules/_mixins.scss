@@ -30,7 +30,7 @@
   background: linear-gradient(to right, var(--yellow), var(--lightYellow));
   background-size: 240% 100%;
   background-position: left;
-  transition: all 300ms ease;
+  transition: all var(--transition-short);
   border: none;
   box-shadow: inset 0 0 0 1.5px rgba(var(--dark-rgb), 0.2);
   font-weight: 700;
