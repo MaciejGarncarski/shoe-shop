@@ -1,4 +1,4 @@
-import { fetchPage } from './fetchPage'
+import { injectPage } from './fetchPage'
 import { homeFunctions, shopFunctions, cartFunctions } from './subpageFunctions'
 
 type routesInfo = {
@@ -38,11 +38,12 @@ export const handleLocation = async () => {
   }
 
   const route = routes[path] || routes['404']
-  await fetchPage(route.path)
 
-  if (route.function) {
+  const isFetchOk = await injectPage(route.path)
+  if (route.function && isFetchOk) {
     route.function()
   }
+
   document.title = route.title
 }
 

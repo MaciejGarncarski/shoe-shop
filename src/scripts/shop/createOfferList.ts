@@ -9,7 +9,7 @@ const template = (name: string, img: string, discount: number, price: number, st
   const starCount = [...Array(stars)]
 
   return `
-  <li class="shop-item">
+  <li class="shop-item glass">
       <div class="shop-item__stars-container">
       ${starCount.map(() => '<span class="shop-item__star fa-solid fa-star"></span>').join('')}
       </div>

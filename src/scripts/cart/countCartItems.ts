@@ -9,18 +9,13 @@ export const countCartItems = () => {
 
   linksToCart.forEach((link) => {
     const countNotification = link.querySelector('.item-count') as HTMLSpanElement
-
-    const updateCount = (totalCount: string) => {
-      if (cartData.length !== 0) {
-        countNotification.classList.add(activeClass)
-        countNotification.textContent = totalCount
-      }
-    }
+    const updateCount = (totalCount: string) => (countNotification.textContent = totalCount)
 
     if (cartItemsPrices.length !== 0) {
       const totalCount = cartItemsPrices.reduce((prev: number, next: number) => prev + next) || ''
+      countNotification.classList.add(activeClass)
       totalCount <= 9 ? updateCount(totalCount.toString()) : updateCount('9+')
-    } else if (countNotification) {
+    } else {
       countNotification.classList.remove(activeClass)
     }
   })

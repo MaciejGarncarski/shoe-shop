@@ -11,7 +11,7 @@
   position: absolute;
   z-index: 4;
   background-color: var(--white);
-  border: 0;
+  border: 1px solid transparent;
   padding: 0.5rem;
   @include mixins.radius('small');
   @include mixins.shadow;
@@ -22,6 +22,8 @@
 
   &--active {
     position: absolute;
+    border-color: var(--dark);
+
 
     .burger__bar {
       filter: none;

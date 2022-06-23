@@ -1,5 +1,5 @@
-@use 'modules/_mixins';
-@use 'modules/animations';
+@use '../modules/_mixins';
+@use '../modules/animations';
 
 .footer {
   color: var(--dark);
@@ -10,12 +10,12 @@
   display: flex;
   gap: max(2vh, 1rem);
 
-  @include mixins.glass;
 
   @include mixins.mediaquery('less-lg') {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 1.25em;
   }
 
   @include mixins.mediaquery('lg') {
@@ -37,9 +37,10 @@
 
   &__copy-notification {
     position: absolute;
-    right: -4.2em;
+    right: -5em;
     padding: 0 0.5rem;
     font-weight: 700;
+    @include animations.slide-up;
 
     @include mixins.mediaquery('xl') {
       right: -4.5em;
@@ -73,6 +74,10 @@
 
     @include mixins.mediaquery('less-lg') {
       justify-content: center;
+    }
+
+    svg {
+      pointer-events: none;
     }
 
     &:hover {

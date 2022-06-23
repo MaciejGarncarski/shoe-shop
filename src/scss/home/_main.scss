@@ -6,10 +6,10 @@
   display: flex;
   flex-direction: column;
   row-gap: 7vh;
-
-  font-size: 1.75rem;
+  font-size: 1.25em;
 
   @include mixins.mediaquery('xl') {
+    font-size: 1.75rem;
     gap: 1.5em;
     justify-content: center
   }

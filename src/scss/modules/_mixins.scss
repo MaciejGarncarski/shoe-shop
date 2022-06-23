@@ -3,7 +3,7 @@
 }
 
 @mixin gradient-shadow {
-  filter: drop-shadow(-4px 4px 0 var(--yellow)) drop-shadow(4px -4px 0 var(--lightYellow));
+  filter: drop-shadow(-0.12em 0.08em 0 var(--yellow)) drop-shadow(0.12em -0.08em 0 var(--lightYellow));
 }
 
 @mixin heading {
@@ -32,9 +32,22 @@
   background-position: left;
   transition: all 300ms ease;
   transition-property: background-size, background-position, transform;
-  text-transform: capitalize;
-  border: 1px solid rgba(var(--dark-rgb), 0.1);
+  border: none;
+  box-shadow: inset 0 0 0 1.5px rgba(var(--dark-rgb), 0.2);
   font-weight: 700;
+  text-align: center;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
+  &:disabled {
+    opacity: 0.65;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
 
   &:hover {
     cursor: pointer;
@@ -85,7 +98,7 @@
   }
 
   @supports (not(backdrop-filter: blur(8px))) {
-    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.85), rgba(var(--white-rgb), 0.9));
+    background-image: linear-gradient(to bottom right, rgba(236, 236, 236, 0.85), rgba(var(--white-rgb), 0.95));
   }
 
   @include shadow;
