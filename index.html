@@ -29,6 +29,10 @@
   <header class="header">
     <h1 class="header__heading">Shoe Shop <span class="fa-solid fa-code"></span></h1>
     <nav class="nav">
+      <input class="burger-input" type="checkbox" id="burger-button" />
+      <label class="burger-label" for="burger-button">
+        <span class="burger-label__bar"></span>
+      </label>
       <ul class="nav__list">
         <li class="nav__item">
           <a class="nav__link" href="/">
@@ -71,11 +75,6 @@
           </a>
         </li>
       </ul>
-      <button class="burger" type="button" title="Menu">
-        <span class="burger__bar burger__bar--top"></span>
-        <span class="burger__bar burger__bar--middle"></span>
-        <span class="burger__bar burger__bar--bottom"></span>
-      </button>
       <a title="cart" class="nav__link mobile-cart-btn" href="/cart">
         <span class="fa-solid fa-basket-shopping"></span>
         <span class="cart__hidden-text">cart</span>

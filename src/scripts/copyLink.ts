@@ -27,8 +27,5 @@ const copy = (el: ClipboardEvent | MouseEvent) => {
 
 export const copyLink = () => {
   const links = document.querySelectorAll<HTMLSpanElement>('[data-copy]')
-  links.forEach((link) => {
-    link.removeEventListener('click', copy)
-    link.addEventListener('click', copy)
-  })
+  links.forEach((link) => link.addEventListener('click', copy))
 }
