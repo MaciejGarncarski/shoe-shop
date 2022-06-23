@@ -10,7 +10,7 @@
     padding: 2em 0;
     transition: all 150ms;
     transition-property: opacity, visibility;
-    z-index: 4;
+    z-index: 2;
     position: absolute;
     top: 0;
     left: 0;
@@ -92,7 +92,6 @@
     }
 
     &.mobile-cart-btn {
-      z-index: 3;
       background-color: var(--white);
       padding: 0.4em;
       font-size: 1.5rem;
@@ -105,7 +104,6 @@
     @include mixins.mediaquery('xl') {
       flex-direction: row;
       visibility: visible;
-      z-index: 3;
 
       &.mobile-cart-btn {
         display: none;
