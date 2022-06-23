@@ -50,7 +50,7 @@
   grid-column: span 2;
   justify-content: flex-start;
   margin-bottom: 0.3rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .shop-item__cart-btn {
@@ -58,7 +58,7 @@
   justify-self: flex-end;
   margin-bottom: 0.3rem;
   padding: 0.25em 0.4em;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   user-select: none;
   @include mixins.radius('small');
   grid-column: 3 / 5;
@@ -73,6 +73,7 @@
   align-self: center;
   grid-column: 3 / 5;
   grid-row: 3 / 4;
+  font-size: 1.25rem;
 }
 
 .shop-item__discount {
