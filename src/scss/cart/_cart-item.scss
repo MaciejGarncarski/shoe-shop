@@ -1,4 +1,4 @@
-@use '../modules/mixins';
+@use '../modules/_mixins';
 @use '../modules/animations';
 
 .cart-item {
@@ -55,34 +55,37 @@
   &__change-price {
     display: flex;
     justify-self: flex-start;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.12em;
 
+    @include mixins.mediaquery('xl') {
+      gap: 0.5rem;
+    }
   }
 
   &__button {
     @include mixins.radius('small');
-    font-size: 1.5rem;
-    padding: 0.2em 0.5em;
+    padding: 0.4em 0.56em;
+    font-size: 1.25rem;
 
-
-    &:hover {
-      cursor: pointer;
+    @include mixins.mediaquery('xl') {
+      font-size: 1.5rem;
+      padding: 0.2em 0.5em;
     }
+
 
     &--delete {
       justify-self: flex-end;
 
-      @include mixins.mediaquery('xl') {
-        padding: 0.2em 0.5em;
-      }
     }
   }
 
   &__input {
-    max-width: 2.75em;
     @include mixins.input;
     padding-right: 0;
     text-align: center;
     font-size: 1.5rem;
+    max-width: 2.75em;
+
   }
 }

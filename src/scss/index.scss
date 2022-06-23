@@ -1,10 +1,10 @@
 @use 'modules/animations';
 @use 'modules/mixins';
-@use 'header';
-@use 'footer';
-@use 'home';
-@use 'shop';
-@use 'cart';
+@use 'header/header.scss';
+@use 'footer/footer.scss';
+@use 'home/home.scss';
+@use 'shop/shop.scss';
+@use 'cart/cart.scss';
 @use 'misc';
 
 
@@ -62,7 +62,11 @@ body {
   background-image: linear-gradient(350deg, #cdcfd3 0%, #f5f7fa 60%);
   background-size: cover;
   color: var(--dark);
-  font-size: clamp(16px, calc(1rem + 3vw), 24px);
+  font-size: clamp(50%, calc(1rem + 2vw), 18px);
+
+  @include mixins.mediaquery('lg') {
+    font-size: clamp(16px, calc(1rem + 3vw), 24px);
+  }
 }
 
 .locked {
@@ -96,10 +100,9 @@ body {
 
 
   &--small {
-    counter-reset: 2;
-    $size: clamp(20rem, 60vw, 35rem);
-    width: $size;
-    height: $size;
+    --size: clamp(20rem, 60vw, 35rem);
+    width: var(--size);
+    height: var(--size);
     top: 27%;
     right: 6%;
     position: fixed;
@@ -109,9 +112,9 @@ body {
 
     @include mixins.mediaquery('xl') {
       position: absolute;
-      $size: 33vw;
-      width: $size;
-      height: $size;
+      --size: 33vw;
+      width: var(--size);
+      height: var(--size);
       right: 6rem;
       top: 25vh;
     }
@@ -123,4 +126,12 @@ body {
 .app {
   min-height: 80vh;
   position: relative;
+}
+
+.button {
+  @include mixins.button;
+}
+
+.glass {
+  @include mixins.glass;
 }

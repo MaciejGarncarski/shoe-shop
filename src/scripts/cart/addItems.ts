@@ -10,11 +10,17 @@ export const addItems = () => {
 
     const onInputChange = () => {
       if (itemCount.valueAsNumber <= 0 || itemCount.valueAsNumber > 50) {
-        updateCartItems(itemName, itemCount, 1)
+        updateCartItems(itemName, itemCount, 50)
       } else {
         updateCartItems(itemName, itemCount, itemCount.valueAsNumber)
       }
     }
+
+    const disableButtons = () => {
+      addBtn.disabled = itemCount.valueAsNumber === 50
+      removeBtn.disabled = itemCount.valueAsNumber === 1
+    }
+    disableButtons()
 
     const onClick = (operation: string) => {
       if (operation === 'addOneItem' && itemCount.valueAsNumber < 50) {
@@ -22,10 +28,14 @@ export const addItems = () => {
       } else if (operation === 'removeOneItem' && itemCount.valueAsNumber > 1) {
         updateCartItems(itemName, itemCount, itemCount.valueAsNumber - 1)
       }
+      disableButtons()
     }
 
     addBtn.addEventListener('click', () => onClick('addOneItem'))
     removeBtn.addEventListener('click', () => onClick('removeOneItem'))
-    itemCount.addEventListener('input', onInputChange)
+    itemCount.addEventListener('input', () => {
+      onInputChange()
+      disableButtons()
+    })
   })
 }

@@ -21,7 +21,7 @@ export const addToCart = () => {
 
       if (currentCart.find(findItemByName)) {
         const currentCartItem = currentCart.find(findItemByName) as cartItem
-        const newCartItem = Object.assign({}, currentCartItem, { count: currentCartItem.count + 1 })
+        const newCartItem = { ...currentCartItem, count: currentCartItem.count + 1 }
         const mapCartItems = (item: item) => (item.name === currentItemName.textContent ? newCartItem : item)
         const existingItemCart = currentCart.map(mapCartItems)
         saveNewCart(existingItemCart)

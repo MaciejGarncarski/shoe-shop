@@ -1,7 +1,7 @@
-@use 'modules/_mixins';
-@use 'header/nav';
-@use 'header/burger';
-@use 'header/item-count';
+@use '../modules/_mixins';
+@use 'nav';
+@use 'burger';
+@use 'item-count';
 
 .header {
   display: flex;
@@ -21,9 +21,9 @@
 
     &__heading {
       @include mixins.heading;
+      letter-spacing: 0.03em;
       display: inline;
       font-size: 3.5rem;
-      letter-spacing: 0.03em;
     }
   }
 }

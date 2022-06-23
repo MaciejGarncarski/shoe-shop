@@ -1,6 +1,6 @@
-@use 'modules/mixins';
-@use 'modules/animations';
-@use 'home/main';
+@use '../modules/_mixins';
+@use '../modules/animations';
+@use 'main';
 
 .home {
     margin: 3rem 2rem;

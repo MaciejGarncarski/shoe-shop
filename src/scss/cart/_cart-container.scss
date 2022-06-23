@@ -1,7 +1,6 @@
 @use '../modules/mixins';
 
 .cart {
-  @include mixins.glass;
   @include mixins.radius('big');
   margin-inline: 2rem;
   padding: 3rem 0;
@@ -55,8 +54,9 @@
   &__link {
     text-decoration: none;
     display: inline-block;
-    padding: 0.25rem 0.75rem;
+    padding: 0.25em 0.75em;
     @include mixins.radius('small');
+    text-shadow: none;
 
   }
 
@@ -77,8 +77,8 @@
   &__checkout-link {
     @include mixins.radius('big');
     margin-top: 2rem;
-    padding: calc(1vh + 0.25rem) 1.25rem;
-    width: 100%;
+    padding: 0.5em 2em;
+    text-transform: capitalize;
     text-align: center;
     justify-self: center;
     text-decoration: none;

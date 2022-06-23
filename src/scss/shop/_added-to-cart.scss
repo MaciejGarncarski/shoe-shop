@@ -1,7 +1,6 @@
 @use '../modules/mixins';
 
 .added-to-cart {
-  @include mixins.glass;
   @include mixins.radius('big');
   @include mixins.flex-center;
   gap: 3rem;
@@ -38,7 +37,7 @@
 
   &--active {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(-40%);
     visibility: visible;
   }
 
@@ -48,7 +47,7 @@
     top: 0.5em;
     cursor: pointer;
     padding: 0.4rem 0.9rem;
-    @include mixins.radius('medium');
+    @include mixins.radius('small');
     font-size: 1.5rem;
   }
 
