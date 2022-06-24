@@ -4,7 +4,7 @@ import type { itemCount } from '../../types/types'
 export const countCartItems = () => {
   const linksToCart = document.querySelectorAll<HTMLAnchorElement>('[href="/cart"]')
   const cartData = getCartItems()
-  const cartItemsPrices = cartData.map(({ count }: itemCount) => count)
+  const cartItemsPrices = cartData.map(({ count }: shopItemCount) => count)
   const activeClass = 'item-count--active'
 
   linksToCart.forEach((link) => {

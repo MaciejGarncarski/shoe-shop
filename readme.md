@@ -19,7 +19,7 @@ This app is imitating e-commerce shop, but without checkout & payments yet sadly
 ## Screenshot 📺
 ### Homepage
 ![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/home.png?raw=true?raw=true "Homepage")
-### Offer list and filters
+### Product list and filters
 ![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/shop.png?raw=true?raw=true  "Shop")
 ### Shopping cart
 ![Website preview](https://github.com/MaciejGarncarski/shoe-shop/blob/main/screenshots/cart.png?raw=true?raw=true  "Cart")

@@ -29,12 +29,15 @@
   align-self: center;
   grid-column: span 4;
   grid-row: 2 / 3;
-  transition: transform var(--transition-short);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   pointer-events: none;
+
+  @include mixins.reduced-motion-off {
+    transition: transform var(--transition-short);
+  }
 
   >img {
     width: 9rem;

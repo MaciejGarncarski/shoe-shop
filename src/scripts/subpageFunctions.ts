@@ -1,9 +1,9 @@
-import { createOfferList } from './shop/createOfferList'
-import { offers } from '../data/offers'
+import { renderProducts } from './shop/renderProducts'
+import { products } from '../data/products'
 import { initFilters } from './shop/initFilter'
 import { showFilters } from './shop/showFilters'
-import { createCartList } from './cart/createCartList'
-import { addToCart } from './shop/addToCart'
+import { renderCart } from './cart/renderCart'
+import { initAddToCart } from './shop/addToCart'
 import { calculateTotalPrice } from './cart/calculateTotalPrice'
 import { getCartItems } from './cart/getCartItems'
 import { countCartItems } from './cart/countCartItems'
@@ -14,8 +14,8 @@ export const homeFunctions = () => {
 }
 
 export const shopFunctions = () => {
-  createOfferList(offers)
-  addToCart()
+  renderProducts(products)
+  initAddToCart()
   initFilters()
   showFilters()
   changeOnClick()
@@ -23,7 +23,7 @@ export const shopFunctions = () => {
 
 export const cartFunctions = () => {
   const cart = getCartItems()
-  createCartList(cart)
+  renderCart(cart)
   countCartItems()
   calculateTotalPrice()
   changeOnClick()

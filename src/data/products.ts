@@ -1,6 +1,6 @@
-import type { item } from '../types/types'
+import type { shopItem } from '../types/types'
 
-export const offers: item[] = [
+export const products: shopItem[] = [
   {
     name: 'Nike Air Max 270',
     price: 90,

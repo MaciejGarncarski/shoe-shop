@@ -15,9 +15,9 @@ const routes: routesInfo = {
     title: 'Shoe Shop | Homepage',
     function: homeFunctions,
   },
-  '/shop': {
-    path: 'pages/shop.html',
-    title: 'Shoe Shop | Browse Shop',
+  '/products': {
+    path: 'pages/products.html',
+    title: 'Shoe Shop | Products',
     function: shopFunctions,
   },
   '/cart': {

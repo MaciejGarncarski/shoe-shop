@@ -1,6 +1,6 @@
-import { offers } from '../../data/offers'
-import { createOfferList } from './createOfferList'
-import { addToCart } from './addToCart'
+import { products } from '../../data/products'
+import { renderProducts } from './renderProducts'
+import { initAddToCart } from './addToCart'
 import { initFilters } from './initFilter'
 import { showFilters } from './showFilters'
 import { starActiveClass } from '../shop/initFilter'
@@ -12,8 +12,8 @@ export const resetForm = () => {
   if (resetButton) {
     resetButton.addEventListener('click', () => {
       stars.forEach((star) => star.classList.remove(starActiveClass, 'clicked'))
-      createOfferList(offers)
-      addToCart()
+      renderProducts(products)
+      initAddToCart()
       initFilters()
       showFilters()
     })

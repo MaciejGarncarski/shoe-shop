@@ -33,16 +33,19 @@
     width: 100%;
     opacity: 0;
     transform: translateY(-5rem);
-    transition: all var(--transition-long);
-    transition-property: opacity, transform;
     margin-top: 2rem;
+
+    @include mixins.reduced-motion-off {
+      transition: all var(--transition-long);
+      transition-property: opacity, transform;
+    }
 
     &--active {
       opacity: 1;
       transform: translateY(0em);
     }
 
-    &--active+.offers {
+    &--active+.products {
       margin-top: 28rem;
     }
 
@@ -146,8 +149,10 @@
     width: 1.75rem;
     height: 1.75rem;
 
-    transition: all var(--transition-short);
-    transition-property: opacity, filter;
+    @include mixins.reduced-motion-off {
+      transition: all var(--transition-short);
+      transition-property: opacity, filter;
+    }
 
     &--active {
       opacity: 1;
