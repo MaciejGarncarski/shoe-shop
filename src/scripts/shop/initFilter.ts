@@ -1,4 +1,4 @@
-import { filterOffers } from './filterOffers'
+import { filterProducts } from './filterOffers'
 
 const getParentElement = (target: HTMLImageElement, isCheckbox?: boolean) => {
   if (isCheckbox) {
@@ -48,5 +48,5 @@ export const initFilters = () => {
   }
 
   stars.forEach(markStar)
-  form.addEventListener('input', filterOffers)
+  form.addEventListener('input', filterProducts)
 }

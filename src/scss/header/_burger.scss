@@ -1,8 +1,5 @@
 @use '../modules/mixins';
 
-
-
-
 .burger-label {
   padding: 0 0.3em;
   display: flex;
@@ -27,25 +24,29 @@
     height: 3px;
     width: 2rem;
     background-color: var(--dark);
-    transition: all var(--transition-short);
+
+    @include mixins.reduced-motion-off {
+      transition: all var(--transition-short);
+    }
   }
 
   &__bar {
     @include bar;
     position: relative;
 
-    &::before {
+    &::before,
+    &::after {
       content: '';
       position: absolute;
       left: 0;
+    }
+
+    &::before {
       top: -0.5em;
       @include bar;
     }
 
     &::after {
-      content: '';
-      position: absolute;
-      left: 0;
       top: 0.5em;
       @include bar;
     }
@@ -62,13 +63,18 @@
   height: 0;
   opacity: 0;
 
-  &:focus+.burger-label,
-  &:checked+.burger-label {
+  &:focus+.burger-label {
     box-shadow: inset 0 0 0 2px var(--dark);
+  }
+
+  &:checked+.burger-label {
+    position: fixed;
+    box-shadow: inset 0 0 0 1px var(--dark);
   }
 }
 
 .burger-input:checked {
+
   &~.burger-label>.burger-label__bar {
     background: transparent;
   }
@@ -88,7 +94,6 @@
 
   &~.nav__list {
     @include mixins.mediaquery('less-xl') {
-      gap: 9vh;
       @include mixins.glass;
       opacity: 1;
       visibility: visible;

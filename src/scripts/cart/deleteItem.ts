@@ -1,4 +1,4 @@
-import { createCartList } from './createCartList'
+import { renderCart } from './renderCart'
 import { getCartItems } from './getCartItems'
 import { countCartItems } from './countCartItems'
 import { saveNewCart } from './saveNewCart'
@@ -13,7 +13,7 @@ export const deleteItem = () => {
     const onClick = () => {
       const cart = getCartItems()
       const newCart = cart.filter(({ name }: { name: string }) => name !== itemName.textContent)
-      createCartList(newCart)
+      renderCart(newCart)
       saveNewCart(newCart)
       calculateTotalPrice()
       countCartItems()

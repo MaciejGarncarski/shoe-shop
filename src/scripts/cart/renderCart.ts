@@ -13,11 +13,11 @@ const template = (name: string, count: number, img: string, price: number) => {
                 <span class="cart-item__tag">${name}</span><span class="cart-item__price">${price}€</span>
               </div>
               <div class="cart-item__change-price">
-                  <button type="button" id="removeOneItem" class="button cart-item__button" data-type="remove" title="delete one ${name} from cart">
+                  <button type="button" id="removeOneItem" class="button cart-item__button" data-type="remove" title="Delete one ${name} from cart">
                     <span class="fa-solid fa-minus"></span>
                   </button>
-                  <input type="number" value="${count}" min="1" step="1" max="${maximumItems}" title="count of ${name} in cart" class="cart-item__input"/>
-                  <button type="button" id="addOneItem" class="button cart-item__button" data-type="add" title="add one ${name} to cart">
+                  <input type="number" value="${count}" min="1" step="1" max="${maximumItems}" title="Count of ${name} in cart" class="cart-item__input"/>
+                  <button type="button" id="addOneItem" class="button cart-item__button" data-type="add" title="Add one ${name} to cart">
                     <span class="fa-solid fa-plus "></span>
                   </button>
               </div>
@@ -28,7 +28,7 @@ const template = (name: string, count: number, img: string, price: number) => {
       `
 }
 
-export const createCartList = (data: cartItem[]) => {
+export const renderCart = (data: cartItem[]) => {
   const container = document.querySelector('.cart__items') as HTMLDivElement
 
   const message = `

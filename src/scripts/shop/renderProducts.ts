@@ -1,4 +1,4 @@
-import type { item, stars } from '../../types/types'
+import type { shopItem } from '../../types/types'
 import { resetForm } from './reset'
 
 const template = (name: string, img: string, discount: number, price: number, stars: number) => {
@@ -13,7 +13,7 @@ const template = (name: string, img: string, discount: number, price: number, st
       <div class="shop-item__stars-container">
       ${starCount.map(() => '<span class="shop-item__star fa-solid fa-star"></span>').join('')}
       </div>
-      <button title="add to cart" type="button" class="button shop-item__cart-btn">
+      <button title="Add ${name} to cart" type="button" class="button shop-item__cart-btn">
           <span class="fas fa-cart-plus"></span>
       </button>
       <picture class="shop-item__img">
@@ -28,19 +28,19 @@ const template = (name: string, img: string, discount: number, price: number, st
 `
 }
 
-export const createOfferList = (data: item[]) => {
-  const offersContainer = document.querySelector('.offers') as HTMLDivElement
+export const renderProducts = (data: shopItem[]) => {
+  const productsContainer = document.querySelector('.products') as HTMLDivElement
   const htmlData = data
-    .map(({ name, price, discount, img, stars }) => template(name, img, discount, price, stars as stars))
+    .map(({ name, price, discount, img, stars }) => template(name, img, discount, price, stars || 0))
     .join('')
 
-  if (offersContainer) {
-    offersContainer.textContent = ''
-    offersContainer.innerHTML = htmlData
+  if (productsContainer) {
+    productsContainer.textContent = ''
+    productsContainer.innerHTML = htmlData
   }
-  if (offersContainer.childElementCount === 0) {
-    offersContainer.innerHTML = `
-      <span class="not-found-message">No offers found.</span>
+  if (productsContainer.childElementCount === 0) {
+    productsContainer.innerHTML = `
+      <span class="not-found-message">No items found.</span>
       `
   }
   resetForm()

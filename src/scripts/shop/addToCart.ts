@@ -1,46 +1,40 @@
-import { offers } from '../../data/offers'
+import { products } from '../../data/products'
 import { getCartItems } from '../cart/getCartItems'
 import { countCartItems } from '../cart/countCartItems'
 import { saveNewCart } from '../cart/saveNewCart'
 import { addedToCartPopup } from './popup'
-import type { item, cartItem } from '../../types/types'
 
-export const addToCart = () => {
+let timeout: ReturnType<typeof setTimeout>
+
+export const initAddToCart = () => {
   const items = document.querySelectorAll('.shop-item')
-  let timeout: ReturnType<typeof setTimeout>
 
   items.forEach((item) => {
     const btn = item.querySelector('.shop-item__cart-btn') as HTMLButtonElement
     const currentItemName = item.querySelector('.shop-item__name') as HTMLHeadingElement
-    const findItemByName = ({ name }: { readonly name: string }) => currentItemName.textContent === name
+    const findItemByName = ({ name }: { name: string }) => currentItemName.textContent === name
 
-    const onClick = () => {
-      const { name, price, discount, img } = offers.find(findItemByName) as item
-
+    const addToCart = () => {
       const currentCart = getCartItems()
+      const foundCartItem = currentCart.find(findItemByName)
+      const clickedItem = products.find(findItemByName)
 
-      if (currentCart.find(findItemByName)) {
-        const currentCartItem = currentCart.find(findItemByName) as cartItem
-        const newCartItem = { ...currentCartItem, count: currentCartItem.count + 1 }
-        const mapCartItems = (item: item) => (item.name === currentItemName.textContent ? newCartItem : item)
-        const existingItemCart = currentCart.map(mapCartItems)
-        saveNewCart(existingItemCart)
-      } else {
-        const cartItem: cartItem = {
-          name,
-          price: discount * price,
-          discount,
-          img: img,
-          count: 1,
+      if (clickedItem) {
+        if (foundCartItem) {
+          const modifiedClickedItem = { ...clickedItem, count: foundCartItem.count + 1 }
+          const newCart = currentCart.map((cartItem) => {
+            return cartItem.name === modifiedClickedItem.name ? modifiedClickedItem : cartItem
+          })
+          saveNewCart(newCart)
+        } else {
+          const newItem = { ...clickedItem, count: 1 }
+          saveNewCart([...currentCart, newItem])
         }
-        const newItemCart = [...currentCart, cartItem]
-        saveNewCart(newItemCart)
+        addedToCartPopup(timeout)
+        countCartItems()
       }
-
-      addedToCartPopup(timeout)
-      countCartItems()
     }
 
-    btn.addEventListener('click', onClick)
+    btn.addEventListener('click', addToCart)
   })
 }
