@@ -9,6 +9,7 @@ const onClick = () => {
   btn.classList.toggle('show-filters--active')
 
   if (filters.classList.contains(activeClass)) {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
     btn.textContent = 'Hide Filters'
   } else {
     btn.textContent = 'Show Filters'

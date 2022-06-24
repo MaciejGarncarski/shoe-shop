@@ -88,7 +88,6 @@
 
   &~.nav__list {
     @include mixins.mediaquery('less-xl') {
-      flex-direction: column;
       gap: 9vh;
       @include mixins.glass;
       opacity: 1;

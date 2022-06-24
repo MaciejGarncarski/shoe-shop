@@ -8,18 +8,18 @@ const getParentElement = (target: HTMLImageElement, isCheckbox?: boolean) => {
   return parentOfImg.parentElement as HTMLDivElement
 }
 
+export const starActiveClass = 'stars-container__star--active'
 export const initFilters = () => {
   const form = document.querySelector('form') as HTMLFormElement
   const starsContainer = document.querySelector('.stars-container') as HTMLDivElement
   const stars = document.querySelectorAll<HTMLDivElement>('.stars-container__star')
   const starsArray = Array.from(stars)
-  const activeClass = 'stars-container__star--active'
-  const removeActiveClass = () => stars.forEach((star) => star.classList.remove(activeClass, 'clicked'))
+  const removeActiveClass = () => stars.forEach((star) => star.classList.remove(starActiveClass, 'clicked'))
 
   starsContainer.addEventListener('mouseleave', () => {
     stars.forEach((star) => {
       if (!star.classList.contains('clicked')) {
-        star.classList.remove(activeClass)
+        star.classList.remove(starActiveClass)
       }
     })
   })
@@ -34,9 +34,9 @@ export const initFilters = () => {
 
     markedStars.forEach((markedStar) => {
       if (isCheckbox) {
-        markedStar.classList.add(activeClass, 'clicked')
+        markedStar.classList.add(starActiveClass, 'clicked')
       } else {
-        markedStar.classList.add(activeClass)
+        markedStar.classList.add(starActiveClass)
       }
     })
   }
