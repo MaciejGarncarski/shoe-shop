@@ -3,6 +3,7 @@ import { getCartItems } from '../cart/getCartItems'
 import { countCartItems } from '../cart/countCartItems'
 import { saveNewCart } from '../cart/saveNewCart'
 import { addedToCartPopup } from './popup'
+import { maximumItems } from '../cart/addItems'
 
 let timeout: ReturnType<typeof setTimeout>
 
@@ -21,7 +22,8 @@ export const initAddToCart = () => {
 
       if (clickedItem) {
         if (foundCartItem) {
-          const modifiedClickedItem = { ...clickedItem, count: foundCartItem.count + 1 }
+          const setNewCount = foundCartItem.count < maximumItems ? foundCartItem.count + 1 : foundCartItem.count
+          const modifiedClickedItem = { ...clickedItem, count: setNewCount }
           const newCart = currentCart.map((cartItem) => {
             return cartItem.name === modifiedClickedItem.name ? modifiedClickedItem : cartItem
           })
