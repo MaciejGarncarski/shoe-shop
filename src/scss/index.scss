@@ -113,7 +113,7 @@ body {
     --size: clamp(20rem, 60vw, 35rem);
     width: var(--size);
     height: var(--size);
-    bottom: 4rem;
+    top: 14rem;
     right: 2%;
     position: fixed;
     background-image: url("/images/blob.svg");

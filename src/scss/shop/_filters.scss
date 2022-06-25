@@ -166,7 +166,7 @@
     height: 0;
     width: 0;
 
-    &:focus+.stars-container__label>.filters__star-icon {
+    &:focus+.stars-container__label>.stars-container__icon {
       outline: 3px solid var(--dark);
       outline-offset: 1px;
     }

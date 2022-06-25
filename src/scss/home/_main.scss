@@ -32,7 +32,7 @@
 
   &__button {
     @include mixins.radius('medium');
-    padding: 0.4em 0.8em;
+    padding: 0.4em 0.6em;
     text-decoration: none;
     display: inline-block;
     align-self: flex-start;
@@ -82,7 +82,7 @@
 
     &__fire {
       bottom: -2em;
-      left: 9em;
+      left: 12em;
     }
 
     &__hands {

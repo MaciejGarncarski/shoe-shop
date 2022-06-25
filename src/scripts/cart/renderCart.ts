@@ -34,7 +34,7 @@ export const renderCart = (data: cartItem[]) => {
   const message = `
     <span class="not-found-message">
       No items in cart
-      <a href="/shop" class="cart__link button">go back to shopping!</a>
+      <a href="/products" class="cart__link button">go back to shopping!</a>
     </span>
   `
 

@@ -75,17 +75,6 @@
     font-weight: 700;
   }
 
-  &__checkout-link {
-    @include mixins.radius('big');
-    margin-top: 2rem;
-    padding: 0.5em 2em;
-    text-transform: capitalize;
-    text-align: center;
-    justify-self: center;
-    text-decoration: none;
-  }
-
-
   &__total-container {
     margin: 3rem 1.25rem;
     padding: 3rem 0;
